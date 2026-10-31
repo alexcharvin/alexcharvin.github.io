@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rouse Hill Smiles Dental Care</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1d1a17;background:#fdfbf8;line-height:1.6;padding-bottom:0}
+.topbar{position:absolute;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:18px 26px;color:#fff}
+.topbar .brand{font-family:Georgia,serif;font-size:20px;font-weight:700;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.topbar a{background:#fff;color:#1d1a17;text-decoration:none;padding:9px 18px;border-radius:6px;font-weight:600;font-size:15px}
+.hero{min-height:88vh;background:linear-gradient(rgba(0,0,0,.42),rgba(0,0,0,.58)),url('https://images.pexels.com/photos/3845807/pexels-photo-3845807.jpeg?auto=compress&cs=tinysrgb&w=1200') center/cover;display:flex;align-items:flex-end;color:#fff}
+.hero-in{max-width:1060px;margin:0 auto;padding:90px 26px 64px;width:100%}
+.hero h1{font-family:Georgia,serif;font-size:54px;line-height:1.08;max-width:760px}
+.hero p{font-size:20px;opacity:.94;max-width:640px;margin-top:14px}
+.hero .cta-row{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+.hero .cta-row a{display:inline-block;padding:14px 30px;border-radius:6px;text-decoration:none;font-weight:700;font-size:16px}
+.btn-main{background:#0f766e;color:#fff}
+.btn-ghost{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.65)}
+.chip{display:inline-block;margin-top:22px;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.35);padding:8px 16px;border-radius:999px;font-size:15px;font-weight:600}
+.wrap{max-width:1060px;margin:0 auto;padding:0 26px}
+section{padding:64px 0 8px}
+h2{font-family:Georgia,serif;font-size:32px;margin-bottom:8px}
+.sub{color:#6b6259;margin-bottom:30px;font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{border:1px solid #e8e0d5;border-radius:10px;overflow:hidden;background:#fff}
+.card img{width:100%;height:210px;object-fit:cover;display:block}
+.card .b{padding:20px 22px}
+.card h3{font-size:19px;margin-bottom:6px}
+.card p{color:#5c554c;font-size:15px}
+.menu{max-width:700px}
+.row{display:flex;justify-content:space-between;gap:18px;border-bottom:1px solid #e8e0d5;padding:13px 0;font-size:17px}
+.row span:last-child{font-weight:600;white-space:nowrap}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gal figure{border-radius:10px;overflow:hidden;position:relative}
+.gal img{width:100%;height:230px;object-fit:cover;display:block}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px 10px;color:#fff;font-size:14px;font-weight:600;background:linear-gradient(transparent,rgba(0,0,0,.55))}
+.rev{background:#fff;border:1px solid #e8e0d5;border-radius:10px;padding:26px}
+.rev .stars{color:#e8a33d;font-size:19px;letter-spacing:2px}
+.rev p{font-size:16px;color:#3d382f;margin-top:8px}
+.rev .who{margin-top:10px;font-size:14px;color:#6b6259;font-weight:600}
+.hours{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.hbox{background:#fff;border:1px solid #e8e0d5;border-radius:10px;padding:24px 26px}
+.hbox h3{font-size:18px;margin-bottom:10px}
+.hbox p,.hbox li{color:#5c554c;font-size:15px}
+.hbox ul{list-style:none}
+.hbox li{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed #eee5d8}
+.hbox li:last-child{border-bottom:none}
+.cta{background:#0f766e;color:#fff;text-align:center;padding:56px 26px;margin-top:64px}
+.cta h2{color:#fff}
+.cta a{display:inline-block;margin:8px 10px 0;padding:13px 28px;background:#fff;color:#1d1a17;text-decoration:none;border-radius:6px;font-weight:600}
+footer{padding:34px 26px 90px;text-align:center;color:#6b6259;font-size:14px}
+.badge{position:fixed;left:16px;bottom:16px;background:#111;color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:600;z-index:99;box-shadow:0 4px 18px rgba(0,0,0,.3)}
+.stickybar{display:none}
+@media(max-width:760px){.grid,.gal,.hours{grid-template-columns:1fr}.hero h1{font-size:36px}
+.stickybar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:98;background:#0f766e;color:#fff}
+.stickybar a{flex:1;text-align:center;color:#fff;text-decoration:none;font-weight:700;padding:15px 6px;font-size:16px}
+.badge{bottom:70px}footer{padding-bottom:110px}}
+</style></head><body>
+<div class="topbar"><div class="brand">Rouse Hill Smiles</div><a href="tel:+61283200548">Call (02) 8320 0548</a></div>
+<div class="hero"><div class="hero-in"><h1>Rouse Hill Smiles Dental Care</h1><p>Family dentistry at Rouse Hill Plaza — gentle, upfront and open six days, with same-day appointments when you need them.</p>
+<div class="cta-row"><a class="btn-main" href="tel:+61283200548">Call now</a><a class="btn-ghost" href="#visit">Plan your visit</a></div>
+</div></div>
+<div class="wrap"><section><h2>What we do</h2><p class="sub">General, restorative and cosmetic care under one roof.</p><div class="grid">
+<div class="card"><img src="https://images.pexels.com/photos/5622001/pexels-photo-5622001.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Family &amp; General Dentistry"><div class="b"><h3>Family &amp; General Dentistry</h3><p>Check-ups, cleans and care for every age — from infants through to grandparents.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/3881305/pexels-photo-3881305.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Cosmetic Dentistry"><div class="b"><h3>Cosmetic Dentistry</h3><p>Whitening, veneers and smile makeovers, planned honestly around what you actually need.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/3845745/pexels-photo-3845745.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Emergency &amp; Same-Day Care"><div class="b"><h3>Emergency &amp; Same-Day Care</h3><p>Toothache today? We keep same-day appointments for urgent problems — call first thing.</p></div></div>
+</div></section>
+<section><h2>Why families choose us</h2><p class="sub">Open 6 days · Same-day appointments · Wheelchair access.</p><div class="grid">
+<div class="card"><img src="https://rousehillsmilesdentalcare.com.au/wp-content/uploads/2025/08/Untitled-design-2025-08-29T164327.681-768x682.png" alt="Meet Dr Teena Bali"><div class="b"><h3>Meet Dr Teena Bali</h3><p>Dr Teena leads the practice — known for clear explanations and a calm chairside manner.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/3881814/pexels-photo-3881814.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Upfront &amp; Honest"><div class="b"><h3>Upfront &amp; Honest</h3><p>Every cost is explained before treatment starts, with options at different budgets.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/3884093/pexels-photo-3884093.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Accessible for All"><div class="b"><h3>Accessible for All</h3><p>Wheelchair access, gentle pacing for nervous patients, and a team that checks in after your visit.</p></div></div>
+</div></section>
+<section><h2>Treatments & fees</h2><p class="sub">A guide to common treatments.</p><div class="menu">
+<div class="row"><span>Consultation</span><span>$65</span></div>
+<div class="row"><span>Check-up, scale &amp; clean</span><span>$189</span></div>
+<div class="row"><span>Digital X-ray</span><span>$45</span></div>
+<div class="row"><span>Tooth-coloured filling</span><span>from $180</span></div>
+<div class="row"><span>Teeth whitening</span><span>$399</span></div>
+<div class="row"><span>Crown</span><span>from $1,500</span></div>
+<div class="row"><span>Emergency appointment</span><span>$85</span></div>
+</div>
+<p style="color:#8a8175;font-size:13px;margin-top:12px">Demo rates shown as a guide only — your dentist confirms the exact fee for your treatment before anything begins.</p>
+</section>
+<section><h2>What people say</h2><p class="sub">Real reviews, posted publicly.</p><div class="grid">
+<div class="rev"><div class="stars">★★★★★</div><p>&ldquo;Dr Teena Bali is the best dentist, I highly recommend going to her. The whole team is very friendly and nice. 10/10 experience and helped with all my dental needs.&rdquo;</p><div class="who">Paarth Sharma — posted on Google</div></div>
+<div class="rev"><div class="stars">★★★★★</div><p>&ldquo;Fabulous bunch of people. My son had a seriously bad tooth and they fit him in last minute and fixed him up! All expenses were outlined up front with options.&rdquo;</p><div class="who">Timothy Jennings — posted on Google</div></div>
+<div class="rev"><div class="stars">★★★★★</div><p>&ldquo;Great client experience at the care as I got my fillings done for my 10 year old and myself. Dr. Tina is highly recommended and the staff is friendly and caring too.&rdquo;</p><div class="who">Ashima Saluja — posted on Google</div></div>
+</div></section>
+<section><h2>Gallery</h2><p class="sub">A look inside.</p><div class="gal">
+<figure><img src="https://rousehillsmilesdentalcare.com.au/wp-content/uploads/2026/07/WhatsApp-Image-2025-08-23-at-4.59.05-AM-1-768x1153-1.jpg" alt="Inside the practice"><figcaption>Inside the practice</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/3845807/pexels-photo-3845807.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Modern treatment rooms"><figcaption>Modern treatment rooms</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/5622001/pexels-photo-5622001.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Gentle family care"><figcaption>Gentle family care</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/3881305/pexels-photo-3881305.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Smile transformations"><figcaption>Smile transformations</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/3845745/pexels-photo-3845745.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Advanced in-house equipment"><figcaption>Advanced in-house equipment</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/3884093/pexels-photo-3884093.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Care for every age"><figcaption>Care for every age</figcaption></figure>
+</div></section>
+<section><h2>Visit us</h2><p class="sub">Walk-ins welcome — calling ahead is quickest.</p><div class="hours"><div class="hbox"><h3>Opening hours</h3><ul><li><span>Monday – Thursday</span><span>9:00 AM – 6:00 PM</span></li><li><span>Friday</span><span>9:00 AM – 5:00 PM</span></li><li><span>Saturday</span><span>8:30 AM – 3:00 PM</span></li><li><span>Sunday</span><span>Closed</span></li></ul></div><div class="hbox"><h3>Find us</h3><p>Shop G07–G08, Rouse Hill Plaza<br>2–4 Aberdour Avenue, Rouse Hill NSW 2155<br>(02) 8320 0548<br>enquiries@rousehillsmilesdentalcare.com.au</p></div></div></section></div>
+<div class="cta"><h2>Visit us or get in touch</h2><p style="margin:10px 0 18px">Rouse Hill Plaza, 2–4 Aberdour Avenue, Rouse Hill NSW 2155 · (02) 8320 0548 · enquiries@rousehillsmilesdentalcare.com.au</p>
+<a href="tel:+61283200548">Call (02) 8320 0548</a></div>
+<footer id="visit">Rouse Hill Plaza, 2–4 Aberdour Avenue, Rouse Hill NSW 2155 · (02) 8320 0548 · enquiries@rousehillsmilesdentalcare.com.au<br>Family dental care, cosmetic treatments and emergencies — Rouse Hill.</footer>
+<div class="stickybar"><a href="tel:+61283200548">Call now — (02) 8320 0548</a></div>
+<div class="badge">Created by PostKaro — Demo</div>
+</body></html>
