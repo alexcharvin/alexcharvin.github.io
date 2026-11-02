@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Olympo Clínica de Fisioterapia — Talavera de la Reina</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1d1a17;background:#fdfbf8;line-height:1.6;padding-bottom:0}
+.topbar{position:absolute;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:18px 26px;color:#fff}
+.topbar .brand{font-family:Georgia,serif;font-size:20px;font-weight:700;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.topbar a{background:#fff;color:#1d1a17;text-decoration:none;padding:9px 18px;border-radius:6px;font-weight:600;font-size:15px}
+.hero{min-height:88vh;background:linear-gradient(rgba(0,0,0,.42),rgba(0,0,0,.58)),url('https://www.fisioterapiaolympo.com/src/img/hero-bg.png') center/cover;display:flex;align-items:flex-end;color:#fff}
+.hero-in{max-width:1060px;margin:0 auto;padding:90px 26px 64px;width:100%}
+.hero h1{font-family:Georgia,serif;font-size:54px;line-height:1.08;max-width:760px}
+.hero p{font-size:20px;opacity:.94;max-width:640px;margin-top:14px}
+.hero .cta-row{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+.hero .cta-row a{display:inline-block;padding:14px 30px;border-radius:6px;text-decoration:none;font-weight:700;font-size:16px}
+.btn-main{background:#0369a1;color:#fff}
+.btn-ghost{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.65)}
+.chip{display:inline-block;margin-top:22px;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.35);padding:8px 16px;border-radius:999px;font-size:15px;font-weight:600}
+.wrap{max-width:1060px;margin:0 auto;padding:0 26px}
+section{padding:64px 0 8px}
+h2{font-family:Georgia,serif;font-size:32px;margin-bottom:8px}
+.sub{color:#6b6259;margin-bottom:30px;font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{border:1px solid #e8e0d5;border-radius:10px;overflow:hidden;background:#fff}
+.card img{width:100%;height:210px;object-fit:cover;display:block}
+.card .b{padding:20px 22px}
+.card h3{font-size:19px;margin-bottom:6px}
+.card p{color:#5c554c;font-size:15px}
+.tcard{border:1px solid #e8e0d5;border-radius:10px;background:#fff;padding:26px 22px;text-align:center}
+.tcard .ini{width:56px;height:56px;border-radius:50%;background:#0369a1;color:#fff;font-family:Georgia,serif;font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.tcard h3{font-size:19px;margin-bottom:4px}
+.tcard p{color:#5c554c;font-size:15px}
+.step{border:1px solid #e8e0d5;border-radius:10px;background:#fff;padding:24px 22px}
+.step .n{font-family:Georgia,serif;font-size:30px;font-weight:700;color:#0369a1}
+.step h3{font-size:18px;margin:6px 0 4px}
+.step p{color:#5c554c;font-size:15px}
+.menu{max-width:700px}
+.row{display:flex;justify-content:space-between;gap:18px;border-bottom:1px solid #e8e0d5;padding:13px 0;font-size:17px}
+.row span:last-child{font-weight:600;white-space:nowrap}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gal figure{border-radius:10px;overflow:hidden;position:relative}
+.gal img{width:100%;height:230px;object-fit:cover;display:block}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px 10px;color:#fff;font-size:14px;font-weight:600;background:linear-gradient(transparent,rgba(0,0,0,.55))}
+.hours{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.hbox{background:#fff;border:1px solid #e8e0d5;border-radius:10px;padding:24px 26px}
+.hbox h3{font-size:18px;margin-bottom:10px}
+.hbox p,.hbox li{color:#5c554c;font-size:15px}
+.hbox ul{list-style:none}
+.hbox li{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed #eee5d8}
+.hbox li:last-child{border-bottom:none}
+.cta{background:#0369a1;color:#fff;text-align:center;padding:56px 26px;margin-top:64px}
+.cta h2{color:#fff}
+.cta a{display:inline-block;margin:8px 10px 0;padding:13px 28px;background:#fff;color:#1d1a17;text-decoration:none;border-radius:6px;font-weight:600}
+footer{padding:34px 26px 90px;text-align:center;color:#6b6259;font-size:14px}
+.badge{position:fixed;left:16px;bottom:16px;background:#111;color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:600;z-index:99;box-shadow:0 4px 18px rgba(0,0,0,.3)}
+.stickybar{display:none}
+@media(max-width:760px){.grid,.gal,.hours{grid-template-columns:1fr}.hero h1{font-size:36px}
+.stickybar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:98;background:#0369a1;color:#fff}
+.stickybar a{flex:1;text-align:center;color:#fff;text-decoration:none;font-weight:700;padding:15px 6px;font-size:16px}
+.badge{bottom:70px}footer{padding-bottom:110px}}
+</style></head><body>
+<div class="topbar"><div class="brand">Olympo Fisioterapia</div><a href="tel:+34925800123">Llama ahora · Call now 925 800 123</a></div>
+<div class="hero"><div class="hero-in"><h1>Olympo Clínica de Fisioterapia — Talavera de la Reina</h1><p>Recupera tu movimiento y alcanza tu máximo rendimiento — fisioterapia personalizada en Talavera de la Reina. Recover your movement and reach your best, with personalised physiotherapy.</p>
+<div class="cta-row"><a class="btn-main" href="tel:+34925800123">Llama ahora · Call now</a><a class="btn-ghost" href="#visit">Reserva tu cita · Book your visit</a></div>
+<div class="chip">10+ años de experiencia · 10+ years of experience</div></div></div>
+<div class="wrap"><section><h2>Nuestros Cuatro Pilares · Our Four Pillars</h2><p class="sub">Tratamientos diseñados para ti — nunca genéricos. Treatments designed for you, never generic.</p><div class="grid">
+<div class="card"><img src="https://www.fisioterapiaolympo.com/src/img/about-1.png" alt="Movimiento · Movement"><div class="b"><h3>Movimiento · Movement</h3><p>Mejoramos tu movilidad articular y corregimos desequilibrios posturales. We restore joint mobility and correct postural imbalances.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/6111586/pexels-photo-6111586.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Recuperación · Recovery"><div class="b"><h3>Recuperación · Recovery</h3><p>Rehabilitación guiada tras cirugías, esguinces, fracturas o lesiones de ligamentos. Guided rehab after surgery, sprains, fractures and ligament injuries.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/20860594/pexels-photo-20860594.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Bienestar · Wellbeing"><div class="b"><h3>Bienestar · Wellbeing</h3><p>Terapia manual, masaje terapéutico y relajación miofascial. Manual therapy, therapeutic massage and myofascial release.</p></div></div>
+</div></section>
+<section><h2>Cómo Trabajamos · How We Work</h2><p class="sub">Tu salud en manos de fisioterapeutas colegiados. Your health in registered hands.</p><div class="grid">
+<div class="card"><img src="https://www.fisioterapiaolympo.com/src/img/about-2.png" alt="Rendimiento · Performance"><div class="b"><h3>Rendimiento · Performance</h3><p>Fisioterapia deportiva y preparación física avanzada. Sports physiotherapy and advanced physical preparation.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/6973123/pexels-photo-6973123.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Fisioterapia Activa · Active Physiotherapy"><div class="b"><h3>Fisioterapia Activa · Active Physiotherapy</h3><p>Ejercicio terapéutico y terapia manual avanzada. Therapeutic exercise and advanced manual therapy.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/20860579/pexels-photo-20860579.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Atención 100% Individual · One-to-One Care"><div class="b"><h3>Atención 100% Individual · One-to-One Care</h3><p>Fisioterapeutas colegiados y atención totalmente personal. Registered physiotherapists and fully personal attention.</p></div></div>
+</div></section>
+<section><h2>Tu Camino · Your Path</h2><p class="sub">Tres pasos para volver a moverte sin dolor. Three steps back to moving without pain.</p><div class="grid">
+<div class="step"><div class="n">1</div><h3>Cuéntanos qué te pasa · Tell us what hurts</h3><p>Llámanos o escríbenos — valoramos tu caso desde la primera visita. Call or write — we assess your case from the first visit.</p></div>
+<div class="step"><div class="n">2</div><h3>Tu plan personalizado · Your personal plan</h3><p>Diseñamos el tratamiento según tu cuerpo y tus objetivos. We design treatment around your body and your goals.</p></div>
+<div class="step"><div class="n">3</div><h3>Recupera y avanza · Recover and progress</h3><p>Sesiones guiadas hasta devolverte tu calidad de vida. Guided sessions until your quality of life is back.</p></div>
+</div></section>
+<section><h2>La Clínica · The Clinic</h2><p class="sub">Un espacio de calma en Talavera. A calm space in Talavera.</p><div class="gal">
+<figure><img src="https://www.fisioterapiaolympo.com/src/img/hero-bg.png" alt="Nuestras instalaciones · Our clinic"><figcaption>Nuestras instalaciones · Our clinic</figcaption></figure>
+<figure><img src="https://www.fisioterapiaolympo.com/src/img/about-1.png" alt="Sesión personalizada · Personal session"><figcaption>Sesión personalizada · Personal session</figcaption></figure>
+<figure><img src="https://www.fisioterapiaolympo.com/src/img/about-2.png" alt="Terapia manual · Manual therapy"><figcaption>Terapia manual · Manual therapy</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/6111586/pexels-photo-6111586.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Rehabilitación · Rehabilitation"><figcaption>Rehabilitación · Rehabilitation</figcaption></figure>
+</div></section>
+<section><h2>Tu Visita · Your Visit</h2><p class="sub">Pide tu cita por teléfono o email. Book by phone or email.</p><div class="hours"><div class="hbox"><h3>Horario · Opening Hours</h3><ul><li><span>Lunes a Viernes · Mon–Fri</span><span>09:00–13:00 · 16:00–20:30</span></li><li><span>Sábados · Sat</span><span>09:30–13:30 (cita previa · by appointment)</span></li></ul></div><div class="hbox"><h3>Contacto · Contact</h3><p>Calle Trinidad 12, Planta 1ª<br>45600 Talavera de la Reina (Toledo)<br>925 800 123<br>info@fisioterapiaolympo.com</p></div></div></section></div>
+<div class="cta"><h2>Visítanos · Visit us</h2><p style="margin:10px 0 18px">Calle Trinidad 12, 45600 Talavera de la Reina · 925 800 123 · info@fisioterapiaolympo.com</p>
+<a href="tel:+34925800123">Llama ahora · Call now 925 800 123</a><a href="mailto:info@fisioterapiaolympo.com" style="display:inline-block;margin:8px 10px 0;padding:13px 28px;background:transparent;color:#fff;border:1px solid #fff;text-decoration:none;border-radius:6px;font-weight:600">Escríbenos · Email us</a></div>
+<footer id="visit">Calle Trinidad 12, 45600 Talavera de la Reina · 925 800 123 · info@fisioterapiaolympo.com<br>Olympo Clínica de Fisioterapia — Talavera de la Reina, España.</footer>
+<div class="stickybar"><a href="tel:+34925800123">Llama ahora · Call now — 925 800 123</a></div>
+<div class="badge">Created by PostKaro — Demo</div>
+</body></html>

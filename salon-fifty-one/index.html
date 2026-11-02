@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="nl"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salon Fifty One — Kleursalon in Veendam</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1d1a17;background:#fdfbf8;line-height:1.6;padding-bottom:0}
+.topbar{position:absolute;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:18px 26px;color:#fff}
+.topbar .brand{font-family:Georgia,serif;font-size:20px;font-weight:700;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.topbar a{background:#fff;color:#1d1a17;text-decoration:none;padding:9px 18px;border-radius:6px;font-weight:600;font-size:15px}
+.hero{min-height:88vh;background:linear-gradient(rgba(0,0,0,.42),rgba(0,0,0,.58)),url('https://images.pexels.com/photos/7581573/pexels-photo-7581573.jpeg?auto=compress&cs=tinysrgb&w=1200') center/cover;display:flex;align-items:flex-end;color:#fff}
+.hero-in{max-width:1060px;margin:0 auto;padding:90px 26px 64px;width:100%}
+.hero h1{font-family:Georgia,serif;font-size:54px;line-height:1.08;max-width:760px}
+.hero p{font-size:20px;opacity:.94;max-width:640px;margin-top:14px}
+.hero .cta-row{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+.hero .cta-row a{display:inline-block;padding:14px 30px;border-radius:6px;text-decoration:none;font-weight:700;font-size:16px}
+.btn-main{background:#be185d;color:#fff}
+.btn-ghost{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.65)}
+.chip{display:inline-block;margin-top:22px;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.35);padding:8px 16px;border-radius:999px;font-size:15px;font-weight:600}
+.wrap{max-width:1060px;margin:0 auto;padding:0 26px}
+section{padding:64px 0 8px}
+h2{font-family:Georgia,serif;font-size:32px;margin-bottom:8px}
+.sub{color:#6b6259;margin-bottom:30px;font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{border:1px solid #e8e0d5;border-radius:10px;overflow:hidden;background:#fff}
+.card img{width:100%;height:210px;object-fit:cover;display:block}
+.card .b{padding:20px 22px}
+.card h3{font-size:19px;margin-bottom:6px}
+.card p{color:#5c554c;font-size:15px}
+.tcard{border:1px solid #e8e0d5;border-radius:10px;background:#fff;padding:26px 22px;text-align:center}
+.tcard .ini{width:56px;height:56px;border-radius:50%;background:#be185d;color:#fff;font-family:Georgia,serif;font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.tcard h3{font-size:19px;margin-bottom:4px}
+.tcard p{color:#5c554c;font-size:15px}
+.step{border:1px solid #e8e0d5;border-radius:10px;background:#fff;padding:24px 22px}
+.step .n{font-family:Georgia,serif;font-size:30px;font-weight:700;color:#be185d}
+.step h3{font-size:18px;margin:6px 0 4px}
+.step p{color:#5c554c;font-size:15px}
+.menu{max-width:700px}
+.row{display:flex;justify-content:space-between;gap:18px;border-bottom:1px solid #e8e0d5;padding:13px 0;font-size:17px}
+.row span:last-child{font-weight:600;white-space:nowrap}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gal figure{border-radius:10px;overflow:hidden;position:relative}
+.gal img{width:100%;height:230px;object-fit:cover;display:block}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px 10px;color:#fff;font-size:14px;font-weight:600;background:linear-gradient(transparent,rgba(0,0,0,.55))}
+.hours{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.hbox{background:#fff;border:1px solid #e8e0d5;border-radius:10px;padding:24px 26px}
+.hbox h3{font-size:18px;margin-bottom:10px}
+.hbox p,.hbox li{color:#5c554c;font-size:15px}
+.hbox ul{list-style:none}
+.hbox li{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed #eee5d8}
+.hbox li:last-child{border-bottom:none}
+.cta{background:#be185d;color:#fff;text-align:center;padding:56px 26px;margin-top:64px}
+.cta h2{color:#fff}
+.cta a{display:inline-block;margin:8px 10px 0;padding:13px 28px;background:#fff;color:#1d1a17;text-decoration:none;border-radius:6px;font-weight:600}
+footer{padding:34px 26px 90px;text-align:center;color:#6b6259;font-size:14px}
+.badge{position:fixed;left:16px;bottom:16px;background:#111;color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:600;z-index:99;box-shadow:0 4px 18px rgba(0,0,0,.3)}
+.stickybar{display:none}
+@media(max-width:760px){.grid,.gal,.hours{grid-template-columns:1fr}.hero h1{font-size:36px}
+.stickybar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:98;background:#be185d;color:#fff}
+.stickybar a{flex:1;text-align:center;color:#fff;text-decoration:none;font-weight:700;padding:15px 6px;font-size:16px}
+.badge{bottom:70px}footer{padding-bottom:110px}}
+</style></head><body>
+<div class="topbar"><div class="brand">Salon Fifty One</div><a href="tel:+31598612955">Bel nu · Call now 0598 612 955</a></div>
+<div class="hero"><div class="hero-in"><h1>Salon Fifty One — Kleursalon in Veendam</h1><p>Kapsalon &amp; kleursalon in Veendam — sinds 2003. Kleur, stijl en vakmanschap aan het Bocht Oosterdiep. Veendam&#x27;s colour salon since 2003 — colour, style and craft.</p>
+<div class="cta-row"><a class="btn-main" href="tel:+31598612955">Bel nu · Call now</a><a class="btn-ghost" href="#visit">Plan je bezoek · Plan your visit</a></div>
+<div class="chip">Sinds 2003 in Veendam · In Veendam since 2003</div></div></div>
+<div class="wrap"><section><h2>Onze Specialismen · What We Do Best</h2><p class="sub">Haarprofessionals in Veendam. Hair professionals in Veendam.</p><div class="grid">
+<div class="card"><img src="https://images.pexels.com/photos/7581573/pexels-photo-7581573.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Kleurspecialist · Colour Specialist"><div class="b"><h3>Kleurspecialist · Colour Specialist</h3><p>Kleur is ons vak — van frisse tint tot volledige transformatie. Colour is our craft, from a fresh tint to a full transformation.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/3331488/pexels-photo-3331488.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Knippen &amp; Stylen · Cutting &amp; Styling"><div class="b"><h3>Knippen &amp; Stylen · Cutting &amp; Styling</h3><p>Een kapsel dat bij je past, geknipt met vakmanschap. A style that suits you, cut with craft.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/6663368/pexels-photo-6663368.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Verzorging · Care"><div class="b"><h3>Verzorging · Care</h3><p>Gezond haar is de basis van elke kleur. Healthy hair is the base of every colour.</p></div></div>
+</div></section>
+<section><h2>Maak Kennis · Meet the Salon</h2><p class="sub">Klein team, groot vakmanschap. A small team with real craft.</p><div class="grid">
+<div class="tcard"><div class="ini">S</div><h3>Sandra</h3><p>Master Colorist — al jaren het gezicht van Salon Fifty One. Master Colorist — the face of Salon Fifty One for years.</p></div>
+<div class="tcard"><div class="ini">2003</div><h3>Sinds 2003 · Since 2003</h3><p>Meer dan twintig jaar dé kapsalon van Veendam. Over twenty years as Veendam&#x27;s salon.</p></div>
+<div class="tcard"><div class="ini">51</div><h3>Bocht Oosterdiep 51</h3><p>Je vindt ons op nummer 51 — natuurlijk. Find us at number 51, of course.</p></div>
+</div></section>
+<section><h2>Prijslijst · Price List</h2><p class="sub">Eindelijk online — kies en boek in één keer. Finally online — choose and book in one go.</p><div class="menu">
+<div class="row"><span>Knippen dames · Ladies&#x27; cut</span><span>€32</span></div>
+<div class="row"><span>Knippen heren · Men&#x27;s cut</span><span>€26</span></div>
+<div class="row"><span>Knippen kinderen · Children&#x27;s cut</span><span>€20</span></div>
+<div class="row"><span>Föhnen &amp; stylen · Blow-dry &amp; styling</span><span>€28</span></div>
+<div class="row"><span>Kleuren · Full colour</span><span>vanaf €65</span></div>
+<div class="row"><span>Highlights / folies · Highlights</span><span>vanaf €75</span></div>
+<div class="row"><span>Balayage</span><span>vanaf €95</span></div>
+</div>
+<p style="color:#8a8175;font-size:13px;margin-top:12px">Demoprijzen ter indicatie — de definitieve prijs spreken we in de salon met je af. · Demo rates as a guide — your final price is agreed in the salon.</p>
+</section>
+<section><h2>Galerij · Gallery</h2><p class="sub">Werk uit onze stoel. Work from our chair.</p><div class="gal">
+<figure><img src="https://images.pexels.com/photos/3331488/pexels-photo-3331488.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="De salon · The salon"><figcaption>De salon · The salon</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/3065208/pexels-photo-3065208.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Kleurwerk · Colour work"><figcaption>Kleurwerk · Colour work</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/7581573/pexels-photo-7581573.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Styling · Styling"><figcaption>Styling · Styling</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/28144256/pexels-photo-28144256.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Afwerking · The finish"><figcaption>Afwerking · The finish</figcaption></figure>
+<figure><img src="https://www.salonfiftyone.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fa9qh5p6r%2Fproduction%2F2e8b4d7901f0a319b20417a10bfc8750f5d69a13-1440x1440.jpg&w=3840&q=100" alt="Sandra · Master Colorist"><figcaption>Sandra · Master Colorist</figcaption></figure>
+</div></section>
+<section><h2>Je Bezoek · Your Visit</h2><p class="sub">Bel voor je afspraak. Call for your appointment.</p><div class="hours"><div class="hbox"><h3>Openingstijden · Hours</h3><ul><li><span>Dinsdag · Tue</span><span>09:00 – 18:00</span></li><li><span>Woensdag · Wed</span><span>09:00 – 18:00</span></li><li><span>Donderdag · Thu</span><span>09:00 – 18:00</span></li><li><span>Vrijdag · Fri</span><span>09:00 – 18:00</span></li><li><span>Zaterdag · Sat</span><span>09:00 – 14:00</span></li></ul></div><div class="hbox"><h3>Contact · Contact</h3><p>Bocht Oosterdiep 51<br>9641 JJ Veendam<br>0598 612 955<br>info@salonfiftyone.com</p></div></div></section></div>
+<div class="cta"><h2>Bezoek ons · Visit us</h2><p style="margin:10px 0 18px">Bocht Oosterdiep 51, 9641 JJ Veendam · 0598 612 955 · info@salonfiftyone.com</p>
+<a href="tel:+31598612955">Bel nu · Call now 0598 612 955</a><a href="mailto:info@salonfiftyone.com" style="display:inline-block;margin:8px 10px 0;padding:13px 28px;background:transparent;color:#fff;border:1px solid #fff;text-decoration:none;border-radius:6px;font-weight:600">Mail ons · Email us</a></div>
+<footer id="visit">Bocht Oosterdiep 51, 9641 JJ Veendam · 0598 612 955 · info@salonfiftyone.com<br>Salon Fifty One — kapsalon &amp; kleursalon, Veendam, Nederland.</footer>
+<div class="stickybar"><a href="tel:+31598612955">Bel nu · Call now — 0598 612 955</a></div>
+<div class="badge">Created by PostKaro — Demo</div>
+</body></html>
