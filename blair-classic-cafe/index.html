@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blair Classic Cafe — Good Food. Great Atmosphere. Blair, NE</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1d1a17;background:#fdfbf8;line-height:1.6;padding-bottom:0}
+.topbar{position:absolute;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:18px 26px;color:#fff}
+.topbar .brand{font-family:Georgia,serif;font-size:20px;font-weight:700;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.topbar a{background:#fff;color:#1d1a17;text-decoration:none;padding:9px 18px;border-radius:6px;font-weight:600;font-size:15px}
+.hero{min-height:88vh;background:linear-gradient(rgba(0,0,0,.42),rgba(0,0,0,.58)),url('https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=1200') center/cover;display:flex;align-items:flex-end;color:#fff}
+.hero-in{max-width:1060px;margin:0 auto;padding:90px 26px 64px;width:100%}
+.hero h1{font-family:Georgia,serif;font-size:54px;line-height:1.08;max-width:760px}
+.hero p{font-size:20px;opacity:.94;max-width:640px;margin-top:14px}
+.hero .cta-row{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+.hero .cta-row a{display:inline-block;padding:14px 30px;border-radius:6px;text-decoration:none;font-weight:700;font-size:16px}
+.btn-main{background:#9a3412;color:#fff}
+.btn-ghost{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.65)}
+.chip{display:inline-block;margin-top:22px;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.35);padding:8px 16px;border-radius:999px;font-size:15px;font-weight:600}
+.wrap{max-width:1060px;margin:0 auto;padding:0 26px}
+section{padding:64px 0 8px}
+h2{font-family:Georgia,serif;font-size:32px;margin-bottom:8px}
+.sub{color:#6b6259;margin-bottom:30px;font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{border:1px solid #e8e0d5;border-radius:10px;overflow:hidden;background:#fff}
+.card img{width:100%;height:210px;object-fit:cover;display:block}
+.card .b{padding:20px 22px}
+.card h3{font-size:19px;margin-bottom:6px}
+.card p{color:#5c554c;font-size:15px}
+.tcard{border:1px solid #e8e0d5;border-radius:10px;background:#fff;padding:26px 22px;text-align:center}
+.tcard .ini{width:56px;height:56px;border-radius:50%;background:#9a3412;color:#fff;font-family:Georgia,serif;font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.tcard h3{font-size:19px;margin-bottom:4px}
+.tcard p{color:#5c554c;font-size:15px}
+.step{border:1px solid #e8e0d5;border-radius:10px;background:#fff;padding:24px 22px}
+.step .n{font-family:Georgia,serif;font-size:30px;font-weight:700;color:#9a3412}
+.step h3{font-size:18px;margin:6px 0 4px}
+.step p{color:#5c554c;font-size:15px}
+.menu{max-width:700px}
+.row{display:flex;justify-content:space-between;gap:18px;border-bottom:1px solid #e8e0d5;padding:13px 0;font-size:17px}
+.row span:last-child{font-weight:600;white-space:nowrap}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gal figure{border-radius:10px;overflow:hidden;position:relative}
+.gal img{width:100%;height:230px;object-fit:cover;display:block}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px 10px;color:#fff;font-size:14px;font-weight:600;background:linear-gradient(transparent,rgba(0,0,0,.55))}
+.rev{background:#fff;border:1px solid #e8e0d5;border-radius:10px;padding:26px}
+.rev .stars{color:#e8a33d;font-size:19px;letter-spacing:2px}
+.rev p{font-size:16px;color:#3d382f;margin-top:8px}
+.rev .who{margin-top:10px;font-size:14px;color:#6b6259;font-weight:600}
+.hours{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.hbox{background:#fff;border:1px solid #e8e0d5;border-radius:10px;padding:24px 26px}
+.hbox h3{font-size:18px;margin-bottom:10px}
+.hbox p,.hbox li{color:#5c554c;font-size:15px}
+.hbox ul{list-style:none}
+.hbox li{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed #eee5d8}
+.hbox li:last-child{border-bottom:none}
+.cta{background:#9a3412;color:#fff;text-align:center;padding:56px 26px;margin-top:64px}
+.cta h2{color:#fff}
+.cta a{display:inline-block;margin:8px 10px 0;padding:13px 28px;background:#fff;color:#1d1a17;text-decoration:none;border-radius:6px;font-weight:600}
+footer{padding:34px 26px 90px;text-align:center;color:#6b6259;font-size:14px}
+.badge{position:fixed;left:16px;bottom:16px;background:#111;color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:600;z-index:99;box-shadow:0 4px 18px rgba(0,0,0,.3)}
+.stickybar{display:none}
+@media(max-width:760px){.grid,.gal,.hours{grid-template-columns:1fr}.hero h1{font-size:36px}
+.stickybar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:98;background:#9a3412;color:#fff}
+.stickybar a{flex:1;text-align:center;color:#fff;text-decoration:none;font-weight:700;padding:15px 6px;font-size:16px}
+.badge{bottom:70px}footer{padding-bottom:110px}}
+</style></head><body>
+<div class="topbar"><div class="brand">Blair Classic Cafe</div><a href="tel:+14024267122">Call now (402) 426-7122</a></div>
+<div class="hero"><div class="hero-in"><h1>Blair Classic Cafe — Good Food. Great Atmosphere. Blair, NE</h1><p>Classic café comfort on Washington Street — hearty breakfasts, hot homestyle meals, generous portions, and the onion rings people cross town for.</p>
+<div class="cta-row"><a class="btn-main" href="tel:+14024267122">Call now</a><a class="btn-ghost" href="#visit">Plan your visit</a></div>
+<div class="chip">Small-town diner · Breakfast & lunch, made fresh daily</div></div></div>
+<div class="wrap"><section><h2>From our kitchen</h2><p class="sub">Comfort food and friendly service, every day.</p><div class="grid">
+<div class="card"><img src="https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="All-Day Breakfast"><div class="b"><h3>All-Day Breakfast</h3><p>Biscuits and gravy, chicken fried steak, omelets and pancakes — breakfast the way it is meant to taste.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Homestyle Lunches"><div class="b"><h3>Homestyle Lunches</h3><p>Patty melts, hamburger steak and the Garden Hashbrown Casserole — fresh, satisfying, generous.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/1055054/pexels-photo-1055054.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Host Your Party With Us"><div class="b"><h3>Host Your Party With Us</h3><p>Birthdays, graduations and family gatherings — great food, warm atmosphere and small-town hospitality.</p></div></div>
+</div></section>
+<section><h2>Menu highlights</h2><p class="sub">Diner favourites — order for takeout and enjoy the taste of home anywhere.</p><div class="menu">
+<div class="row"><span>Famous onion rings</span><span>$6.95</span></div>
+<div class="row"><span>Biscuits &amp; gravy</span><span>$9.95</span></div>
+<div class="row"><span>Chicken fried steak</span><span>from $13.95</span></div>
+<div class="row"><span>Garden hashbrown casserole</span><span>$10.95</span></div>
+<div class="row"><span>Buttermilk pancakes</span><span>$8.95</span></div>
+<div class="row"><span>Patty melt</span><span>$11.95</span></div>
+<div class="row"><span>Cinnamon roll</span><span>$4.50</span></div>
+</div>
+<p style="color:#8a8175;font-size:13px;margin-top:12px">Demo prices shown for illustration — today&#x27;s menu and prices are posted in the café.</p>
+</section>
+<section><h2>What guests say</h2><p class="sub">Real reviews, as published on the café&#x27;s own website.</p><div class="grid">
+<div class="rev"><div class="stars">★★★★★</div><p>&ldquo;This was our first visit! The place was packed and there was one rockstar waitress waiting all the tables! She did great! Some of the best onion rings I&#x27;ve had and the breakfast was amazing! So good! We will definitely be back on the regular!&rdquo;</p><div class="who">Melissa G — posted on Google, via the café&#x27;s website</div></div>
+<div class="rev"><div class="stars">★★★★★</div><p>&ldquo;Such a nice place for breakfast and lunch. Service was quick and food was hot. Nice seeing the owner saying hi to regulars. Makes it homey.&rdquo;</p><div class="who">Kris B — posted on Google, via the café&#x27;s website</div></div>
+</div></section>
+<section><h2>Inside Blair Classic</h2><p class="sub">A place where everyone feels welcome.</p><div class="gal">
+<figure><img src="https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Fresh from the grill"><figcaption>Fresh from the grill</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Breakfast, served hot"><figcaption>Breakfast, served hot</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/1307698/pexels-photo-1307698.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Booths &amp; tables"><figcaption>Booths &amp; tables</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/1587087/pexels-photo-1587087.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Coffee&#x27;s on"><figcaption>Coffee&#x27;s on</figcaption></figure>
+</div></section>
+<section><h2>Visit us</h2><p class="sub">Call ahead for takeout — we will have it ready.</p><div class="hours"><div class="hbox"><h3>Opening hours</h3><ul><li><span>Monday – Saturday</span><span>6:30 AM – 2:00 PM</span></li><li><span>Sunday</span><span>7:00 AM – 1:00 PM</span></li></ul></div><div class="hbox"><h3>Contact</h3><p>1658 Washington Street<br>Blair, NE 68008<br>(402) 426-7122<br>blairclassiccafe@gmail.com</p></div></div></section></div>
+<div class="cta"><h2>Visit us or get in touch</h2><p style="margin:10px 0 18px">1658 Washington Street, Blair NE 68008 · (402) 426-7122 · blairclassiccafe@gmail.com</p>
+<a href="tel:+14024267122">Call now (402) 426-7122</a><a href="mailto:blairclassiccafe@gmail.com" style="display:inline-block;margin:8px 10px 0;padding:13px 28px;background:transparent;color:#fff;border:1px solid #fff;text-decoration:none;border-radius:6px;font-weight:600">Email us</a></div>
+<footer id="visit">1658 Washington Street, Blair NE 68008 · (402) 426-7122 · blairclassiccafe@gmail.com<br>Homestyle breakfast &amp; lunch — Blair, Nebraska.</footer>
+<div class="stickybar"><a href="tel:+14024267122">Call now — (402) 426-7122</a></div>
+<div class="badge">Created by PostKaro — Demo</div>
+</body></html>

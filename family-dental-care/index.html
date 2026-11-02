@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Family Dental Care — Downtown Kansas City</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1d1a17;background:#fdfbf8;line-height:1.6;padding-bottom:0}
+.topbar{position:absolute;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:18px 26px;color:#fff}
+.topbar .brand{font-family:Georgia,serif;font-size:20px;font-weight:700;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.topbar a{background:#fff;color:#1d1a17;text-decoration:none;padding:9px 18px;border-radius:6px;font-weight:600;font-size:15px}
+.hero{min-height:88vh;background:linear-gradient(rgba(0,0,0,.42),rgba(0,0,0,.58)),url('https://www.familydentalmissouri.com/wp-content/uploads/2026/08/top-rated-dentist-in-kansas-city-mo-2.jpg') center/cover;display:flex;align-items:flex-end;color:#fff}
+.hero-in{max-width:1060px;margin:0 auto;padding:90px 26px 64px;width:100%}
+.hero h1{font-family:Georgia,serif;font-size:54px;line-height:1.08;max-width:760px}
+.hero p{font-size:20px;opacity:.94;max-width:640px;margin-top:14px}
+.hero .cta-row{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+.hero .cta-row a{display:inline-block;padding:14px 30px;border-radius:6px;text-decoration:none;font-weight:700;font-size:16px}
+.btn-main{background:#1e40af;color:#fff}
+.btn-ghost{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.65)}
+.chip{display:inline-block;margin-top:22px;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.35);padding:8px 16px;border-radius:999px;font-size:15px;font-weight:600}
+.wrap{max-width:1060px;margin:0 auto;padding:0 26px}
+section{padding:64px 0 8px}
+h2{font-family:Georgia,serif;font-size:32px;margin-bottom:8px}
+.sub{color:#6b6259;margin-bottom:30px;font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{border:1px solid #e8e0d5;border-radius:10px;overflow:hidden;background:#fff}
+.card img{width:100%;height:210px;object-fit:cover;display:block}
+.card .b{padding:20px 22px}
+.card h3{font-size:19px;margin-bottom:6px}
+.card p{color:#5c554c;font-size:15px}
+.tcard{border:1px solid #e8e0d5;border-radius:10px;background:#fff;padding:26px 22px;text-align:center}
+.tcard .ini{width:56px;height:56px;border-radius:50%;background:#1e40af;color:#fff;font-family:Georgia,serif;font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.tcard h3{font-size:19px;margin-bottom:4px}
+.tcard p{color:#5c554c;font-size:15px}
+.step{border:1px solid #e8e0d5;border-radius:10px;background:#fff;padding:24px 22px}
+.step .n{font-family:Georgia,serif;font-size:30px;font-weight:700;color:#1e40af}
+.step h3{font-size:18px;margin:6px 0 4px}
+.step p{color:#5c554c;font-size:15px}
+.menu{max-width:700px}
+.row{display:flex;justify-content:space-between;gap:18px;border-bottom:1px solid #e8e0d5;padding:13px 0;font-size:17px}
+.row span:last-child{font-weight:600;white-space:nowrap}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gal figure{border-radius:10px;overflow:hidden;position:relative}
+.gal img{width:100%;height:230px;object-fit:cover;display:block}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px 10px;color:#fff;font-size:14px;font-weight:600;background:linear-gradient(transparent,rgba(0,0,0,.55))}
+.rev{background:#fff;border:1px solid #e8e0d5;border-radius:10px;padding:26px}
+.rev .stars{color:#e8a33d;font-size:19px;letter-spacing:2px}
+.rev p{font-size:16px;color:#3d382f;margin-top:8px}
+.rev .who{margin-top:10px;font-size:14px;color:#6b6259;font-weight:600}
+.hours{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.hbox{background:#fff;border:1px solid #e8e0d5;border-radius:10px;padding:24px 26px}
+.hbox h3{font-size:18px;margin-bottom:10px}
+.hbox p,.hbox li{color:#5c554c;font-size:15px}
+.hbox ul{list-style:none}
+.hbox li{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed #eee5d8}
+.hbox li:last-child{border-bottom:none}
+.cta{background:#1e40af;color:#fff;text-align:center;padding:56px 26px;margin-top:64px}
+.cta h2{color:#fff}
+.cta a{display:inline-block;margin:8px 10px 0;padding:13px 28px;background:#fff;color:#1d1a17;text-decoration:none;border-radius:6px;font-weight:600}
+footer{padding:34px 26px 90px;text-align:center;color:#6b6259;font-size:14px}
+.badge{position:fixed;left:16px;bottom:16px;background:#111;color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:600;z-index:99;box-shadow:0 4px 18px rgba(0,0,0,.3)}
+.stickybar{display:none}
+@media(max-width:760px){.grid,.gal,.hours{grid-template-columns:1fr}.hero h1{font-size:36px}
+.stickybar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:98;background:#1e40af;color:#fff}
+.stickybar a{flex:1;text-align:center;color:#fff;text-decoration:none;font-weight:700;padding:15px 6px;font-size:16px}
+.badge{bottom:70px}footer{padding-bottom:110px}}
+</style></head><body>
+<div class="topbar"><div class="brand">Family Dental Care</div><a href="tel:+18164397715">Call now (816) 439-7715</a></div>
+<div class="hero"><div class="hero-in"><h1>Family Dental Care — Downtown Kansas City</h1><p>Two dentists, one downtown location — a general dental practice on Walnut Street, a short walk from the Power &amp; Light District and one block from the streetcar line.</p>
+<div class="cta-row"><a class="btn-main" href="tel:+18164397715">Call now</a><a class="btn-ghost" href="#visit">Plan your visit</a></div>
+<div class="chip">Mon–Fri 8–5 · Same-day slots for urgent problems</div></div></div>
+<div class="wrap"><section><h2>What we do</h2><p class="sub">General dentistry for adults and children — families can book together in one trip downtown.</p><div class="grid">
+<div class="card"><img src="https://images.pexels.com/photos/3884093/pexels-photo-3884093.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Exams &amp; Cleanings"><div class="b"><h3>Exams &amp; Cleanings</h3><p>Detailed consultations, all necessary X-rays and a treatment plan discussion — appointments that fit around a working day.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/3881814/pexels-photo-3881814.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Crowns, Implants &amp; Aligners"><div class="b"><h3>Crowns, Implants &amp; Aligners</h3><p>Fillings, crowns, implants and clear aligners from two experienced general dentists.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/3845745/pexels-photo-3845745.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Emergency Care"><div class="b"><h3>Emergency Care</h3><p>Severe toothache, a broken tooth, a lost filling? We keep room in the daily schedule for urgent problems — call first thing.</p></div></div>
+</div></section>
+<section><h2>Meet the dentists</h2><p class="sub">Two general dentists, both practicing in downtown Kansas City.</p><div class="grid">
+<div class="card"><img src="https://www.familydentalmissouri.com/wp-content/uploads/2026/08/dr-n-warya-2.jpg" alt="Dr. Navkiran Warya, DDS"><div class="b"><h3>Dr. Navkiran Warya, DDS</h3><p>Owner and general dentist — USC Ostrow trained, serving the Kansas City community for more than 17 years.</p></div></div>
+<div class="card"><img src="https://www.familydentalmissouri.com/wp-content/uploads/2026/08/dr-dawn-berkvam.jpg" alt="Dr. Dawn LaRee Berkvam, DDS"><div class="b"><h3>Dr. Dawn LaRee Berkvam, DDS</h3><p>Practicing in downtown Kansas City since graduating from UMKC in 1984 — and Invisalign certified.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/5622001/pexels-photo-5622001.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Getting Here Is Easy"><div class="b"><h3>Getting Here Is Easy</h3><p>The fare-free KC Streetcar runs one block west on Main Street; metered parking and garages are close by.</p></div></div>
+</div></section>
+<section><h2>Current offers</h2><p class="sub">Straightforward ways to start.</p><div class="menu">
+<div class="row"><span>Emergency exam</span><span>$99</span></div>
+<div class="row"><span>New patient exam</span><span>$149</span></div>
+<div class="row"><span>Take-home whitening kit</span><span>Free*</span></div>
+</div>
+<p style="color:#8a8175;font-size:13px;margin-top:12px">Offers as published by the practice: the emergency exam is problem-focused with the X-rays needed; the new-patient exam is for patients without insurance; *the whitening kit is free for new patients who complete a paid exam, X-rays and cleaning.</p>
+</section>
+<section><h2>Inside the practice</h2><p class="sub">Downtown Kansas City, in the Loop.</p><div class="gal">
+<figure><img src="https://www.familydentalmissouri.com/wp-content/uploads/2026/08/top-rated-dentist-in-kansas-city-mo-2.jpg" alt="At Suite 280, Walnut Street"><figcaption>At Suite 280, Walnut Street</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/5622001/pexels-photo-5622001.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Modern treatment rooms"><figcaption>Modern treatment rooms</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/3845807/pexels-photo-3845807.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Care for every age"><figcaption>Care for every age</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/3884093/pexels-photo-3884093.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Prevention first"><figcaption>Prevention first</figcaption></figure>
+</div></section>
+<section><h2>Visit us</h2><p class="sub">Insurance checked for you before treatment begins — call the front desk.</p><div class="hours"><div class="hbox"><h3>Opening hours</h3><ul><li><span>Monday – Friday</span><span>8:00 AM – 5:00 PM</span></li><li><span>Saturday – Sunday</span><span>Closed</span></li></ul></div><div class="hbox"><h3>Contact</h3><p>1010 Walnut St, Suite 280<br>Kansas City, MO 64106<br>(816) 439-7715<br>familydentalmo@gmail.com</p></div></div></section></div>
+<div class="cta"><h2>Visit us or get in touch</h2><p style="margin:10px 0 18px">1010 Walnut St, Suite 280, Kansas City MO 64106 · (816) 439-7715 · familydentalmo@gmail.com</p>
+<a href="tel:+18164397715">Call now (816) 439-7715</a><a href="mailto:familydentalmo@gmail.com" style="display:inline-block;margin:8px 10px 0;padding:13px 28px;background:transparent;color:#fff;border:1px solid #fff;text-decoration:none;border-radius:6px;font-weight:600">Email us</a></div>
+<footer id="visit">1010 Walnut St, Suite 280, Kansas City MO 64106 · (816) 439-7715 · familydentalmo@gmail.com<br>General dentistry for adults and children — downtown Kansas City.</footer>
+<div class="stickybar"><a href="tel:+18164397715">Call now — (816) 439-7715</a></div>
+<div class="badge">Created by PostKaro — Demo</div>
+</body></html>
