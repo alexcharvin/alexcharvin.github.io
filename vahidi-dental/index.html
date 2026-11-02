@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zahnarztpraxis Sina Vahidi — Kleinwallstadt</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1d1a17;background:#fdfbf8;line-height:1.6;padding-bottom:0}
+.topbar{position:absolute;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:18px 26px;color:#fff}
+.topbar .brand{font-family:Georgia,serif;font-size:20px;font-weight:700;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.topbar a{background:#fff;color:#1d1a17;text-decoration:none;padding:9px 18px;border-radius:6px;font-weight:600;font-size:15px}
+.hero{min-height:88vh;background:linear-gradient(rgba(0,0,0,.42),rgba(0,0,0,.58)),url('https://images.pexels.com/photos/5622001/pexels-photo-5622001.jpeg?auto=compress&cs=tinysrgb&w=1200') center/cover;display:flex;align-items:flex-end;color:#fff}
+.hero-in{max-width:1060px;margin:0 auto;padding:90px 26px 64px;width:100%}
+.hero h1{font-family:Georgia,serif;font-size:54px;line-height:1.08;max-width:760px}
+.hero p{font-size:20px;opacity:.94;max-width:640px;margin-top:14px}
+.hero .cta-row{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+.hero .cta-row a{display:inline-block;padding:14px 30px;border-radius:6px;text-decoration:none;font-weight:700;font-size:16px}
+.btn-main{background:#8a5a2b;color:#fff}
+.btn-ghost{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.65)}
+.chip{display:inline-block;margin-top:22px;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.35);padding:8px 16px;border-radius:999px;font-size:15px;font-weight:600}
+.wrap{max-width:1060px;margin:0 auto;padding:0 26px}
+section{padding:64px 0 8px}
+h2{font-family:Georgia,serif;font-size:32px;margin-bottom:8px}
+.sub{color:#6b6259;margin-bottom:30px;font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{border:1px solid #e8e0d5;border-radius:10px;overflow:hidden;background:#fff}
+.card img{width:100%;height:210px;object-fit:cover;display:block}
+.card .b{padding:20px 22px}
+.card h3{font-size:19px;margin-bottom:6px}
+.card p{color:#5c554c;font-size:15px}
+.tcard{border:1px solid #e8e0d5;border-radius:10px;background:#fff;padding:26px 22px;text-align:center}
+.tcard .ini{width:56px;height:56px;border-radius:50%;background:#8a5a2b;color:#fff;font-family:Georgia,serif;font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.tcard h3{font-size:19px;margin-bottom:4px}
+.tcard p{color:#5c554c;font-size:15px}
+.step{border:1px solid #e8e0d5;border-radius:10px;background:#fff;padding:24px 22px}
+.step .n{font-family:Georgia,serif;font-size:30px;font-weight:700;color:#8a5a2b}
+.step h3{font-size:18px;margin:6px 0 4px}
+.step p{color:#5c554c;font-size:15px}
+.menu{max-width:700px}
+.row{display:flex;justify-content:space-between;gap:18px;border-bottom:1px solid #e8e0d5;padding:13px 0;font-size:17px}
+.row span:last-child{font-weight:600;white-space:nowrap}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gal figure{border-radius:10px;overflow:hidden;position:relative}
+.gal img{width:100%;height:230px;object-fit:cover;display:block}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px 10px;color:#fff;font-size:14px;font-weight:600;background:linear-gradient(transparent,rgba(0,0,0,.55))}
+.hours{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.hbox{background:#fff;border:1px solid #e8e0d5;border-radius:10px;padding:24px 26px}
+.hbox h3{font-size:18px;margin-bottom:10px}
+.hbox p,.hbox li{color:#5c554c;font-size:15px}
+.hbox ul{list-style:none}
+.hbox li{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed #eee5d8}
+.hbox li:last-child{border-bottom:none}
+.cta{background:#8a5a2b;color:#fff;text-align:center;padding:56px 26px;margin-top:64px}
+.cta h2{color:#fff}
+.cta a{display:inline-block;margin:8px 10px 0;padding:13px 28px;background:#fff;color:#1d1a17;text-decoration:none;border-radius:6px;font-weight:600}
+footer{padding:34px 26px 90px;text-align:center;color:#6b6259;font-size:14px}
+.badge{position:fixed;left:16px;bottom:16px;background:#111;color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:600;z-index:99;box-shadow:0 4px 18px rgba(0,0,0,.3)}
+.stickybar{display:none}
+@media(max-width:760px){.grid,.gal,.hours{grid-template-columns:1fr}.hero h1{font-size:36px}
+.stickybar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:98;background:#8a5a2b;color:#fff}
+.stickybar a{flex:1;text-align:center;color:#fff;text-decoration:none;font-weight:700;padding:15px 6px;font-size:16px}
+.badge{bottom:70px}footer{padding-bottom:110px}}
+</style></head><body>
+<div class="topbar"><div class="brand">Zahnärzte Team Kleinwallstadt</div><a href="tel:+49602221305">Jetzt anrufen · Call now +49 6022 21305</a></div>
+<div class="hero"><div class="hero-in"><h1>Zahnarztpraxis Sina Vahidi — Kleinwallstadt</h1><p>Moderne Zahnheilkunde mit Herz — direkt an der Hauptstraße in Kleinwallstadt. Modern dentistry with heart, right on Kleinwallstadt&#x27;s main street.</p>
+<div class="cta-row"><a class="btn-main" href="tel:+49602221305">Jetzt anrufen · Call now</a><a class="btn-ghost" href="#visit">Ihren Besuch planen · Plan your visit</a></div>
+<div class="chip">Beratung auf Deutsch & Englisch · Advice in German & English</div></div></div>
+<div class="wrap"><section><h2>Unsere Leistungen · Our Treatments</h2><p class="sub">Vorsorge bis Zahnersatz — alles unter einem Dach. From check-ups to full restorations, under one roof.</p><div class="grid">
+<div class="card"><img src="https://images.pexels.com/photos/3845807/pexels-photo-3845807.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Ästhetische Zahnheilkunde · Aesthetic Dentistry"><div class="b"><h3>Ästhetische Zahnheilkunde · Aesthetic Dentistry</h3><p>Bleaching, Veneers und zahnfarbene Füllungen für ein natürliches Lächeln. Whitening, veneers and tooth-coloured fillings for a natural smile.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/3881305/pexels-photo-3881305.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Implantologie · Implants"><div class="b"><h3>Implantologie · Implants</h3><p>Fester Zahnersatz auf Implantaten — sicherer Halt beim Lachen und Kauen. Fixed teeth on implants, secure when you laugh and chew.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/3881814/pexels-photo-3881814.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Prothetik &amp; Zahnersatz · Prosthetics"><div class="b"><h3>Prothetik &amp; Zahnersatz · Prosthetics</h3><p>Kronen, Brücken und Prothesen — funktionell, langlebig und ästhetisch angepasst. Crowns, bridges and dentures, built to last.</p></div></div>
+</div></section>
+<section><h2>Für die ganze Familie · For the Whole Family</h2><p class="sub">Ehrliche Beratung, ohne unnötige Behandlungen. Honest advice — we only treat what is truly needed.</p><div class="grid">
+<div class="card"><img src="https://images.pexels.com/photos/3884093/pexels-photo-3884093.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Prophylaxe · Prevention"><div class="b"><h3>Prophylaxe · Prevention</h3><p>Professionelle Zahnreinigung und Vorsorge — für dauerhaft gesunde Zähne. Professional cleaning and check-ups for lasting oral health.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/3845745/pexels-photo-3845745.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Schmerzbehandlung · Pain Relief"><div class="b"><h3>Schmerzbehandlung · Pain Relief</h3><p>Akute Zahnschmerzen? Wir nehmen uns schnell und einfühlsam Zeit für Sie. Toothache? We make time for you, quickly and gently.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/5622001/pexels-photo-5622001.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Zahnerhaltung · Saving Your Teeth"><div class="b"><h3>Zahnerhaltung · Saving Your Teeth</h3><p>Moderne Füllungs- und Wurzelbehandlungen erhalten Ihre natürlichen Zähne. Modern fillings and root treatments keep your natural teeth.</p></div></div>
+</div></section>
+<section><h2>Preisübersicht · Fees Guide</h2><p class="sub">Klare Preise vor der Behandlung. Clear prices, agreed before treatment.</p><div class="menu">
+<div class="row"><span>Beratung &amp; Kontrolle · Consultation &amp; check-up</span><span>€40</span></div>
+<div class="row"><span>Professionelle Zahnreinigung · Professional cleaning</span><span>€85</span></div>
+<div class="row"><span>Bleaching · Teeth whitening</span><span>€290</span></div>
+<div class="row"><span>Veneer (pro Zahn) · Veneer, per tooth</span><span>ab €590</span></div>
+<div class="row"><span>Krone · Crown</span><span>ab €690</span></div>
+<div class="row"><span>Implantat · Implant</span><span>ab €1.900</span></div>
+</div>
+<p style="color:#8a8175;font-size:13px;margin-top:12px">Demo-Preise zur Veranschaulichung — die genaue Gebühr wird vor der Behandlung mit Ihnen besprochen. · Demo rates for illustration — your exact fee is confirmed before treatment.</p>
+</section>
+<section><h2>Ein Blick in die Praxis · Inside the Practice</h2><p class="sub">Lernen Sie uns kennen. A first look around.</p><div class="gal">
+<figure><img src="https://www.zahnarztkleinwallstadt.de/Image/photo_2026-07-16_19-32-29.jpg" alt="Unser Praxis-Team · Our practice team"><figcaption>Unser Praxis-Team · Our practice team</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/3845807/pexels-photo-3845807.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Behandlungsräume · Treatment rooms"><figcaption>Behandlungsräume · Treatment rooms</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/3881305/pexels-photo-3881305.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Moderne Technik · Modern equipment"><figcaption>Moderne Technik · Modern equipment</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/3884093/pexels-photo-3884093.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Sanfte Behandlung · Gentle care"><figcaption>Sanfte Behandlung · Gentle care</figcaption></figure>
+</div></section>
+<section><h2>Ihr Besuch · Your Visit</h2><p class="sub">Zentral in Kleinwallstadt. Right in the centre of Kleinwallstadt.</p><div class="hours"><div class="hbox"><h3>Öffnungszeiten · Opening Hours</h3><p>Montag – Freitag: nach Vereinbarung<br>Mon – Fri: by appointment<br>Akute Schmerzen? Rufen Sie uns an.<br>In pain? Call us — we help fast.</p></div><div class="hbox"><h3>Kontakt · Contact</h3><p>Hauptstraße, Kleinwallstadt<br>+49 6022 21305<br>Praxis@zahnarztkleinwallstadt.de</p></div></div></section></div>
+<div class="cta"><h2>Besuchen Sie uns · Visit us</h2><p style="margin:10px 0 18px">Kleinwallstadt · +49 6022 21305 · Praxis@zahnarztkleinwallstadt.de</p>
+<a href="tel:+49602221305">Jetzt anrufen · Call now +49 6022 21305</a><a href="mailto:Praxis@zahnarztkleinwallstadt.de" style="display:inline-block;margin:8px 10px 0;padding:13px 28px;background:transparent;color:#fff;border:1px solid #fff;text-decoration:none;border-radius:6px;font-weight:600">E-Mail schreiben · Email us</a></div>
+<footer id="visit">Kleinwallstadt · +49 6022 21305 · Praxis@zahnarztkleinwallstadt.de<br>Zahnarztpraxis Sina Vahidi — Kleinwallstadt, Deutschland.</footer>
+<div class="stickybar"><a href="tel:+49602221305">Jetzt anrufen · Call now — +49 6022 21305</a></div>
+<div class="badge">Created by PostKaro — Demo</div>
+</body></html>

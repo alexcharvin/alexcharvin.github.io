@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="nl"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unique Kapsalon &amp; Barbier — Groningen</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1d1a17;background:#fdfbf8;line-height:1.6;padding-bottom:0}
+.topbar{position:absolute;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:18px 26px;color:#fff}
+.topbar .brand{font-family:Georgia,serif;font-size:20px;font-weight:700;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.topbar a{background:#fff;color:#1d1a17;text-decoration:none;padding:9px 18px;border-radius:6px;font-weight:600;font-size:15px}
+.hero{min-height:88vh;background:linear-gradient(rgba(0,0,0,.42),rgba(0,0,0,.58)),url('https://kapsalonbarbierunique.nl/wp-content/uploads/2024/01/foto-unique-5-1024x768.jpg') center/cover;display:flex;align-items:flex-end;color:#fff}
+.hero-in{max-width:1060px;margin:0 auto;padding:90px 26px 64px;width:100%}
+.hero h1{font-family:Georgia,serif;font-size:54px;line-height:1.08;max-width:760px}
+.hero p{font-size:20px;opacity:.94;max-width:640px;margin-top:14px}
+.hero .cta-row{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+.hero .cta-row a{display:inline-block;padding:14px 30px;border-radius:6px;text-decoration:none;font-weight:700;font-size:16px}
+.btn-main{background:#78350f;color:#fff}
+.btn-ghost{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.65)}
+.chip{display:inline-block;margin-top:22px;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.35);padding:8px 16px;border-radius:999px;font-size:15px;font-weight:600}
+.wrap{max-width:1060px;margin:0 auto;padding:0 26px}
+section{padding:64px 0 8px}
+h2{font-family:Georgia,serif;font-size:32px;margin-bottom:8px}
+.sub{color:#6b6259;margin-bottom:30px;font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{border:1px solid #e8e0d5;border-radius:10px;overflow:hidden;background:#fff}
+.card img{width:100%;height:210px;object-fit:cover;display:block}
+.card .b{padding:20px 22px}
+.card h3{font-size:19px;margin-bottom:6px}
+.card p{color:#5c554c;font-size:15px}
+.tcard{border:1px solid #e8e0d5;border-radius:10px;background:#fff;padding:26px 22px;text-align:center}
+.tcard .ini{width:56px;height:56px;border-radius:50%;background:#78350f;color:#fff;font-family:Georgia,serif;font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.tcard h3{font-size:19px;margin-bottom:4px}
+.tcard p{color:#5c554c;font-size:15px}
+.step{border:1px solid #e8e0d5;border-radius:10px;background:#fff;padding:24px 22px}
+.step .n{font-family:Georgia,serif;font-size:30px;font-weight:700;color:#78350f}
+.step h3{font-size:18px;margin:6px 0 4px}
+.step p{color:#5c554c;font-size:15px}
+.menu{max-width:700px}
+.row{display:flex;justify-content:space-between;gap:18px;border-bottom:1px solid #e8e0d5;padding:13px 0;font-size:17px}
+.row span:last-child{font-weight:600;white-space:nowrap}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gal figure{border-radius:10px;overflow:hidden;position:relative}
+.gal img{width:100%;height:230px;object-fit:cover;display:block}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px 10px;color:#fff;font-size:14px;font-weight:600;background:linear-gradient(transparent,rgba(0,0,0,.55))}
+.hours{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.hbox{background:#fff;border:1px solid #e8e0d5;border-radius:10px;padding:24px 26px}
+.hbox h3{font-size:18px;margin-bottom:10px}
+.hbox p,.hbox li{color:#5c554c;font-size:15px}
+.hbox ul{list-style:none}
+.hbox li{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed #eee5d8}
+.hbox li:last-child{border-bottom:none}
+.cta{background:#78350f;color:#fff;text-align:center;padding:56px 26px;margin-top:64px}
+.cta h2{color:#fff}
+.cta a{display:inline-block;margin:8px 10px 0;padding:13px 28px;background:#fff;color:#1d1a17;text-decoration:none;border-radius:6px;font-weight:600}
+footer{padding:34px 26px 90px;text-align:center;color:#6b6259;font-size:14px}
+.badge{position:fixed;left:16px;bottom:16px;background:#111;color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:600;z-index:99;box-shadow:0 4px 18px rgba(0,0,0,.3)}
+.stickybar{display:none}
+@media(max-width:760px){.grid,.gal,.hours{grid-template-columns:1fr}.hero h1{font-size:36px}
+.stickybar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:98;background:#78350f;color:#fff}
+.stickybar a{flex:1;text-align:center;color:#fff;text-decoration:none;font-weight:700;padding:15px 6px;font-size:16px}
+.badge{bottom:70px}footer{padding-bottom:110px}}
+</style></head><body>
+<div class="topbar"><div class="brand">Unique Kapsalon &amp; Barbier</div><a href="tel:+31505590322">Bel nu · Call now 050 559 0322</a></div>
+<div class="hero"><div class="hero-in"><h1>Unique Kapsalon &amp; Barbier — Groningen</h1><p>Meer dan 20 jaar vakmanschap in Hoogkerk, Groningen — knippen, barbier, kleur en nagels onder één dak. Over 20 years of craft in Groningen: cuts, barbering, colour and nails under one roof.</p>
+<div class="cta-row"><a class="btn-main" href="tel:+31505590322">Bel nu · Call now</a><a class="btn-ghost" href="https://wa.me/31630863067" target="_blank" rel="noopener">WhatsApp ons · WhatsApp us</a></div>
+<div class="chip">&#9733; 5 van 5 op Google · Rated 5 out of 5 on Google</div></div></div>
+<div class="wrap"><section><h2>Onze Diensten · Our Services</h2><p class="sub">Persoonlijke aandacht bij elke afspraak. Personal attention at every appointment.</p><div class="grid">
+<div class="card"><img src="https://kapsalonbarbierunique.nl/wp-content/uploads/2024/01/kapsalon_barbier_unique-20240121-0003-819x1024.jpg" alt="Knippen &amp; Barbier · Cuts &amp; Barbering"><div class="b"><h3>Knippen &amp; Barbier · Cuts &amp; Barbering</h3><p>Knippen voor mannen en vrouwen, tondeuse coupes en knippen &amp; baard. Cuts for men and women, clipper cuts and cut-and-beard combos.</p></div></div>
+<div class="card"><img src="https://kapsalonbarbierunique.nl/wp-content/uploads/2024/01/kapsalon_barbier_unique-20240121-0001-819x1024.jpg" alt="Kleuren · Colour"><div class="b"><h3>Kleuren · Colour</h3><p>Kleuren vanaf €60 — eerlijk advies over wat je haar aankan. Colour from €60, with honest advice on what your hair can take.</p></div></div>
+<div class="card"><img src="https://kapsalonbarbierunique.nl/wp-content/uploads/2024/01/kapsalon_barbier_unique-20240121-0005-819x1024.jpg" alt="Nagels &amp; Wenkbrauwen · Nails &amp; Brows"><div class="b"><h3>Nagels &amp; Wenkbrauwen · Nails &amp; Brows</h3><p>Acryl- en gelnagels, henna wenkbrauwen en lamination. Acrylic and gel nails, henna brows and brow lamination.</p></div></div>
+</div></section>
+<section><h2>Ons Team · Our Team</h2><p class="sub">Bij Unique ben je meer dan een klant. At Unique you are more than a customer.</p><div class="grid">
+<div class="tcard"><div class="ini">M</div><h3>Mohammed</h3><p>Barbier — vakwerk en een warm welkom. Barber — craft and a warm welcome.</p></div>
+<div class="tcard"><div class="ini">H</div><h3>Hoda</h3><p>Kapster &amp; stylist — kleur en styling. Hairdresser and stylist — colour and styling.</p></div>
+<div class="tcard"><div class="ini">20+</div><h3>20+ jaar ervaring · 20+ Years</h3><p>Twee decennia vakmanschap in Groningen. Two decades of craft in Groningen.</p></div>
+</div></section>
+<section><h2>Meer dan een knipbeurt · More Than a Haircut</h2><p class="sub">Creativiteit, ontspanning en eerlijke prijzen. Creativity, relaxation and honest prices.</p><div class="grid">
+<div class="card"><img src="https://kapsalonbarbierunique.nl/wp-content/uploads/2024/01/hectorjpg-013.jpg" alt="Bruids- &amp; Feestarrangementen · Bridal &amp; Party"><div class="b"><h3>Bruids- &amp; Feestarrangementen · Bridal &amp; Party</h3><p>Knippen, stylen en make-up voor jouw grote dag. Hair, styling and make-up for your big day.</p></div></div>
+<div class="card"><img src="https://kapsalonbarbierunique.nl/wp-content/uploads/2024/01/kapsalon_barbier_unique-20240121-0004-819x1024.jpg" alt="Ontspannen Sfeer · A Relaxed Chair"><div class="b"><h3>Ontspannen Sfeer · A Relaxed Chair</h3><p>Vergeet de drukte — geniet van je behandeling. Leave the rush outside and enjoy your treatment.</p></div></div>
+<div class="card"><img src="https://kapsalonbarbierunique.nl/wp-content/uploads/2024/01/foto-unique-5-1024x768.jpg" alt="In Hoogkerk · In Hoogkerk"><div class="b"><h3>In Hoogkerk · In Hoogkerk</h3><p>Hoendiep 214, Groningen — kom langs of maak een afspraak. Hoendiep 214 — walk in or book ahead.</p></div></div>
+</div></section>
+<section><h2>Prijslijst · Price List</h2><p class="sub">Onze eigen tarieven — zoals in de salon. Our own prices, the same in the salon.</p><div class="menu">
+<div class="row"><span>Knippen · Haircut</span><span>€27</span></div>
+<div class="row"><span>Tondeuse coupe · Clipper cut</span><span>€15</span></div>
+<div class="row"><span>Wassen, knippen en drogen · Wash, cut &amp; dry</span><span>€33</span></div>
+<div class="row"><span>Knippen &amp; baard · Cut &amp; beard</span><span>€37</span></div>
+<div class="row"><span>Kleuren · Colour</span><span>vanaf €60</span></div>
+<div class="row"><span>Acrylnagels kort · Acrylic nails, short</span><span>€60</span></div>
+<div class="row"><span>Gelnagels lang · Gel nails, long</span><span>€60</span></div>
+<div class="row"><span>Henna wenkbrauwen · Henna brows</span><span>€30</span></div>
+<div class="row"><span>Wenkbrauwlamination met verf · Brow lamination with tint</span><span>€45</span></div>
+</div>
+</section>
+<section><h2>Galerij · Gallery</h2><p class="sub">Een kijkje bij Unique. A look inside Unique.</p><div class="gal">
+<figure><img src="https://kapsalonbarbierunique.nl/wp-content/uploads/2024/01/foto-unique-5-1024x768.jpg" alt="De salon · The salon"><figcaption>De salon · The salon</figcaption></figure>
+<figure><img src="https://kapsalonbarbierunique.nl/wp-content/uploads/2024/01/kapsalon_barbier_unique-20240121-0003-819x1024.jpg" alt="Aan het werk · At work"><figcaption>Aan het werk · At work</figcaption></figure>
+<figure><img src="https://kapsalonbarbierunique.nl/wp-content/uploads/2024/01/kapsalon_barbier_unique-20240121-0001-819x1024.jpg" alt="Kleurwerk · Colour work"><figcaption>Kleurwerk · Colour work</figcaption></figure>
+<figure><img src="https://kapsalonbarbierunique.nl/wp-content/uploads/2024/01/kapsalon_barbier_unique-20240121-0005-819x1024.jpg" alt="Styling · Styling"><figcaption>Styling · Styling</figcaption></figure>
+</div></section>
+<section><h2>Je Bezoek · Your Visit</h2><p class="sub">Je vindt ons in Hoogkerk, Groningen. Find us in Hoogkerk, Groningen.</p><div class="hours"><div class="hbox"><h3>Goed om te weten · Good to Know</h3><p>Meer dan 20 jaar ervaring<br>Over 20 years of experience<br>Afspraak via telefoon of WhatsApp<br>Book by phone or WhatsApp</p></div><div class="hbox"><h3>Contact · Contact</h3><p>Hoendiep 214, 9745 EE Groningen<br>050 559 0322<br>WhatsApp: +31 6 3086 3067<br>info@kapsalonbarbierunique.nl</p></div></div></section></div>
+<div class="cta"><h2>Bezoek ons · Visit us</h2><p style="margin:10px 0 18px">Hoendiep 214, 9745 EE Groningen · 050 559 0322 · info@kapsalonbarbierunique.nl</p>
+<a href="tel:+31505590322">Bel nu · Call now 050 559 0322</a><a href="mailto:info@kapsalonbarbierunique.nl" style="display:inline-block;margin:8px 10px 0;padding:13px 28px;background:transparent;color:#fff;border:1px solid #fff;text-decoration:none;border-radius:6px;font-weight:600">Mail ons · Email us</a></div>
+<footer id="visit">Hoendiep 214, 9745 EE Groningen · 050 559 0322 · info@kapsalonbarbierunique.nl<br>Unique Kapsalon &amp; Barbier — Hoogkerk, Groningen, Nederland.</footer>
+<div class="stickybar"><a href="tel:+31505590322">Bel nu · Call now</a><a href="https://wa.me/31630863067" target="_blank" rel="noopener" style="background:rgba(0,0,0,.18)">WhatsApp</a></div>
+<div class="badge">Created by PostKaro — Demo</div>
+</body></html>

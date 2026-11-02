@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zahnarztpraxis Vechelde — Lendita Xhemshiti</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1d1a17;background:#fdfbf8;line-height:1.6;padding-bottom:0}
+.topbar{position:absolute;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:18px 26px;color:#fff}
+.topbar .brand{font-family:Georgia,serif;font-size:20px;font-weight:700;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.topbar a{background:#fff;color:#1d1a17;text-decoration:none;padding:9px 18px;border-radius:6px;font-weight:600;font-size:15px}
+.hero{min-height:88vh;background:linear-gradient(rgba(0,0,0,.42),rgba(0,0,0,.58)),url('https://www.vechelde-zahnarzt.de/wp-content/uploads/2019/09/zahnarztpraxis-vechelde_praxis_01.jpg') center/cover;display:flex;align-items:flex-end;color:#fff}
+.hero-in{max-width:1060px;margin:0 auto;padding:90px 26px 64px;width:100%}
+.hero h1{font-family:Georgia,serif;font-size:54px;line-height:1.08;max-width:760px}
+.hero p{font-size:20px;opacity:.94;max-width:640px;margin-top:14px}
+.hero .cta-row{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+.hero .cta-row a{display:inline-block;padding:14px 30px;border-radius:6px;text-decoration:none;font-weight:700;font-size:16px}
+.btn-main{background:#1d4ed8;color:#fff}
+.btn-ghost{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.65)}
+.chip{display:inline-block;margin-top:22px;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.35);padding:8px 16px;border-radius:999px;font-size:15px;font-weight:600}
+.wrap{max-width:1060px;margin:0 auto;padding:0 26px}
+section{padding:64px 0 8px}
+h2{font-family:Georgia,serif;font-size:32px;margin-bottom:8px}
+.sub{color:#6b6259;margin-bottom:30px;font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{border:1px solid #e8e0d5;border-radius:10px;overflow:hidden;background:#fff}
+.card img{width:100%;height:210px;object-fit:cover;display:block}
+.card .b{padding:20px 22px}
+.card h3{font-size:19px;margin-bottom:6px}
+.card p{color:#5c554c;font-size:15px}
+.tcard{border:1px solid #e8e0d5;border-radius:10px;background:#fff;padding:26px 22px;text-align:center}
+.tcard .ini{width:56px;height:56px;border-radius:50%;background:#1d4ed8;color:#fff;font-family:Georgia,serif;font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.tcard h3{font-size:19px;margin-bottom:4px}
+.tcard p{color:#5c554c;font-size:15px}
+.step{border:1px solid #e8e0d5;border-radius:10px;background:#fff;padding:24px 22px}
+.step .n{font-family:Georgia,serif;font-size:30px;font-weight:700;color:#1d4ed8}
+.step h3{font-size:18px;margin:6px 0 4px}
+.step p{color:#5c554c;font-size:15px}
+.menu{max-width:700px}
+.row{display:flex;justify-content:space-between;gap:18px;border-bottom:1px solid #e8e0d5;padding:13px 0;font-size:17px}
+.row span:last-child{font-weight:600;white-space:nowrap}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gal figure{border-radius:10px;overflow:hidden;position:relative}
+.gal img{width:100%;height:230px;object-fit:cover;display:block}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px 10px;color:#fff;font-size:14px;font-weight:600;background:linear-gradient(transparent,rgba(0,0,0,.55))}
+.hours{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.hbox{background:#fff;border:1px solid #e8e0d5;border-radius:10px;padding:24px 26px}
+.hbox h3{font-size:18px;margin-bottom:10px}
+.hbox p,.hbox li{color:#5c554c;font-size:15px}
+.hbox ul{list-style:none}
+.hbox li{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed #eee5d8}
+.hbox li:last-child{border-bottom:none}
+.cta{background:#1d4ed8;color:#fff;text-align:center;padding:56px 26px;margin-top:64px}
+.cta h2{color:#fff}
+.cta a{display:inline-block;margin:8px 10px 0;padding:13px 28px;background:#fff;color:#1d1a17;text-decoration:none;border-radius:6px;font-weight:600}
+footer{padding:34px 26px 90px;text-align:center;color:#6b6259;font-size:14px}
+.badge{position:fixed;left:16px;bottom:16px;background:#111;color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:600;z-index:99;box-shadow:0 4px 18px rgba(0,0,0,.3)}
+.stickybar{display:none}
+@media(max-width:760px){.grid,.gal,.hours{grid-template-columns:1fr}.hero h1{font-size:36px}
+.stickybar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:98;background:#1d4ed8;color:#fff}
+.stickybar a{flex:1;text-align:center;color:#fff;text-decoration:none;font-weight:700;padding:15px 6px;font-size:16px}
+.badge{bottom:70px}footer{padding-bottom:110px}}
+</style></head><body>
+<div class="topbar"><div class="brand">Zahnarztpraxis Vechelde</div><a href="tel:+4953021037">Jetzt anrufen · Call now 05302 1037</a></div>
+<div class="hero"><div class="hero-in"><h1>Zahnarztpraxis Vechelde — Lendita Xhemshiti</h1><p>Moderne Zahnmedizin in entspannter Atmosphäre — Hildesheimer Straße 77, Vechelde. Modern dentistry in a relaxed setting, in the heart of Vechelde.</p>
+<div class="cta-row"><a class="btn-main" href="tel:+4953021037">Jetzt anrufen · Call now</a><a class="btn-ghost" href="#visit">Ihren Besuch planen · Plan your visit</a></div>
+<div class="chip">Kurze Wartezeiten · Short waiting times</div></div></div>
+<div class="wrap"><section><h2>Unsere Leistungen · Our Treatments</h2><p class="sub">Jede Behandlung als eigene Seite — klar und verständlich. Every treatment, clearly explained.</p><div class="grid">
+<div class="card"><img src="https://www.vechelde-zahnarzt.de/wp-content/uploads/2019/09/zahnarztpraxis-vechelde_praxis_02.jpg" alt="Implantate &amp; Zahnersatz · Implants &amp; Prosthetics"><div class="b"><h3>Implantate &amp; Zahnersatz · Implants &amp; Prosthetics</h3><p>Vollkeramischer Zahnersatz und moderner Zahnersatz — geplant im Detail. All-ceramic restorations, planned down to the detail.</p></div></div>
+<div class="card"><img src="https://www.vechelde-zahnarzt.de/wp-content/uploads/2019/09/zahnarztpraxis-vechelde_praxis_03.jpg" alt="Ästhetik &amp; Bleaching · Aesthetics &amp; Whitening"><div class="b"><h3>Ästhetik &amp; Bleaching · Aesthetics &amp; Whitening</h3><p>Ästhetische Füllungen und Bleaching für ein sicheres Lächeln. Aesthetic fillings and whitening for a confident smile.</p></div></div>
+<div class="card"><img src="https://www.vechelde-zahnarzt.de/wp-content/uploads/2019/09/zahnarztpraxis-vechelde_praxis_04.jpg" alt="Kinderzahnheilkunde · Children&#x27;s Dentistry"><div class="b"><h3>Kinderzahnheilkunde · Children&#x27;s Dentistry</h3><p>Geduldige Behandlung für kleine und große Patienten. Patient care for children and adults alike.</p></div></div>
+</div></section>
+<section><h2>Mehr Leistungen · More Treatments</h2><p class="sub">Ein umfassendes Spektrum, moderne Techniken. A full range, with modern techniques.</p><div class="grid">
+<div class="card"><img src="https://www.vechelde-zahnarzt.de/wp-content/uploads/2019/09/zahnarztpraxis-vechelde_praxis_05.jpg" alt="Prophylaxe · Prevention"><div class="b"><h3>Prophylaxe · Prevention</h3><p>Medizinische Prophylaxe und digitales Röntgen. Medical prevention and digital X-rays.</p></div></div>
+<div class="card"><img src="https://www.vechelde-zahnarzt.de/wp-content/uploads/2019/09/IMG_0226.jpg" alt="Wurzelbehandlung · Root Treatment"><div class="b"><h3>Wurzelbehandlung · Root Treatment</h3><p>Maschinelle Wurzelbehandlung mit Kofferdam-Technik. Machine root treatment with rubber-dam technique.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/3881814/pexels-photo-3881814.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Parodontologie &amp; CMD · Gum &amp; Jaw Care"><div class="b"><h3>Parodontologie &amp; CMD · Gum &amp; Jaw Care</h3><p>Parodontologie und Funktionsdiagnostik (CMD). Gum care and jaw-function diagnostics.</p></div></div>
+</div></section>
+<section><h2>Unser Team · Our Team</h2><p class="sub">Wir nehmen uns gern Zeit für Sie. We gladly take time for you.</p><div class="grid">
+<div class="tcard"><div class="ini">LX</div><h3>Lendita Xhemshiti</h3><p>Zahnärztin — Ihre Ansprechpartnerin in Vechelde. Your dentist in Vechelde.</p></div>
+<div class="tcard"><div class="ini">ND</div><h3>Nilgün Degen</h3><p>Zahnmedizinische Fachangestellte — Prophylaxe &amp; Assistenz. Prevention and chairside care.</p></div>
+<div class="tcard"><div class="ini">2.</div><h3>Zweite Meinung · Second Opinion</h3><p>Unsicher bei einem Behandlungskonzept? Wir schauen es uns an. Unsure about a treatment plan? Ask us for a second look.</p></div>
+</div></section>
+<section><h2>Preisübersicht · Fees Guide</h2><p class="sub">Vor der Behandlung transparent besprochen. Agreed with you before treatment.</p><div class="menu">
+<div class="row"><span>Erstberatung &amp; Kontrolle · First consultation &amp; check-up</span><span>€40</span></div>
+<div class="row"><span>Professionelle Zahnreinigung · Professional cleaning</span><span>€85</span></div>
+<div class="row"><span>Bleaching · Teeth whitening</span><span>€250</span></div>
+<div class="row"><span>Ästhetische Füllung · Aesthetic filling</span><span>ab €90</span></div>
+<div class="row"><span>Vollkeramik-Krone · All-ceramic crown</span><span>ab €690</span></div>
+</div>
+<p style="color:#8a8175;font-size:13px;margin-top:12px">Demo-Preise zur Veranschaulichung — die genaue Gebühr wird vor der Behandlung mit Ihnen besprochen. · Demo rates for illustration — your exact fee is confirmed before treatment.</p>
+</section>
+<section><h2>Ein Blick in die Praxis · Inside the Practice</h2><p class="sub">Unsere Räume in der Hildesheimer Straße. Our rooms on Hildesheimer Straße.</p><div class="gal">
+<figure><img src="https://www.vechelde-zahnarzt.de/wp-content/uploads/2019/09/zahnarztpraxis-vechelde_praxis_01.jpg" alt="Unsere Praxis · Our practice"><figcaption>Unsere Praxis · Our practice</figcaption></figure>
+<figure><img src="https://www.vechelde-zahnarzt.de/wp-content/uploads/2019/09/zahnarztpraxis-vechelde_praxis_02.jpg" alt="Behandlungszimmer · Treatment room"><figcaption>Behandlungszimmer · Treatment room</figcaption></figure>
+<figure><img src="https://www.vechelde-zahnarzt.de/wp-content/uploads/2019/09/zahnarztpraxis-vechelde_praxis_03.jpg" alt="Moderne Ausstattung · Modern equipment"><figcaption>Moderne Ausstattung · Modern equipment</figcaption></figure>
+<figure><img src="https://www.vechelde-zahnarzt.de/wp-content/uploads/2019/09/IMG_0226.jpg" alt="Willkommen in Vechelde · Welcome"><figcaption>Willkommen in Vechelde · Welcome</figcaption></figure>
+</div></section>
+<section><h2>Ihr Besuch · Your Visit</h2><p class="sub">Rufen Sie an — wir finden Ihren Termin. Call us and we will find your time.</p><div class="hours"><div class="hbox"><h3>Termine · Appointments</h3><p>Termine nach Vereinbarung<br>Appointments by arrangement<br>Telefon: 05302 1037<br>Kurze Wartezeiten</p></div><div class="hbox"><h3>Kontakt · Contact</h3><p>Hildesheimer Str. 77<br>38159 Vechelde<br>05302 1037<br>praxis@vechelde-zahnarzt.de</p></div></div></section></div>
+<div class="cta"><h2>Besuchen Sie uns · Visit us</h2><p style="margin:10px 0 18px">Hildesheimer Str. 77, 38159 Vechelde · 05302 1037 · praxis@vechelde-zahnarzt.de</p>
+<a href="tel:+4953021037">Jetzt anrufen · Call now 05302 1037</a><a href="mailto:praxis@vechelde-zahnarzt.de" style="display:inline-block;margin:8px 10px 0;padding:13px 28px;background:transparent;color:#fff;border:1px solid #fff;text-decoration:none;border-radius:6px;font-weight:600">E-Mail schreiben · Email us</a></div>
+<footer id="visit">Hildesheimer Str. 77, 38159 Vechelde · 05302 1037 · praxis@vechelde-zahnarzt.de<br>Zahnarztpraxis Vechelde — Lendita Xhemshiti, Vechelde, Deutschland.</footer>
+<div class="stickybar"><a href="tel:+4953021037">Jetzt anrufen · Call now — 05302 1037</a></div>
+<div class="badge">Created by PostKaro — Demo</div>
+</body></html>
