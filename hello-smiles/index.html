@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hello Smiles — Your Local Dentist in Hawthorne, Brisbane</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1d1a17;background:#fdfbf8;line-height:1.6;padding-bottom:0}
+.topbar{position:absolute;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:18px 26px;color:#fff}
+.topbar .brand{font-family:Georgia,serif;font-size:20px;font-weight:700;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.topbar a{background:#fff;color:#1d1a17;text-decoration:none;padding:9px 18px;border-radius:6px;font-weight:600;font-size:15px}
+.hero{min-height:88vh;background:linear-gradient(rgba(0,0,0,.42),rgba(0,0,0,.58)),url('https://images.pexels.com/photos/5622001/pexels-photo-5622001.jpeg?auto=compress&cs=tinysrgb&w=1200') center/cover;display:flex;align-items:flex-end;color:#fff}
+.hero-in{max-width:1060px;margin:0 auto;padding:90px 26px 64px;width:100%}
+.hero h1{font-family:Georgia,serif;font-size:54px;line-height:1.08;max-width:760px}
+.hero p{font-size:20px;opacity:.94;max-width:640px;margin-top:14px}
+.hero .cta-row{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+.hero .cta-row a{display:inline-block;padding:14px 30px;border-radius:6px;text-decoration:none;font-weight:700;font-size:16px}
+.btn-main{background:#0e7490;color:#fff}
+.btn-ghost{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.65)}
+.chip{display:inline-block;margin-top:22px;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.35);padding:8px 16px;border-radius:999px;font-size:15px;font-weight:600}
+.wrap{max-width:1060px;margin:0 auto;padding:0 26px}
+section{padding:64px 0 8px}
+h2{font-family:Georgia,serif;font-size:32px;margin-bottom:8px}
+.sub{color:#6b6259;margin-bottom:30px;font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{border:1px solid #e8e0d5;border-radius:10px;overflow:hidden;background:#fff}
+.card img{width:100%;height:210px;object-fit:cover;display:block}
+.card .b{padding:20px 22px}
+.card h3{font-size:19px;margin-bottom:6px}
+.card p{color:#5c554c;font-size:15px}
+.tcard{border:1px solid #e8e0d5;border-radius:10px;background:#fff;padding:26px 22px;text-align:center}
+.tcard .ini{width:56px;height:56px;border-radius:50%;background:#0e7490;color:#fff;font-family:Georgia,serif;font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.tcard h3{font-size:19px;margin-bottom:4px}
+.tcard p{color:#5c554c;font-size:15px}
+.step{border:1px solid #e8e0d5;border-radius:10px;background:#fff;padding:24px 22px}
+.step .n{font-family:Georgia,serif;font-size:30px;font-weight:700;color:#0e7490}
+.step h3{font-size:18px;margin:6px 0 4px}
+.step p{color:#5c554c;font-size:15px}
+.menu{max-width:700px}
+.row{display:flex;justify-content:space-between;gap:18px;border-bottom:1px solid #e8e0d5;padding:13px 0;font-size:17px}
+.row span:last-child{font-weight:600;white-space:nowrap}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gal figure{border-radius:10px;overflow:hidden;position:relative}
+.gal img{width:100%;height:230px;object-fit:cover;display:block}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px 10px;color:#fff;font-size:14px;font-weight:600;background:linear-gradient(transparent,rgba(0,0,0,.55))}
+.rev{background:#fff;border:1px solid #e8e0d5;border-radius:10px;padding:26px}
+.rev .stars{color:#e8a33d;font-size:19px;letter-spacing:2px}
+.rev p{font-size:16px;color:#3d382f;margin-top:8px}
+.rev .who{margin-top:10px;font-size:14px;color:#6b6259;font-weight:600}
+.hours{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.hbox{background:#fff;border:1px solid #e8e0d5;border-radius:10px;padding:24px 26px}
+.hbox h3{font-size:18px;margin-bottom:10px}
+.hbox p,.hbox li{color:#5c554c;font-size:15px}
+.hbox ul{list-style:none}
+.hbox li{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed #eee5d8}
+.hbox li:last-child{border-bottom:none}
+.cta{background:#0e7490;color:#fff;text-align:center;padding:56px 26px;margin-top:64px}
+.cta h2{color:#fff}
+.cta a{display:inline-block;margin:8px 10px 0;padding:13px 28px;background:#fff;color:#1d1a17;text-decoration:none;border-radius:6px;font-weight:600}
+footer{padding:34px 26px 90px;text-align:center;color:#6b6259;font-size:14px}
+.badge{position:fixed;left:16px;bottom:16px;background:#111;color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:600;z-index:99;box-shadow:0 4px 18px rgba(0,0,0,.3)}
+.stickybar{display:none}
+@media(max-width:760px){.grid,.gal,.hours{grid-template-columns:1fr}.hero h1{font-size:36px}
+.stickybar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:98;background:#0e7490;color:#fff}
+.stickybar a{flex:1;text-align:center;color:#fff;text-decoration:none;font-weight:700;padding:15px 6px;font-size:16px}
+.badge{bottom:70px}footer{padding-bottom:110px}}
+</style></head><body>
+<div class="topbar"><div class="brand">Hello Smiles</div><a href="tel:+61733956944">Call now (07) 3395 6944</a></div>
+<div class="hero"><div class="hero-in"><h1>Hello Smiles — Your Local Dentist in Hawthorne, Brisbane</h1><p>Arrive relaxed, leave with the confidence to smile — friendly family dentistry on Hawthorne Road, with written treatment options and care for every age.</p>
+<div class="cta-row"><a class="btn-main" href="tel:+61733956944">Call now</a><a class="btn-ghost" href="#visit">Plan your visit</a></div>
+<div class="chip">Family dentistry · Late night Wednesdays till 8 PM</div></div></div>
+<div class="wrap"><section><h2>What we do</h2><p class="sub">High-quality dentistry with excellent service and exceptional care.</p><div class="grid">
+<div class="card"><img src="https://images.pexels.com/photos/3884093/pexels-photo-3884093.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="General Dentistry"><div class="b"><h3>General Dentistry</h3><p>Check-ups, fillings, root canal therapy and oral hygiene — prevention first, for long-term oral health.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/3845807/pexels-photo-3845807.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Family Dental"><div class="b"><h3>Family Dental</h3><p>Personalised, gentle care the whole family is comfortable with — we take time to get to know you.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/3881305/pexels-photo-3881305.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Cosmetic Dentistry"><div class="b"><h3>Cosmetic Dentistry</h3><p>A comprehensive range of cosmetic treatments, planned around the smile you have always wanted.</p></div></div>
+</div></section>
+<section><h2>Care when you need it</h2><p class="sub">Two dentists, one friendly Hawthorne practice.</p><div class="grid">
+<div class="card"><img src="https://www.hellosmiles.com.au/assets/images/home/dr-sara-tabrizi.jpeg" alt="Meet Dr Sara Tabrizi"><div class="b"><h3>Meet Dr Sara Tabrizi</h3><p>Griffith-trained and proud to be a dentist — Sara&#x27;s goal: watch patients arrive relaxed and leave confident to smile.</p></div></div>
+<div class="card"><img src="https://www.hellosmiles.com.au/assets/images/home/dr-tristan-taylor-profile.jpg" alt="Meet Dr Tristan Taylor"><div class="b"><h3>Meet Dr Tristan Taylor</h3><p>A wealth of experience and a friendly personality — Tristan trained alongside Dr Sara at Griffith University.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/3845745/pexels-photo-3845745.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Emergency Dentistry"><div class="b"><h3>Emergency Dentistry</h3><p>Accidents and toothaches happen — call the surgery and we will provide the care you need, when you need it.</p></div></div>
+</div></section>
+<section><h2>Advanced care, clearly explained</h2><p class="sub">No surprises — options and costs in writing before treatment.</p><div class="grid">
+<div class="card"><img src="https://images.pexels.com/photos/3881814/pexels-photo-3881814.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Dental Implants"><div class="b"><h3>Dental Implants</h3><p>Replace a missing tooth, stabilise a denture, or bridge a gap — planned with written options up front.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/5622001/pexels-photo-5622001.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Crowns &amp; Bridges"><div class="b"><h3>Crowns &amp; Bridges</h3><p>Strong, natural-looking restorations that protect your teeth and your smile.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/3845807/pexels-photo-3845807.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Written Treatment Options"><div class="b"><h3>Written Treatment Options</h3><p>We listen first — then your options in writing, so you decide with everything in front of you.</p></div></div>
+</div></section>
+<section><h2>Treatments &amp; fees</h2><p class="sub">A guide to common treatments.</p><div class="menu">
+<div class="row"><span>Consultation</span><span>$65</span></div>
+<div class="row"><span>Check-up &amp; clean</span><span>$189</span></div>
+<div class="row"><span>Digital X-ray</span><span>$45</span></div>
+<div class="row"><span>Tooth-coloured filling</span><span>from $180</span></div>
+<div class="row"><span>Teeth whitening</span><span>$399</span></div>
+<div class="row"><span>Crown</span><span>from $1,400</span></div>
+<div class="row"><span>Emergency appointment</span><span>$85</span></div>
+</div>
+<p style="color:#8a8175;font-size:13px;margin-top:12px">Demo rates shown as a guide only — your dentist confirms the exact fee for your treatment before anything begins.</p>
+</section>
+<section><h2>Inside Hello Smiles</h2><p class="sub">Midway along Hawthorne Road, opposite Hawthorne Park — parking on site.</p><div class="gal">
+<figure><img src="https://images.pexels.com/photos/5622001/pexels-photo-5622001.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Modern treatment rooms"><figcaption>Modern treatment rooms</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/3845807/pexels-photo-3845807.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Gentle family care"><figcaption>Gentle family care</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/3881305/pexels-photo-3881305.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Smile transformations"><figcaption>Smile transformations</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/3884093/pexels-photo-3884093.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Care for every age"><figcaption>Care for every age</figcaption></figure>
+</div></section>
+<section><h2>Visit us</h2><p class="sub">To make an appointment, call the surgery.</p><div class="hours"><div class="hbox"><h3>Surgery open hours</h3><ul><li><span>Monday</span><span>7:30 AM – 5:30 PM</span></li><li><span>Tuesday</span><span>7:30 AM – 5:30 PM</span></li><li><span>Wednesday</span><span>7:30 AM – 8:00 PM</span></li><li><span>Thursday</span><span>7:30 AM – 5:30 PM</span></li><li><span>Friday</span><span>7:30 AM – 4:30 PM</span></li><li><span>Saturday</span><span>By appointment</span></li><li><span>Sunday</span><span>Closed</span></li></ul></div><div class="hbox"><h3>Contact</h3><p>196 Hawthorne Road<br>Hawthorne, Brisbane QLD 4171<br>(07) 3395 6944<br>info@hellosmiles.com.au</p></div></div></section></div>
+<div class="cta"><h2>Visit us or get in touch</h2><p style="margin:10px 0 18px">196 Hawthorne Road, Hawthorne QLD 4171 · (07) 3395 6944 · info@hellosmiles.com.au</p>
+<a href="tel:+61733956944">Call now (07) 3395 6944</a><a href="mailto:info@hellosmiles.com.au" style="display:inline-block;margin:8px 10px 0;padding:13px 28px;background:transparent;color:#fff;border:1px solid #fff;text-decoration:none;border-radius:6px;font-weight:600">Email us</a></div>
+<footer id="visit">196 Hawthorne Road, Hawthorne QLD 4171 · (07) 3395 6944 · info@hellosmiles.com.au<br>Friendly local family dentistry — Hawthorne, Brisbane.</footer>
+<div class="stickybar"><a href="tel:+61733956944">Call now — (07) 3395 6944</a></div>
+<div class="badge">Created by PostKaro — Demo</div>
+</body></html>

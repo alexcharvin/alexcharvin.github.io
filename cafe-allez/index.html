@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Café Allez! — Henri, the Mobile Coffee Van</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1d1a17;background:#fdfbf8;line-height:1.6;padding-bottom:0}
+.topbar{position:absolute;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:18px 26px;color:#fff}
+.topbar .brand{font-family:Georgia,serif;font-size:20px;font-weight:700;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.topbar a{background:#fff;color:#1d1a17;text-decoration:none;padding:9px 18px;border-radius:6px;font-weight:600;font-size:15px}
+.hero{min-height:88vh;background:linear-gradient(rgba(0,0,0,.42),rgba(0,0,0,.58)),url('https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=1200') center/cover;display:flex;align-items:flex-end;color:#fff}
+.hero-in{max-width:1060px;margin:0 auto;padding:90px 26px 64px;width:100%}
+.hero h1{font-family:Georgia,serif;font-size:54px;line-height:1.08;max-width:760px}
+.hero p{font-size:20px;opacity:.94;max-width:640px;margin-top:14px}
+.hero .cta-row{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+.hero .cta-row a{display:inline-block;padding:14px 30px;border-radius:6px;text-decoration:none;font-weight:700;font-size:16px}
+.btn-main{background:#7c2d12;color:#fff}
+.btn-ghost{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.65)}
+.chip{display:inline-block;margin-top:22px;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.35);padding:8px 16px;border-radius:999px;font-size:15px;font-weight:600}
+.wrap{max-width:1060px;margin:0 auto;padding:0 26px}
+section{padding:64px 0 8px}
+h2{font-family:Georgia,serif;font-size:32px;margin-bottom:8px}
+.sub{color:#6b6259;margin-bottom:30px;font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{border:1px solid #e8e0d5;border-radius:10px;overflow:hidden;background:#fff}
+.card img{width:100%;height:210px;object-fit:cover;display:block}
+.card .b{padding:20px 22px}
+.card h3{font-size:19px;margin-bottom:6px}
+.card p{color:#5c554c;font-size:15px}
+.tcard{border:1px solid #e8e0d5;border-radius:10px;background:#fff;padding:26px 22px;text-align:center}
+.tcard .ini{width:56px;height:56px;border-radius:50%;background:#7c2d12;color:#fff;font-family:Georgia,serif;font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.tcard h3{font-size:19px;margin-bottom:4px}
+.tcard p{color:#5c554c;font-size:15px}
+.step{border:1px solid #e8e0d5;border-radius:10px;background:#fff;padding:24px 22px}
+.step .n{font-family:Georgia,serif;font-size:30px;font-weight:700;color:#7c2d12}
+.step h3{font-size:18px;margin:6px 0 4px}
+.step p{color:#5c554c;font-size:15px}
+.menu{max-width:700px}
+.row{display:flex;justify-content:space-between;gap:18px;border-bottom:1px solid #e8e0d5;padding:13px 0;font-size:17px}
+.row span:last-child{font-weight:600;white-space:nowrap}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gal figure{border-radius:10px;overflow:hidden;position:relative}
+.gal img{width:100%;height:230px;object-fit:cover;display:block}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px 10px;color:#fff;font-size:14px;font-weight:600;background:linear-gradient(transparent,rgba(0,0,0,.55))}
+.rev{background:#fff;border:1px solid #e8e0d5;border-radius:10px;padding:26px}
+.rev .stars{color:#e8a33d;font-size:19px;letter-spacing:2px}
+.rev p{font-size:16px;color:#3d382f;margin-top:8px}
+.rev .who{margin-top:10px;font-size:14px;color:#6b6259;font-weight:600}
+.hours{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.hbox{background:#fff;border:1px solid #e8e0d5;border-radius:10px;padding:24px 26px}
+.hbox h3{font-size:18px;margin-bottom:10px}
+.hbox p,.hbox li{color:#5c554c;font-size:15px}
+.hbox ul{list-style:none}
+.hbox li{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed #eee5d8}
+.hbox li:last-child{border-bottom:none}
+.cta{background:#7c2d12;color:#fff;text-align:center;padding:56px 26px;margin-top:64px}
+.cta h2{color:#fff}
+.cta a{display:inline-block;margin:8px 10px 0;padding:13px 28px;background:#fff;color:#1d1a17;text-decoration:none;border-radius:6px;font-weight:600}
+footer{padding:34px 26px 90px;text-align:center;color:#6b6259;font-size:14px}
+.badge{position:fixed;left:16px;bottom:16px;background:#111;color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:600;z-index:99;box-shadow:0 4px 18px rgba(0,0,0,.3)}
+.stickybar{display:none}
+@media(max-width:760px){.grid,.gal,.hours{grid-template-columns:1fr}.hero h1{font-size:36px}
+.stickybar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:98;background:#7c2d12;color:#fff}
+.stickybar a{flex:1;text-align:center;color:#fff;text-decoration:none;font-weight:700;padding:15px 6px;font-size:16px}
+.badge{bottom:70px}footer{padding-bottom:110px}}
+</style></head><body>
+<div class="topbar"><div class="brand">Café Allez!</div><a href="tel:+447786854794">Call now 0778 685 4794</a></div>
+<div class="hero"><div class="hero-in"><h1>Café Allez! — Henri, the Mobile Coffee Van</h1><p>A premium coffee shop on wheels — our classic Citroën HY van, Henri, brings barista coffee and vintage style to your event, wedding or workplace.</p>
+<div class="cta-row"><a class="btn-main" href="tel:+447786854794">Call now</a><a class="btn-ghost" href="#visit">Plan your visit</a></div>
+<div class="chip">Based in Leicestershire · Most of the UK in reach</div></div></div>
+<div class="wrap"><section><h2>Where Henri goes</h2><p class="sub">If there is a gathering, Henri can be there.</p><div class="grid">
+<div class="card"><img src="https://images.pexels.com/photos/683039/pexels-photo-683039.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Weddings"><div class="b"><h3>Weddings</h3><p>Henri serving your guests in style — a coffee bar your wedding photos will love as much as your guests do.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/1855218/pexels-photo-1855218.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Events &amp; Festivals"><div class="b"><h3>Events &amp; Festivals</h3><p>From village fêtes to full festivals, we bring the café to where your crowd already is.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Workplace Visits"><div class="b"><h3>Workplace Visits</h3><p>Treat the team — regular workplace stops and one-off bookings, with our legendary service included.</p></div></div>
+</div></section>
+<section><h2>Booking is simple</h2><p class="sub">Three steps between you and great coffee at your event.</p><div class="grid">
+<div class="step"><div class="n">1</div><h3>Tell us about your event</h3><p>Call or email with your date and details — we respond within 24 hours.</p></div>
+<div class="step"><div class="n">2</div><h3>We bring Henri to you</h3><p>Our vintage Citroën HY arrives set up as a complete premium coffee shop.</p></div>
+<div class="step"><div class="n">3</div><h3>Coffee, served in style</h3><p>Barista coffee and a warm welcome, poured all day for your guests.</p></div>
+</div></section>
+<section><h2>From the van</h2><p class="sub">A proper coffee menu, wherever we park.</p><div class="menu">
+<div class="row"><span>Espresso</span><span>£2.80</span></div>
+<div class="row"><span>Flat white</span><span>£3.40</span></div>
+<div class="row"><span>Cappuccino</span><span>£3.40</span></div>
+<div class="row"><span>Caffè latte</span><span>£3.60</span></div>
+<div class="row"><span>Hot chocolate</span><span>£3.50</span></div>
+<div class="row"><span>Specialty teas</span><span>£2.60</span></div>
+</div>
+<p style="color:#8a8175;font-size:13px;margin-top:12px">Demo prices shown for illustration — event packages are quoted per booking.</p>
+</section>
+<section><h2>The Café Allez! way</h2><p class="sub">Premium coffee, vintage van, legendary service.</p><div class="gal">
+<figure><img src="https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Poured by our baristas"><figcaption>Poured by our baristas</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/1307698/pexels-photo-1307698.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="The café experience, anywhere"><figcaption>The café experience, anywhere</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/851555/pexels-photo-851555.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Beans, fresh ground"><figcaption>Beans, fresh ground</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/683039/pexels-photo-683039.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Coffee worth gathering for"><figcaption>Coffee worth gathering for</figcaption></figure>
+</div></section>
+<section><h2>Book Henri</h2><p class="sub">We respond within 24 hours.</p><div class="hours"><div class="hbox"><h3>Good to know</h3><p>Classic Citroën HY van — Henri<br>Based in Leicestershire<br>Weddings · events · workplaces</p></div><div class="hbox"><h3>Contact</h3><p>0778 685 4794<br>mark@cafeallez.uk<br>claire@cafeallez.uk</p></div></div></section></div>
+<div class="cta"><h2>Visit us or get in touch</h2><p style="margin:10px 0 18px">Leicestershire · 0778 685 4794 · mark@cafeallez.uk</p>
+<a href="tel:+447786854794">Call now 0778 685 4794</a><a href="mailto:mark@cafeallez.uk" style="display:inline-block;margin:8px 10px 0;padding:13px 28px;background:transparent;color:#fff;border:1px solid #fff;text-decoration:none;border-radius:6px;font-weight:600">Email us</a></div>
+<footer id="visit">Leicestershire · 0778 685 4794 · mark@cafeallez.uk<br>Mobile coffee for events, weddings and workplaces — Café Allez!</footer>
+<div class="stickybar"><a href="tel:+447786854794">Call now — 0778 685 4794</a></div>
+<div class="badge">Created by PostKaro — Demo</div>
+</body></html>
