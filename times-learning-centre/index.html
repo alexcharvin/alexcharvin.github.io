@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Times Learning Centre — Newmarket</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1d1a17;background:#fdfbf8;line-height:1.6;padding-bottom:0}
+.topbar{position:absolute;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:18px 26px;color:#fff}
+.topbar .brand{font-family:Georgia,serif;font-size:20px;font-weight:700;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.topbar a{background:#fff;color:#1d1a17;text-decoration:none;padding:9px 18px;border-radius:6px;font-weight:600;font-size:15px}
+.hero{min-height:88vh;background:linear-gradient(rgba(0,0,0,.42),rgba(0,0,0,.58)),url('https://images.pexels.com/photos/5676738/pexels-photo-5676738.jpeg?auto=compress&cs=tinysrgb&w=1200') center/cover;display:flex;align-items:flex-end;color:#fff}
+.hero-in{max-width:1060px;margin:0 auto;padding:90px 26px 64px;width:100%}
+.hero h1{font-family:Georgia,serif;font-size:54px;line-height:1.08;max-width:760px}
+.hero p{font-size:20px;opacity:.94;max-width:640px;margin-top:14px}
+.hero .cta-row{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+.hero .cta-row a{display:inline-block;padding:14px 30px;border-radius:6px;text-decoration:none;font-weight:700;font-size:16px}
+.btn-main{background:#1d4e89;color:#fff}
+.btn-ghost{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.65)}
+.chip{display:inline-block;margin-top:22px;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.35);padding:8px 16px;border-radius:999px;font-size:15px;font-weight:600}
+.wrap{max-width:1060px;margin:0 auto;padding:0 26px}
+section{padding:64px 0 8px}
+h2{font-family:Georgia,serif;font-size:32px;margin-bottom:8px}
+.sub{color:#6b6259;margin-bottom:30px;font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{border:1px solid #e8e0d5;border-radius:10px;overflow:hidden;background:#fff}
+.card img{width:100%;height:210px;object-fit:cover;display:block}
+.card .b{padding:20px 22px}
+.card h3{font-size:19px;margin-bottom:6px}
+.card p{color:#5c554c;font-size:15px}
+.tcard{border:1px solid #e8e0d5;border-radius:10px;background:#fff;padding:26px 22px;text-align:center}
+.tcard .ini{width:56px;height:56px;border-radius:50%;background:#1d4e89;color:#fff;font-family:Georgia,serif;font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.tcard h3{font-size:19px;margin-bottom:4px}
+.tcard p{color:#5c554c;font-size:15px}
+.step{border:1px solid #e8e0d5;border-radius:10px;background:#fff;padding:24px 22px}
+.step .n{font-family:Georgia,serif;font-size:30px;font-weight:700;color:#1d4e89}
+.step h3{font-size:18px;margin:6px 0 4px}
+.step p{color:#5c554c;font-size:15px}
+.menu{max-width:700px}
+.row{display:flex;justify-content:space-between;gap:18px;border-bottom:1px solid #e8e0d5;padding:13px 0;font-size:17px}
+.row span:last-child{font-weight:600;white-space:nowrap}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gal figure{border-radius:10px;overflow:hidden;position:relative}
+.gal img{width:100%;height:230px;object-fit:cover;display:block}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px 10px;color:#fff;font-size:14px;font-weight:600;background:linear-gradient(transparent,rgba(0,0,0,.55))}
+.rev{background:#fff;border:1px solid #e8e0d5;border-radius:10px;padding:26px}
+.rev .stars{color:#e8a33d;font-size:19px;letter-spacing:2px}
+.rev p{font-size:16px;color:#3d382f;margin-top:8px}
+.rev .who{margin-top:10px;font-size:14px;color:#6b6259;font-weight:600}
+.hours{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.hbox{background:#fff;border:1px solid #e8e0d5;border-radius:10px;padding:24px 26px}
+.hbox h3{font-size:18px;margin-bottom:10px}
+.hbox p,.hbox li{color:#5c554c;font-size:15px}
+.hbox ul{list-style:none}
+.hbox li{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed #eee5d8}
+.hbox li:last-child{border-bottom:none}
+.cta{background:#1d4e89;color:#fff;text-align:center;padding:56px 26px;margin-top:64px}
+.cta h2{color:#fff}
+.cta a{display:inline-block;margin:8px 10px 0;padding:13px 28px;background:#fff;color:#1d1a17;text-decoration:none;border-radius:6px;font-weight:600}
+footer{padding:34px 26px 90px;text-align:center;color:#6b6259;font-size:14px}
+.badge{position:fixed;left:16px;bottom:16px;background:#111;color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:600;z-index:99;box-shadow:0 4px 18px rgba(0,0,0,.3)}
+.stickybar{display:none}
+@media(max-width:760px){.grid,.gal,.hours{grid-template-columns:1fr}.hero h1{font-size:36px}
+.stickybar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:98;background:#1d4e89;color:#fff}
+.stickybar a{flex:1;text-align:center;color:#fff;text-decoration:none;font-weight:700;padding:15px 6px;font-size:16px}
+.badge{bottom:70px}footer{padding-bottom:110px}}
+</style></head><body>
+<div class="topbar"><div class="brand">Times Learning Centre</div><a href="tel:+19057580312">Call now (905) 758-0312</a></div>
+<div class="hero"><div class="hero-in"><h1>Times Learning Centre — Newmarket</h1><p>Elementary and high-school tutoring in Math, English and Science — small groups, personal attention, and 20 years of motivating students to achieve their best potential.</p>
+<div class="cta-row"><a class="btn-main" href="tel:+19057580312">Call now</a><a class="btn-ghost" href="#visit">Plan your visit</a></div>
+<div class="chip">20 years · Grades 1–12 · Small groups</div></div></div>
+<div class="wrap"><section><h2>What we teach</h2><p class="sub">Expert tutoring from experienced, dedicated teachers.</p><div class="grid">
+<div class="card"><img src="https://images.pexels.com/photos/5306439/pexels-photo-5306439.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Math Tutoring — Grades 1–12"><div class="b"><h3>Math Tutoring — Grades 1–12</h3><p>Clear explanations, problems worked step by step, and fundamentals practised until they stick — our students do math ahead of their grade levels.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/6936021/pexels-photo-6936021.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="English Tutoring"><div class="b"><h3>English Tutoring</h3><p>Reading and writing skills built session by session, in person or online, at your child&#x27;s own pace.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/5676673/pexels-photo-5676673.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Science Tutoring"><div class="b"><h3>Science Tutoring</h3><p>High-school Biology, Chemistry and Physics made easier with practical examples and interactive lessons — in-person sessions.</p></div></div>
+</div></section>
+<section><h2>Why families choose Times</h2><p class="sub">Excellence in education is not just a goal — it is our standard.</p><div class="grid">
+<div class="tcard"><div class="ini">20</div><h3>20 Years of Teaching</h3><p>Two decades of top-notch tutoring in Newmarket — families stay with us from grade 1 through high school.</p></div>
+<div class="tcard"><div class="ini">1:1</div><h3>Small Groups, Personal Plans</h3><p>Individual learning experiences inside small groups — students progress at their own pace without feeling rushed.</p></div>
+<div class="tcard"><div class="ini">12</div><h3>Year-Round Program</h3><p>Our program runs all year, with practice worksheets and teacher assistance at every step.</p></div>
+</div></section>
+<section><h2>How it works</h2><p class="sub">No hidden fees or contracts — enrol without long-term commitments.</p><div class="grid">
+<div class="step"><div class="n">1</div><h3>Call or send an enquiry</h3><p>Tell us your child&#x27;s grade, subjects and goals — we will contact you shortly to discuss.</p></div>
+<div class="step"><div class="n">2</div><h3>A plan for your child</h3><p>Personalized lessons matched to how your child learns, in a focused small-group setting.</p></div>
+<div class="step"><div class="n">3</div><h3>Progress you can see</h3><p>Confidence grows, grades follow — with teachers who know your child by name.</p></div>
+</div></section>
+<section><h2>What parents say</h2><p class="sub">Real words from the centre&#x27;s own website.</p><div class="grid">
+<div class="rev"><div class="stars">★★★★★</div><p>&ldquo;Times Learning Centre has helped my kid to get detailed knowledge and understanding of difficult subjects like Algebra and Geometry. Ms Goldie Chopra is the most recommended and helpful teacher. With her guidance and support my 8th grader gained a lot of confidence and has improved his math skills so as to get a spot in the highly competitive AP program. I would like to highly recommend Times Learning Centre for its great teacher and teaching techniques.&rdquo;</p><div class="who">Vishakha Benodekar — Newmarket parent, via the centre&#x27;s website</div></div>
+<div class="rev"><div class="stars">★★★★★</div><p>&ldquo;Miss Goldie is an amazing math teacher! I am very happy with her teaching methods, patience, and dedication to her students. My daughter has made incredible progress and has developed a greater interest in math. Miss Goldie&#x27;s expertise and commitment are truly outstanding. If anyone is looking for a great math teacher, I highly recommend her classes. Thank you so much, Miss Goldie, for your hard work and support — I truly appreciate it! Wishing you continued success!&rdquo;</p><div class="who">Parisa Forouzan — Newmarket parent, via the centre&#x27;s website</div></div>
+</div></section>
+<section><h2>Inside Times</h2><p class="sub">A focused, individualized learning environment.</p><div class="gal">
+<figure><img src="https://images.pexels.com/photos/5676738/pexels-photo-5676738.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Small-group lessons"><figcaption>Small-group lessons</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/5306439/pexels-photo-5306439.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Focused practice"><figcaption>Focused practice</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/6936021/pexels-photo-6936021.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Step-by-step teaching"><figcaption>Step-by-step teaching</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/5676673/pexels-photo-5676673.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Learning together"><figcaption>Learning together</figcaption></figure>
+</div></section>
+<section><h2>Visit us</h2><p class="sub">Call to discuss your child&#x27;s needs and goals.</p><div class="hours"><div class="hbox"><h3>Sessions</h3><p>In-person in Newmarket<br>Online options for English &amp; Math<br>Programs run year-round</p></div><div class="hbox"><h3>Contact</h3><p>312 Woodsping Ave<br>Newmarket, ON L3X 3B1<br>(905) 758-0312<br>timeslearningcentreinc@gmail.com</p></div></div></section></div>
+<div class="cta"><h2>Visit us or get in touch</h2><p style="margin:10px 0 18px">312 Woodsping Ave, Newmarket ON L3X 3B1 · (905) 758-0312 · timeslearningcentreinc@gmail.com</p>
+<a href="tel:+19057580312">Call now (905) 758-0312</a><a href="mailto:timeslearningcentreinc@gmail.com" style="display:inline-block;margin:8px 10px 0;padding:13px 28px;background:transparent;color:#fff;border:1px solid #fff;text-decoration:none;border-radius:6px;font-weight:600">Email us</a></div>
+<footer id="visit">312 Woodsping Ave, Newmarket ON L3X 3B1 · (905) 758-0312 · timeslearningcentreinc@gmail.com<br>Math, English &amp; Science tutoring, Grades 1–12 — Newmarket.</footer>
+<div class="stickybar"><a href="tel:+19057580312">Call now — (905) 758-0312</a></div>
+<div class="badge">Created by PostKaro — Demo</div>
+</body></html>

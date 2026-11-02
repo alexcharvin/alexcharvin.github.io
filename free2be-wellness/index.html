@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Waterdown Fitness Club — Real Strength. Real Results.</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1d1a17;background:#fdfbf8;line-height:1.6;padding-bottom:0}
+.topbar{position:absolute;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:18px 26px;color:#fff}
+.topbar .brand{font-family:Georgia,serif;font-size:20px;font-weight:700;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.topbar a{background:#fff;color:#1d1a17;text-decoration:none;padding:9px 18px;border-radius:6px;font-weight:600;font-size:15px}
+.hero{min-height:88vh;background:linear-gradient(rgba(0,0,0,.42),rgba(0,0,0,.58)),url('https://exdfbiusxt9.exactdn.com/wp-content/uploads/2026/03/free2be_wellness_women_group_training.webp?strip=all') center/cover;display:flex;align-items:flex-end;color:#fff}
+.hero-in{max-width:1060px;margin:0 auto;padding:90px 26px 64px;width:100%}
+.hero h1{font-family:Georgia,serif;font-size:54px;line-height:1.08;max-width:760px}
+.hero p{font-size:20px;opacity:.94;max-width:640px;margin-top:14px}
+.hero .cta-row{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+.hero .cta-row a{display:inline-block;padding:14px 30px;border-radius:6px;text-decoration:none;font-weight:700;font-size:16px}
+.btn-main{background:#7c3aed;color:#fff}
+.btn-ghost{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.65)}
+.chip{display:inline-block;margin-top:22px;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.35);padding:8px 16px;border-radius:999px;font-size:15px;font-weight:600}
+.wrap{max-width:1060px;margin:0 auto;padding:0 26px}
+section{padding:64px 0 8px}
+h2{font-family:Georgia,serif;font-size:32px;margin-bottom:8px}
+.sub{color:#6b6259;margin-bottom:30px;font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{border:1px solid #e8e0d5;border-radius:10px;overflow:hidden;background:#fff}
+.card img{width:100%;height:210px;object-fit:cover;display:block}
+.card .b{padding:20px 22px}
+.card h3{font-size:19px;margin-bottom:6px}
+.card p{color:#5c554c;font-size:15px}
+.tcard{border:1px solid #e8e0d5;border-radius:10px;background:#fff;padding:26px 22px;text-align:center}
+.tcard .ini{width:56px;height:56px;border-radius:50%;background:#7c3aed;color:#fff;font-family:Georgia,serif;font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.tcard h3{font-size:19px;margin-bottom:4px}
+.tcard p{color:#5c554c;font-size:15px}
+.step{border:1px solid #e8e0d5;border-radius:10px;background:#fff;padding:24px 22px}
+.step .n{font-family:Georgia,serif;font-size:30px;font-weight:700;color:#7c3aed}
+.step h3{font-size:18px;margin:6px 0 4px}
+.step p{color:#5c554c;font-size:15px}
+.menu{max-width:700px}
+.row{display:flex;justify-content:space-between;gap:18px;border-bottom:1px solid #e8e0d5;padding:13px 0;font-size:17px}
+.row span:last-child{font-weight:600;white-space:nowrap}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gal figure{border-radius:10px;overflow:hidden;position:relative}
+.gal img{width:100%;height:230px;object-fit:cover;display:block}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px 10px;color:#fff;font-size:14px;font-weight:600;background:linear-gradient(transparent,rgba(0,0,0,.55))}
+.rev{background:#fff;border:1px solid #e8e0d5;border-radius:10px;padding:26px}
+.rev .stars{color:#e8a33d;font-size:19px;letter-spacing:2px}
+.rev p{font-size:16px;color:#3d382f;margin-top:8px}
+.rev .who{margin-top:10px;font-size:14px;color:#6b6259;font-weight:600}
+.hours{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.hbox{background:#fff;border:1px solid #e8e0d5;border-radius:10px;padding:24px 26px}
+.hbox h3{font-size:18px;margin-bottom:10px}
+.hbox p,.hbox li{color:#5c554c;font-size:15px}
+.hbox ul{list-style:none}
+.hbox li{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed #eee5d8}
+.hbox li:last-child{border-bottom:none}
+.cta{background:#7c3aed;color:#fff;text-align:center;padding:56px 26px;margin-top:64px}
+.cta h2{color:#fff}
+.cta a{display:inline-block;margin:8px 10px 0;padding:13px 28px;background:#fff;color:#1d1a17;text-decoration:none;border-radius:6px;font-weight:600}
+footer{padding:34px 26px 90px;text-align:center;color:#6b6259;font-size:14px}
+.badge{position:fixed;left:16px;bottom:16px;background:#111;color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:600;z-index:99;box-shadow:0 4px 18px rgba(0,0,0,.3)}
+.stickybar{display:none}
+@media(max-width:760px){.grid,.gal,.hours{grid-template-columns:1fr}.hero h1{font-size:36px}
+.stickybar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:98;background:#7c3aed;color:#fff}
+.stickybar a{flex:1;text-align:center;color:#fff;text-decoration:none;font-weight:700;padding:15px 6px;font-size:16px}
+.badge{bottom:70px}footer{padding-bottom:110px}}
+</style></head><body>
+<div class="topbar"><div class="brand">Waterdown Fitness Club</div><a href="tel:+19056893888">Call now (905) 689-3888</a></div>
+<div class="hero"><div class="hero-in"><h1>Waterdown Fitness Club — Real Strength. Real Results.</h1><p>Where strength meets community — coached, personalized training in Waterdown, with expert coaches guiding every step of your fitness journey.</p>
+<div class="cta-row"><a class="btn-main" href="tel:+19056893888">Call now</a><a class="btn-ghost" href="#visit">Plan your visit</a></div>
+<div class="chip">Free intro session · Waterdown, Ontario</div></div></div>
+<div class="wrap"><section><h2>Getting started is simple</h2><p class="sub">Joining a new gym can feel intimidating. It does not have to be.</p><div class="grid">
+<div class="step"><div class="n">1</div><h3>Book a free intro</h3><p>Sit down with one of our team members and talk through your goals — no pressure, no workout yet.</p></div>
+<div class="step"><div class="n">2</div><h3>Start your personalized program</h3><p>Work with a coach to start a training program built around you, modified as you need.</p></div>
+<div class="step"><div class="n">3</div><h3>Train — and feel better</h3><p>Workouts that challenge and elevate your strength, endurance and agility, in and out of the gym.</p></div>
+</div></section>
+<section><h2>Programs</h2><p class="sub">Workout options for everybody.</p><div class="grid">
+<div class="card"><img src="https://images.pexels.com/photos/4162451/pexels-photo-4162451.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Personalized Training"><div class="b"><h3>Personalized Training</h3><p>Tailored programs with the structure most routines are missing — adjusted as your fitness changes.</p></div></div>
+<div class="card"><img src="https://exdfbiusxt9.exactdn.com/wp-content/uploads/2026/03/free2be_wellness_women_group_training.webp?strip=all" alt="Group Training"><div class="b"><h3>Group Training</h3><p>Varied, coached sessions with a supportive community around you — you will never be bored.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/4754030/pexels-photo-4754030.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Coaching &amp; Nutrition Support"><div class="b"><h3>Coaching &amp; Nutrition Support</h3><p>Smarter choices that start to come naturally, with coaches who are friendly and helpful.</p></div></div>
+</div></section>
+<section><h2>Membership plans</h2><p class="sub">Start free — your coach builds the plan from there.</p><div class="menu">
+<div class="row"><span>Free intro session</span><span>$0</span></div>
+<div class="row"><span>Monthly membership</span><span>$59/mo</span></div>
+<div class="row"><span>Quarterly membership</span><span>$159</span></div>
+<div class="row"><span>Yearly membership</span><span>$549</span></div>
+</div>
+<p style="color:#8a8175;font-size:13px;margin-top:12px">Demo rates shown for illustration — today&#x27;s membership options are confirmed when you book your intro.</p>
+</section>
+<section><h2>What members say</h2><p class="sub">Real words from the club&#x27;s own website.</p><div class="grid">
+<div class="rev"><div class="stars">★★★★★</div><p>&ldquo;I love everything about this gym. It has been the key to getting myself back on track with overall fitness. Their tailored programs with ability to modify as needed provided the structure I was missing from my routine. The coaches are incredibly friendly and helpful.&rdquo;</p><div class="who">Jesse Taylor — via the club&#x27;s website</div></div>
+<div class="rev"><div class="stars">★★★★★</div><p>&ldquo;Since joining, I feel renewed inspiration and motivation towards fitness every time I workout here. Their members and staff create a welcoming, friendly environment. I love the structure of the classes, it&#x27;s just a great place to be a part of.&rdquo;</p><div class="who">Jordan Yasso — via the club&#x27;s website</div></div>
+</div></section>
+<section><h2>Inside the club</h2><p class="sub">312 Dundas St E, Waterdown.</p><div class="gal">
+<figure><img src="https://exdfbiusxt9.exactdn.com/wp-content/uploads/2026/03/free2be_wellness_women_group_training.webp?strip=all" alt="Group training"><figcaption>Group training</figcaption></figure>
+<figure><img src="https://exdfbiusxt9.exactdn.com/wp-content/uploads/2023/12/gym-equiptment-rack.jpg?strip=all" alt="The equipment rack"><figcaption>The equipment rack</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Strength floor"><figcaption>Strength floor</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/1229359/pexels-photo-1229359.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Coached sessions"><figcaption>Coached sessions</figcaption></figure>
+</div></section>
+<section><h2>Visit us</h2><p class="sub">Call or email to book your free intro.</p><div class="hours"><div class="hbox"><h3>Opening hours</h3><ul><li><span>Monday – Tuesday</span><span>6:00 AM – 9:00 PM</span></li><li><span>Wednesday – Thursday</span><span>6:00 AM – 2:00 PM · 4:00 – 9:00 PM</span></li><li><span>Friday</span><span>6:00 AM – 2:00 PM</span></li><li><span>Saturday – Sunday</span><span>8:00 AM – 12:00 PM</span></li></ul></div><div class="hbox"><h3>Contact</h3><p>312 Dundas St E<br>Waterdown, ON L0R 2H5<br>(905) 689-3888<br>memberservices@free2bewellness.com</p></div></div></section></div>
+<div class="cta"><h2>Visit us or get in touch</h2><p style="margin:10px 0 18px">312 Dundas St E, Waterdown ON L0R 2H5 · (905) 689-3888 · memberservices@free2bewellness.com</p>
+<a href="tel:+19056893888">Call now (905) 689-3888</a><a href="mailto:memberservices@free2bewellness.com" style="display:inline-block;margin:8px 10px 0;padding:13px 28px;background:transparent;color:#fff;border:1px solid #fff;text-decoration:none;border-radius:6px;font-weight:600">Email us</a></div>
+<footer id="visit">312 Dundas St E, Waterdown ON L0R 2H5 · (905) 689-3888 · memberservices@free2bewellness.com<br>Coached fitness community — Waterdown, Ontario.</footer>
+<div class="stickybar"><a href="tel:+19056893888">Call now — (905) 689-3888</a></div>
+<div class="badge">Created by PostKaro — Demo</div>
+</body></html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kingwood Fitness — More Than Just a Gym</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1d1a17;background:#fdfbf8;line-height:1.6;padding-bottom:0}
+.topbar{position:absolute;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:18px 26px;color:#fff}
+.topbar .brand{font-family:Georgia,serif;font-size:20px;font-weight:700;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.topbar a{background:#fff;color:#1d1a17;text-decoration:none;padding:9px 18px;border-radius:6px;font-weight:600;font-size:15px}
+.hero{min-height:88vh;background:linear-gradient(rgba(0,0,0,.42),rgba(0,0,0,.58)),url('https://kingwoodfitness.org/wp-content/uploads/2021/02/KingswoodGym-22-colorized-min.jpg') center/cover;display:flex;align-items:flex-end;color:#fff}
+.hero-in{max-width:1060px;margin:0 auto;padding:90px 26px 64px;width:100%}
+.hero h1{font-family:Georgia,serif;font-size:54px;line-height:1.08;max-width:760px}
+.hero p{font-size:20px;opacity:.94;max-width:640px;margin-top:14px}
+.hero .cta-row{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+.hero .cta-row a{display:inline-block;padding:14px 30px;border-radius:6px;text-decoration:none;font-weight:700;font-size:16px}
+.btn-main{background:#166534;color:#fff}
+.btn-ghost{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.65)}
+.chip{display:inline-block;margin-top:22px;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.35);padding:8px 16px;border-radius:999px;font-size:15px;font-weight:600}
+.wrap{max-width:1060px;margin:0 auto;padding:0 26px}
+section{padding:64px 0 8px}
+h2{font-family:Georgia,serif;font-size:32px;margin-bottom:8px}
+.sub{color:#6b6259;margin-bottom:30px;font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{border:1px solid #e8e0d5;border-radius:10px;overflow:hidden;background:#fff}
+.card img{width:100%;height:210px;object-fit:cover;display:block}
+.card .b{padding:20px 22px}
+.card h3{font-size:19px;margin-bottom:6px}
+.card p{color:#5c554c;font-size:15px}
+.tcard{border:1px solid #e8e0d5;border-radius:10px;background:#fff;padding:26px 22px;text-align:center}
+.tcard .ini{width:56px;height:56px;border-radius:50%;background:#166534;color:#fff;font-family:Georgia,serif;font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.tcard h3{font-size:19px;margin-bottom:4px}
+.tcard p{color:#5c554c;font-size:15px}
+.step{border:1px solid #e8e0d5;border-radius:10px;background:#fff;padding:24px 22px}
+.step .n{font-family:Georgia,serif;font-size:30px;font-weight:700;color:#166534}
+.step h3{font-size:18px;margin:6px 0 4px}
+.step p{color:#5c554c;font-size:15px}
+.menu{max-width:700px}
+.row{display:flex;justify-content:space-between;gap:18px;border-bottom:1px solid #e8e0d5;padding:13px 0;font-size:17px}
+.row span:last-child{font-weight:600;white-space:nowrap}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gal figure{border-radius:10px;overflow:hidden;position:relative}
+.gal img{width:100%;height:230px;object-fit:cover;display:block}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px 10px;color:#fff;font-size:14px;font-weight:600;background:linear-gradient(transparent,rgba(0,0,0,.55))}
+.rev{background:#fff;border:1px solid #e8e0d5;border-radius:10px;padding:26px}
+.rev .stars{color:#e8a33d;font-size:19px;letter-spacing:2px}
+.rev p{font-size:16px;color:#3d382f;margin-top:8px}
+.rev .who{margin-top:10px;font-size:14px;color:#6b6259;font-weight:600}
+.hours{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.hbox{background:#fff;border:1px solid #e8e0d5;border-radius:10px;padding:24px 26px}
+.hbox h3{font-size:18px;margin-bottom:10px}
+.hbox p,.hbox li{color:#5c554c;font-size:15px}
+.hbox ul{list-style:none}
+.hbox li{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed #eee5d8}
+.hbox li:last-child{border-bottom:none}
+.cta{background:#166534;color:#fff;text-align:center;padding:56px 26px;margin-top:64px}
+.cta h2{color:#fff}
+.cta a{display:inline-block;margin:8px 10px 0;padding:13px 28px;background:#fff;color:#1d1a17;text-decoration:none;border-radius:6px;font-weight:600}
+footer{padding:34px 26px 90px;text-align:center;color:#6b6259;font-size:14px}
+.badge{position:fixed;left:16px;bottom:16px;background:#111;color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:600;z-index:99;box-shadow:0 4px 18px rgba(0,0,0,.3)}
+.stickybar{display:none}
+@media(max-width:760px){.grid,.gal,.hours{grid-template-columns:1fr}.hero h1{font-size:36px}
+.stickybar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:98;background:#166534;color:#fff}
+.stickybar a{flex:1;text-align:center;color:#fff;text-decoration:none;font-weight:700;padding:15px 6px;font-size:16px}
+.badge{bottom:70px}footer{padding-bottom:110px}}
+</style></head><body>
+<div class="topbar"><div class="brand">Kingwood Fitness</div><a href="tel:+12819135275">Call now 281-913-5275</a></div>
+<div class="hero"><div class="hero-in"><h1>Kingwood Fitness — More Than Just a Gym</h1><p>A locally owned fitness centre on Kingwood Drive — cardio, strength, classes and personal training in a community that feels like family, run by owners Pam &amp; Scott Heck.</p>
+<div class="cta-row"><a class="btn-main" href="tel:+12819135275">Call now</a><a class="btn-ghost" href="#visit">Plan your visit</a></div>
+<div class="chip">Free 3-Day Trial · Locally owned</div></div></div>
+<div class="wrap"><section><h2>Train with us</h2><p class="sub">For all ages, stages and body types — you will feel comfortable in your skin here.</p><div class="grid">
+<div class="card"><img src="https://kingwoodfitness.org/wp-content/uploads/2021/03/KingswoodGym-15-edit.jpeg" alt="Open Gym"><div class="b"><h3>Open Gym</h3><p>A full complement of cardio equipment, assisted weight machines and free weights — train your way, any session.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/4162451/pexels-photo-4162451.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Group Fitness Classes"><div class="b"><h3>Group Fitness Classes</h3><p>Yoga, cycling, rowing, Zumba and more — experienced instructors who stoke your motivation.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/2261477/pexels-photo-2261477.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Personal Training"><div class="b"><h3>Personal Training</h3><p>Certified trainers who assess your level, set challenging goals and build an individual program for you.</p></div></div>
+</div></section>
+<section><h2>Why Kingwood stays</h2><p class="sub">Helping people accomplish things they never thought they could.</p><div class="grid">
+<div class="card"><img src="https://images.pexels.com/photos/1229359/pexels-photo-1229359.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Reformer Pilates"><div class="b"><h3>Reformer Pilates</h3><p>Low-impact strength and mobility work on the reformer — a member favourite.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/949126/pexels-photo-949126.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Strength &amp; Free Weights"><div class="b"><h3>Strength &amp; Free Weights</h3><p>Build strength and confidence with coached progressions and a supportive floor.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="A Community, Not Just a Gym"><div class="b"><h3>A Community, Not Just a Gym</h3><p>Members who know your name — and a coffee room to catch up in after class.</p></div></div>
+</div></section>
+<section><h2>Membership plans</h2><p class="sub">Start with three free days — then choose the plan that fits.</p><div class="menu">
+<div class="row"><span>Free 3-Day Trial</span><span>$0</span></div>
+<div class="row"><span>Monthly membership</span><span>$39/mo</span></div>
+<div class="row"><span>Quarterly membership</span><span>$99</span></div>
+<div class="row"><span>Yearly membership</span><span>$349</span></div>
+<div class="row"><span>Personal training</span><span>from $45/session</span></div>
+</div>
+<p style="color:#8a8175;font-size:13px;margin-top:12px">Demo rates shown for illustration — today&#x27;s membership options are confirmed at the front desk.</p>
+</section>
+<section><h2>What members say</h2><p class="sub">Real words from the gym&#x27;s own website.</p><div class="grid">
+<div class="rev"><div class="stars">★★★★★</div><p>&ldquo;I thought Kingwood Fitness would be just another gym where I would feel like an outsider, wondering how quick I could get in and get out. But from day one I felt cared for by staff and the members, especially the ladies in the first class I attended. They were friendly and supported me as a newbie. It was great to feel like part of the family, especially being new to Texas and the area. I have found new friends and a community.&rdquo;</p><div class="who">Karen — member, via the gym&#x27;s website</div></div>
+</div></section>
+<section><h2>Inside Kingwood Fitness</h2><p class="sub">1574 Kingwood Drive.</p><div class="gal">
+<figure><img src="https://kingwoodfitness.org/wp-content/uploads/2021/02/KingswoodGym-22-colorized-min.jpg" alt="Classes in session"><figcaption>Classes in session</figcaption></figure>
+<figure><img src="https://kingwoodfitness.org/wp-content/uploads/2021/03/KingswoodGym-15-edit.jpeg" alt="On the rower"><figcaption>On the rower</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="The weights floor"><figcaption>The weights floor</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/1954524/pexels-photo-1954524.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Cardio row"><figcaption>Cardio row</figcaption></figure>
+</div></section>
+<section><h2>Visit us</h2><p class="sub">Call or email to start your free 3-day trial.</p><div class="hours"><div class="hbox"><h3>Opening hours</h3><ul><li><span>Monday – Thursday</span><span>5:00 AM – 9:00 PM</span></li><li><span>Friday</span><span>5:00 AM – 5:00 PM</span></li><li><span>Saturday</span><span>7:00 AM – 5:00 PM</span></li><li><span>Sunday</span><span>9:00 AM – 5:00 PM</span></li></ul></div><div class="hbox"><h3>Contact</h3><p>1574 Kingwood Drive<br>Kingwood, TX 77339<br>281-913-5275<br>kingwoodfitness@gmail.com</p></div></div></section></div>
+<div class="cta"><h2>Visit us or get in touch</h2><p style="margin:10px 0 18px">1574 Kingwood Drive, Kingwood TX 77339 · 281-913-5275 · kingwoodfitness@gmail.com</p>
+<a href="tel:+12819135275">Call now 281-913-5275</a><a href="mailto:kingwoodfitness@gmail.com" style="display:inline-block;margin:8px 10px 0;padding:13px 28px;background:transparent;color:#fff;border:1px solid #fff;text-decoration:none;border-radius:6px;font-weight:600">Email us</a></div>
+<footer id="visit">1574 Kingwood Drive, Kingwood TX 77339 · 281-913-5275 · kingwoodfitness@gmail.com<br>Locally owned fitness centre — Kingwood, Texas.</footer>
+<div class="stickybar"><a href="tel:+12819135275">Call now — 281-913-5275</a></div>
+<div class="badge">Created by PostKaro — Demo</div>
+</body></html>
