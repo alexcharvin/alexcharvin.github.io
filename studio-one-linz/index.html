@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studio One — Hair and Face Design, Linz</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1d1a17;background:#fdfbf8;line-height:1.6;padding-bottom:0}
+.topbar{position:absolute;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:18px 26px;color:#fff}
+.topbar .brand{font-family:Georgia,serif;font-size:20px;font-weight:700;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.topbar a{background:#fff;color:#1d1a17;text-decoration:none;padding:9px 18px;border-radius:6px;font-weight:600;font-size:15px}
+.hero{min-height:88vh;background:linear-gradient(rgba(0,0,0,.42),rgba(0,0,0,.58)),url('https://images.pexels.com/photos/3331488/pexels-photo-3331488.jpeg?auto=compress&cs=tinysrgb&w=1200') center/cover;display:flex;align-items:flex-end;color:#fff}
+.hero-in{max-width:1060px;margin:0 auto;padding:90px 26px 64px;width:100%}
+.hero h1{font-family:Georgia,serif;font-size:54px;line-height:1.08;max-width:760px}
+.hero p{font-size:20px;opacity:.94;max-width:640px;margin-top:14px}
+.hero .cta-row{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+.hero .cta-row a{display:inline-block;padding:14px 30px;border-radius:6px;text-decoration:none;font-weight:700;font-size:16px}
+.btn-main{background:#374151;color:#fff}
+.btn-ghost{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.65)}
+.chip{display:inline-block;margin-top:22px;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.35);padding:8px 16px;border-radius:999px;font-size:15px;font-weight:600}
+.wrap{max-width:1060px;margin:0 auto;padding:0 26px}
+section{padding:64px 0 8px}
+h2{font-family:Georgia,serif;font-size:32px;margin-bottom:8px}
+.sub{color:#6b6259;margin-bottom:30px;font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{border:1px solid #e8e0d5;border-radius:10px;overflow:hidden;background:#fff}
+.card img{width:100%;height:210px;object-fit:cover;display:block}
+.card .b{padding:20px 22px}
+.card h3{font-size:19px;margin-bottom:6px}
+.card p{color:#5c554c;font-size:15px}
+.tcard{border:1px solid #e8e0d5;border-radius:10px;background:#fff;padding:26px 22px;text-align:center}
+.tcard .ini{width:56px;height:56px;border-radius:50%;background:#374151;color:#fff;font-family:Georgia,serif;font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.tcard h3{font-size:19px;margin-bottom:4px}
+.tcard p{color:#5c554c;font-size:15px}
+.step{border:1px solid #e8e0d5;border-radius:10px;background:#fff;padding:24px 22px}
+.step .n{font-family:Georgia,serif;font-size:30px;font-weight:700;color:#374151}
+.step h3{font-size:18px;margin:6px 0 4px}
+.step p{color:#5c554c;font-size:15px}
+.menu{max-width:700px}
+.row{display:flex;justify-content:space-between;gap:18px;border-bottom:1px solid #e8e0d5;padding:13px 0;font-size:17px}
+.row span:last-child{font-weight:600;white-space:nowrap}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gal figure{border-radius:10px;overflow:hidden;position:relative}
+.gal img{width:100%;height:230px;object-fit:cover;display:block}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px 10px;color:#fff;font-size:14px;font-weight:600;background:linear-gradient(transparent,rgba(0,0,0,.55))}
+.hours{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.hbox{background:#fff;border:1px solid #e8e0d5;border-radius:10px;padding:24px 26px}
+.hbox h3{font-size:18px;margin-bottom:10px}
+.hbox p,.hbox li{color:#5c554c;font-size:15px}
+.hbox ul{list-style:none}
+.hbox li{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed #eee5d8}
+.hbox li:last-child{border-bottom:none}
+.cta{background:#374151;color:#fff;text-align:center;padding:56px 26px;margin-top:64px}
+.cta h2{color:#fff}
+.cta a{display:inline-block;margin:8px 10px 0;padding:13px 28px;background:#fff;color:#1d1a17;text-decoration:none;border-radius:6px;font-weight:600}
+footer{padding:34px 26px 90px;text-align:center;color:#6b6259;font-size:14px}
+.badge{position:fixed;left:16px;bottom:16px;background:#111;color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:600;z-index:99;box-shadow:0 4px 18px rgba(0,0,0,.3)}
+.stickybar{display:none}
+@media(max-width:760px){.grid,.gal,.hours{grid-template-columns:1fr}.hero h1{font-size:36px}
+.stickybar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:98;background:#374151;color:#fff}
+.stickybar a{flex:1;text-align:center;color:#fff;text-decoration:none;font-weight:700;padding:15px 6px;font-size:16px}
+.badge{bottom:70px}footer{padding-bottom:110px}}
+</style></head><body>
+<div class="topbar"><div class="brand">Studio One</div><a href="tel:+43732773620">Jetzt anrufen · Call now 0732 / 77 36 20</a></div>
+<div class="hero"><div class="hero-in"><h1>Studio One — Hair and Face Design, Linz</h1><p>Ihre persönliche Auszeit mit maximalem Erholungsfaktor — Schnitt, Coloration, Make-up und Braut-Special in der Mozartstraße, Linz. Your personal time-out: cuts, colour, make-up and bridal styling in Linz.</p>
+<div class="cta-row"><a class="btn-main" href="tel:+43732773620">Jetzt anrufen · Call now</a><a class="btn-ghost" href="#visit">Ihren Besuch planen · Plan your visit</a></div>
+<div class="chip">Mozartstraße 1 · 4020 Linz</div></div></div>
+<div class="wrap"><section><h2>Unsere Leistungen · Our Services</h2><p class="sub">Schönes mit noch Schönerem kombiniert. Beauty, combined with more beauty.</p><div class="grid">
+<div class="card"><img src="https://images.pexels.com/photos/3331488/pexels-photo-3331488.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Schnitt &amp; Styling · Cut &amp; Styling"><div class="b"><h3>Schnitt &amp; Styling · Cut &amp; Styling</h3><p>Vom klassischen Bob bis zum avantgardistischen Styling. From the classic bob to avant-garde styling.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/3065208/pexels-photo-3065208.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Coloration · Colour"><div class="b"><h3>Coloration · Colour</h3><p>Individuell gestaltete Colorationen und Akzente — abgestimmt auf Ihren Typ. Colour designed and matched to your type.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/6663368/pexels-photo-6663368.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Make-up · Make-up"><div class="b"><h3>Make-up · Make-up</h3><p>Tages-Make-up, Ball-Look oder kunstvolle Spezial-Kreationen. Day make-up, ball looks and creative special designs.</p></div></div>
+</div></section>
+<section><h2>Mehr als ein Friseurbesuch · More Than a Salon Visit</h2><p class="sub">Top geschult, trendorientiert, kreativ. Highly trained, trend-aware, creative.</p><div class="grid">
+<div class="card"><img src="https://images.pexels.com/photos/7581573/pexels-photo-7581573.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Braut-Special · Bridal Special"><div class="b"><h3>Braut-Special · Bridal Special</h3><p>Ihr Styling für den großen Tag — geplant und probiert. Your styling for the big day, planned and rehearsed.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/3998000/pexels-photo-3998000.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Beratung mit Fingerspitzengefühl · Advice With a Light Touch"><div class="b"><h3>Beratung mit Fingerspitzengefühl · Advice With a Light Touch</h3><p>Typgerechte Beratung und ein Service, der mehr ist als ein Friseurbesuch. Advice shaped to you — more than a haircut visit.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/28144256/pexels-photo-28144256.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Fernöstliche Harmonie · A Calm Escape"><div class="b"><h3>Fernöstliche Harmonie · A Calm Escape</h3><p>Ein Ort, an dem Sie dem Alltag entfliehen. A place to escape the everyday.</p></div></div>
+</div></section>
+<section><h2>Preise · Prices</h2><p class="sub">Endlich auch online zu finden. Finally available online too.</p><div class="menu">
+<div class="row"><span>Schnitt &amp; Styling · Cut &amp; styling</span><span>ab €45</span></div>
+<div class="row"><span>Coloration · Colour</span><span>ab €65</span></div>
+<div class="row"><span>Make-up · Make-up</span><span>ab €40</span></div>
+<div class="row"><span>Braut-Special · Bridal special</span><span>auf Anfrage · on request</span></div>
+</div>
+<p style="color:#8a8175;font-size:13px;margin-top:12px">Demo-Preise zur Orientierung — den genauen Preis besprechen wir bei der Beratung. · Demo rates as a guide — your exact price is agreed at consultation.</p>
+</section>
+<section><h2>Galerie · Gallery</h2><p class="sub">Einblicke ins Studio One. Inside Studio One.</p><div class="gal">
+<figure><img src="https://images.pexels.com/photos/3331488/pexels-photo-3331488.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Der Salon · The salon"><figcaption>Der Salon · The salon</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/3065208/pexels-photo-3065208.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Coloration · Colour"><figcaption>Coloration · Colour</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/7581573/pexels-photo-7581573.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Styling · Styling"><figcaption>Styling · Styling</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/28144256/pexels-photo-28144256.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Make-up · Make-up"><figcaption>Make-up · Make-up</figcaption></figure>
+</div></section>
+<section><h2>Ihr Besuch · Your Visit</h2><p class="sub">Wir freuen uns auf Ihre Anfrage. We look forward to hearing from you.</p><div class="hours"><div class="hbox"><h3>Öffnungszeiten · Hours</h3><ul><li><span>Montag – Mittwoch · Mon–Wed</span><span>9:00 – 19:00 Uhr</span></li><li><span>Donnerstag – Freitag · Thu–Fri</span><span>9:00 – 20:00 Uhr</span></li></ul></div><div class="hbox"><h3>Kontakt · Contact</h3><p>Mozartstraße 1/1/1<br>4020 Linz<br>0732 / 77 36 20<br>info@studio-one.at</p></div></div></section></div>
+<div class="cta"><h2>Besuchen Sie uns · Visit us</h2><p style="margin:10px 0 18px">Mozartstraße 1/1/1, 4020 Linz · 0732 / 77 36 20 · info@studio-one.at</p>
+<a href="tel:+43732773620">Jetzt anrufen · Call now 0732 / 77 36 20</a><a href="mailto:info@studio-one.at" style="display:inline-block;margin:8px 10px 0;padding:13px 28px;background:transparent;color:#fff;border:1px solid #fff;text-decoration:none;border-radius:6px;font-weight:600">E-Mail schreiben · Email us</a></div>
+<footer id="visit">Mozartstraße 1/1/1, 4020 Linz · 0732 / 77 36 20 · info@studio-one.at<br>Studio One — Hair and Face Design, Linz, Österreich.</footer>
+<div class="stickybar"><a href="tel:+43732773620">Jetzt anrufen · Call now — 0732 / 77 36 20</a></div>
+<div class="badge">Created by PostKaro — Demo</div>
+</body></html>

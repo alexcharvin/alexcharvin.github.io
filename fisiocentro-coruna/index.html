@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fisiocentro — Clínica de Fisioterapia y Osteopatía en A Coruña</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1d1a17;background:#fdfbf8;line-height:1.6;padding-bottom:0}
+.topbar{position:absolute;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:18px 26px;color:#fff}
+.topbar .brand{font-family:Georgia,serif;font-size:20px;font-weight:700;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.topbar a{background:#fff;color:#1d1a17;text-decoration:none;padding:9px 18px;border-radius:6px;font-weight:600;font-size:15px}
+.hero{min-height:88vh;background:linear-gradient(rgba(0,0,0,.42),rgba(0,0,0,.58)),url('https://images.pexels.com/photos/6973123/pexels-photo-6973123.jpeg?auto=compress&cs=tinysrgb&w=1200') center/cover;display:flex;align-items:flex-end;color:#fff}
+.hero-in{max-width:1060px;margin:0 auto;padding:90px 26px 64px;width:100%}
+.hero h1{font-family:Georgia,serif;font-size:54px;line-height:1.08;max-width:760px}
+.hero p{font-size:20px;opacity:.94;max-width:640px;margin-top:14px}
+.hero .cta-row{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+.hero .cta-row a{display:inline-block;padding:14px 30px;border-radius:6px;text-decoration:none;font-weight:700;font-size:16px}
+.btn-main{background:#065f46;color:#fff}
+.btn-ghost{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.65)}
+.chip{display:inline-block;margin-top:22px;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.35);padding:8px 16px;border-radius:999px;font-size:15px;font-weight:600}
+.wrap{max-width:1060px;margin:0 auto;padding:0 26px}
+section{padding:64px 0 8px}
+h2{font-family:Georgia,serif;font-size:32px;margin-bottom:8px}
+.sub{color:#6b6259;margin-bottom:30px;font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{border:1px solid #e8e0d5;border-radius:10px;overflow:hidden;background:#fff}
+.card img{width:100%;height:210px;object-fit:cover;display:block}
+.card .b{padding:20px 22px}
+.card h3{font-size:19px;margin-bottom:6px}
+.card p{color:#5c554c;font-size:15px}
+.tcard{border:1px solid #e8e0d5;border-radius:10px;background:#fff;padding:26px 22px;text-align:center}
+.tcard .ini{width:56px;height:56px;border-radius:50%;background:#065f46;color:#fff;font-family:Georgia,serif;font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.tcard h3{font-size:19px;margin-bottom:4px}
+.tcard p{color:#5c554c;font-size:15px}
+.step{border:1px solid #e8e0d5;border-radius:10px;background:#fff;padding:24px 22px}
+.step .n{font-family:Georgia,serif;font-size:30px;font-weight:700;color:#065f46}
+.step h3{font-size:18px;margin:6px 0 4px}
+.step p{color:#5c554c;font-size:15px}
+.menu{max-width:700px}
+.row{display:flex;justify-content:space-between;gap:18px;border-bottom:1px solid #e8e0d5;padding:13px 0;font-size:17px}
+.row span:last-child{font-weight:600;white-space:nowrap}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gal figure{border-radius:10px;overflow:hidden;position:relative}
+.gal img{width:100%;height:230px;object-fit:cover;display:block}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px 10px;color:#fff;font-size:14px;font-weight:600;background:linear-gradient(transparent,rgba(0,0,0,.55))}
+.hours{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.hbox{background:#fff;border:1px solid #e8e0d5;border-radius:10px;padding:24px 26px}
+.hbox h3{font-size:18px;margin-bottom:10px}
+.hbox p,.hbox li{color:#5c554c;font-size:15px}
+.hbox ul{list-style:none}
+.hbox li{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed #eee5d8}
+.hbox li:last-child{border-bottom:none}
+.cta{background:#065f46;color:#fff;text-align:center;padding:56px 26px;margin-top:64px}
+.cta h2{color:#fff}
+.cta a{display:inline-block;margin:8px 10px 0;padding:13px 28px;background:#fff;color:#1d1a17;text-decoration:none;border-radius:6px;font-weight:600}
+footer{padding:34px 26px 90px;text-align:center;color:#6b6259;font-size:14px}
+.badge{position:fixed;left:16px;bottom:16px;background:#111;color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:600;z-index:99;box-shadow:0 4px 18px rgba(0,0,0,.3)}
+.stickybar{display:none}
+@media(max-width:760px){.grid,.gal,.hours{grid-template-columns:1fr}.hero h1{font-size:36px}
+.stickybar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:98;background:#065f46;color:#fff}
+.stickybar a{flex:1;text-align:center;color:#fff;text-decoration:none;font-weight:700;padding:15px 6px;font-size:16px}
+.badge{bottom:70px}footer{padding-bottom:110px}}
+</style></head><body>
+<div class="topbar"><div class="brand">Fisiocentro</div><a href="tel:+34981224249">Llama ahora · Call now 981 224 249</a></div>
+<div class="hero"><div class="hero-in"><h1>Fisiocentro — Clínica de Fisioterapia y Osteopatía en A Coruña</h1><p>Atención totalmente personalizada desde 1999 — fisioterapia y osteopatía en el centro de A Coruña. Fully personalised care since 1999, in the centre of A Coruña.</p>
+<div class="cta-row"><a class="btn-main" href="tel:+34981224249">Llama ahora · Call now</a><a class="btn-ghost" href="#visit">Pide tu cita · Book your visit</a></div>
+<div class="chip">Desde 1999 · Serving A Coruña since 1999</div></div></div>
+<div class="wrap"><section><h2>Tratamientos · Treatments</h2><p class="sub">Porque no todos somos iguales. Because no two patients are the same.</p><div class="grid">
+<div class="card"><img src="https://images.pexels.com/photos/6111586/pexels-photo-6111586.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Fisioterapia · Physiotherapy"><div class="b"><h3>Fisioterapia · Physiotherapy</h3><p>Tratamiento acorde a tus necesidades, no a un protocolo genérico. Treatment matched to your needs, not a generic protocol.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/20860594/pexels-photo-20860594.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Osteopatía · Osteopathy"><div class="b"><h3>Osteopatía · Osteopathy</h3><p>Osteopatía dentro de un plan de tratamiento completo. Osteopathy as part of a complete treatment plan.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/20860579/pexels-photo-20860579.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Suelo Pélvico, Pre y Posparto · Pelvic Floor &amp; Pre/Postnatal"><div class="b"><h3>Suelo Pélvico, Pre y Posparto · Pelvic Floor &amp; Pre/Postnatal</h3><p>Atención especializada en suelo pélvico y en el embarazo y posparto. Specialist pelvic-floor, pregnancy and postnatal care.</p></div></div>
+</div></section>
+<section><h2>Más Formas de Ayudar · More Ways We Help</h2><p class="sub">En la clínica o en tu casa. In the clinic or at your home.</p><div class="grid">
+<div class="card"><img src="https://images.pexels.com/photos/6973123/pexels-photo-6973123.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Lesiones Deportivas · Sports Injuries"><div class="b"><h3>Lesiones Deportivas · Sports Injuries</h3><p>Recuperación de lesiones deportivas con seguimiento continuo. Sports-injury recovery with continuous follow-up.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/6111586/pexels-photo-6111586.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Niños · Children"><div class="b"><h3>Niños · Children</h3><p>Fisioterapia también para los más pequeños. Physiotherapy for younger patients too.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/20860594/pexels-photo-20860594.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="A Domicilio · Home Visits"><div class="b"><h3>A Domicilio · Home Visits</h3><p>Tratamiento a domicilio para quien lo requiera. Home treatment for patients who need it.</p></div></div>
+</div></section>
+<section><h2>Nuestra Clínica · Our Clinic</h2><p class="sub">En Don Bosco 7, A Coruña. On Don Bosco street, A Coruña.</p><div class="grid">
+<div class="tcard"><div class="ini">1999</div><h3>Desde 1999 · Since 1999</h3><p>Más de 25 años de atención personalizada en A Coruña. Over 25 years of personalised care in A Coruña.</p></div>
+<div class="tcard"><div class="ini">FC</div><h3>Formación Continua · Always Learning</h3><p>Nuestro equipo conoce los últimos avances y terapias. Our team keeps up with the latest therapies.</p></div>
+<div class="tcard"><div class="ini">A</div><h3>Clínica Adaptada · Accessible Clinic</h3><p>Adaptada para personas con movilidad reducida. Adapted for people with reduced mobility.</p></div>
+</div></section>
+<section><h2>Tu Primera Visita · Your First Visit</h2><p class="sub">Sencillo desde el primer momento. Simple from the first moment.</p><div class="grid">
+<div class="step"><div class="n">1</div><h3>Contacta con nosotros · Get in touch</h3><p>Por teléfono o email — cuéntanos tu caso. By phone or email — tell us about your case.</p></div>
+<div class="step"><div class="n">2</div><h3>Valoración personal · Personal assessment</h3><p>Estudiamos tus necesidades antes de tratar. We assess your needs before any treatment.</p></div>
+<div class="step"><div class="n">3</div><h3>Tu tratamiento · Your treatment</h3><p>Un plan acorde a ti, revisado contigo. A plan built for you, reviewed with you.</p></div>
+</div></section>
+<section><h2>La Clínica · The Clinic</h2><p class="sub">Fisioterapia y osteopatía en A Coruña. Physiotherapy and osteopathy in A Coruña.</p><div class="gal">
+<figure><img src="https://images.pexels.com/photos/6973123/pexels-photo-6973123.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Tratamiento · Treatment"><figcaption>Tratamiento · Treatment</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/6111586/pexels-photo-6111586.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Sesión guiada · Guided session"><figcaption>Sesión guiada · Guided session</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/20860594/pexels-photo-20860594.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Terapia manual · Manual therapy"><figcaption>Terapia manual · Manual therapy</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/20860579/pexels-photo-20860579.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Tu recuperación · Your recovery"><figcaption>Tu recuperación · Your recovery</figcaption></figure>
+</div></section>
+<section><h2>Tu Visita · Your Visit</h2><p class="sub">Tu cita, a una llamada. Your appointment is one call away.</p><div class="hours"><div class="hbox"><h3>Pide tu Cita · Book Your Appointment</h3><p>Atención personalizada desde 1999<br>Personalised care since 1999<br>También a domicilio<br>Home visits available</p></div><div class="hbox"><h3>Contacto · Contact</h3><p>C/ Don Bosco 7 Bajo<br>15002 A Coruña<br>981 224 249<br>info@clinicafisiocentro.com</p></div></div></section></div>
+<div class="cta"><h2>Visítanos · Visit us</h2><p style="margin:10px 0 18px">C/ Don Bosco 7 Bajo, 15002 A Coruña · 981 224 249 · info@clinicafisiocentro.com</p>
+<a href="tel:+34981224249">Llama ahora · Call now 981 224 249</a><a href="mailto:info@clinicafisiocentro.com" style="display:inline-block;margin:8px 10px 0;padding:13px 28px;background:transparent;color:#fff;border:1px solid #fff;text-decoration:none;border-radius:6px;font-weight:600">Escríbenos · Email us</a></div>
+<footer id="visit">C/ Don Bosco 7 Bajo, 15002 A Coruña · 981 224 249 · info@clinicafisiocentro.com<br>Fisiocentro, Clínica de Fisioterapia — A Coruña, España.</footer>
+<div class="stickybar"><a href="tel:+34981224249">Llama ahora · Call now — 981 224 249</a></div>
+<div class="badge">Created by PostKaro — Demo</div>
+</body></html>

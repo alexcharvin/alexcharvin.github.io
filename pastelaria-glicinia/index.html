@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pastelaria Glicínia — Padaria &amp; Pastelaria em Braga</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1d1a17;background:#fdfbf8;line-height:1.6;padding-bottom:0}
+.topbar{position:absolute;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:18px 26px;color:#fff}
+.topbar .brand{font-family:Georgia,serif;font-size:20px;font-weight:700;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.topbar a{background:#fff;color:#1d1a17;text-decoration:none;padding:9px 18px;border-radius:6px;font-weight:600;font-size:15px}
+.hero{min-height:88vh;background:linear-gradient(rgba(0,0,0,.42),rgba(0,0,0,.58)),url('https://cdn.website.dish.co/media/41/10/1843229/Glicinia-2-047190AD-889E-44E3-B7E0-2D2885195D87.jpg') center/cover;display:flex;align-items:flex-end;color:#fff}
+.hero-in{max-width:1060px;margin:0 auto;padding:90px 26px 64px;width:100%}
+.hero h1{font-family:Georgia,serif;font-size:54px;line-height:1.08;max-width:760px}
+.hero p{font-size:20px;opacity:.94;max-width:640px;margin-top:14px}
+.hero .cta-row{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+.hero .cta-row a{display:inline-block;padding:14px 30px;border-radius:6px;text-decoration:none;font-weight:700;font-size:16px}
+.btn-main{background:#c2410c;color:#fff}
+.btn-ghost{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.65)}
+.chip{display:inline-block;margin-top:22px;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.35);padding:8px 16px;border-radius:999px;font-size:15px;font-weight:600}
+.wrap{max-width:1060px;margin:0 auto;padding:0 26px}
+section{padding:64px 0 8px}
+h2{font-family:Georgia,serif;font-size:32px;margin-bottom:8px}
+.sub{color:#6b6259;margin-bottom:30px;font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{border:1px solid #e8e0d5;border-radius:10px;overflow:hidden;background:#fff}
+.card img{width:100%;height:210px;object-fit:cover;display:block}
+.card .b{padding:20px 22px}
+.card h3{font-size:19px;margin-bottom:6px}
+.card p{color:#5c554c;font-size:15px}
+.tcard{border:1px solid #e8e0d5;border-radius:10px;background:#fff;padding:26px 22px;text-align:center}
+.tcard .ini{width:56px;height:56px;border-radius:50%;background:#c2410c;color:#fff;font-family:Georgia,serif;font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.tcard h3{font-size:19px;margin-bottom:4px}
+.tcard p{color:#5c554c;font-size:15px}
+.step{border:1px solid #e8e0d5;border-radius:10px;background:#fff;padding:24px 22px}
+.step .n{font-family:Georgia,serif;font-size:30px;font-weight:700;color:#c2410c}
+.step h3{font-size:18px;margin:6px 0 4px}
+.step p{color:#5c554c;font-size:15px}
+.menu{max-width:700px}
+.row{display:flex;justify-content:space-between;gap:18px;border-bottom:1px solid #e8e0d5;padding:13px 0;font-size:17px}
+.row span:last-child{font-weight:600;white-space:nowrap}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gal figure{border-radius:10px;overflow:hidden;position:relative}
+.gal img{width:100%;height:230px;object-fit:cover;display:block}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px 10px;color:#fff;font-size:14px;font-weight:600;background:linear-gradient(transparent,rgba(0,0,0,.55))}
+.hours{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.hbox{background:#fff;border:1px solid #e8e0d5;border-radius:10px;padding:24px 26px}
+.hbox h3{font-size:18px;margin-bottom:10px}
+.hbox p,.hbox li{color:#5c554c;font-size:15px}
+.hbox ul{list-style:none}
+.hbox li{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed #eee5d8}
+.hbox li:last-child{border-bottom:none}
+.cta{background:#c2410c;color:#fff;text-align:center;padding:56px 26px;margin-top:64px}
+.cta h2{color:#fff}
+.cta a{display:inline-block;margin:8px 10px 0;padding:13px 28px;background:#fff;color:#1d1a17;text-decoration:none;border-radius:6px;font-weight:600}
+footer{padding:34px 26px 90px;text-align:center;color:#6b6259;font-size:14px}
+.badge{position:fixed;left:16px;bottom:16px;background:#111;color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:600;z-index:99;box-shadow:0 4px 18px rgba(0,0,0,.3)}
+.stickybar{display:none}
+@media(max-width:760px){.grid,.gal,.hours{grid-template-columns:1fr}.hero h1{font-size:36px}
+.stickybar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:98;background:#c2410c;color:#fff}
+.stickybar a{flex:1;text-align:center;color:#fff;text-decoration:none;font-weight:700;padding:15px 6px;font-size:16px}
+.badge{bottom:70px}footer{padding-bottom:110px}}
+</style></head><body>
+<div class="topbar"><div class="brand">Pastelaria Glicínia</div><a href="tel:+351253670814">Ligue agora · Call now 253 670 814</a></div>
+<div class="hero"><div class="hero-in"><h1>Pastelaria Glicínia — Padaria &amp; Pastelaria em Braga</h1><p>Fabrico próprio em Braga — pão fresco, bolos e pastelaria tradicional, todos os dias a partir das 07:00. Our own baking in Braga: fresh bread, cakes and traditional pastry, every day from 7 AM.</p>
+<div class="cta-row"><a class="btn-main" href="tel:+351253670814">Ligue agora · Call now</a><a class="btn-ghost" href="#visit">Planeie a sua visita · Plan your visit</a></div>
+<div class="chip">Fabrico próprio · Baked in-house</div></div></div>
+<div class="wrap"><section><h2>As Nossas Especialidades · Our Specialities</h2><p class="sub">Finalmente numa página nossa — em português. Finally on a page of our own, in Portuguese.</p><div class="grid">
+<div class="card"><img src="https://cdn.website.dish.co/media/40/39/3342809/Glicinia-2-1.jpg" alt="Pão Fresco &amp; Padaria · Fresh Bread &amp; Bakery"><div class="b"><h3>Pão Fresco &amp; Padaria · Fresh Bread &amp; Bakery</h3><p>Pão fresco e produtos de padaria, saídos do nosso forno. Fresh bread and bakery goods from our own oven.</p></div></div>
+<div class="card"><img src="https://cdn.website.dish.co/media/ae/f8/3342814/Glicinia-2-2.jpg" alt="Bolos &amp; Pastelaria · Cakes &amp; Pastry"><div class="b"><h3>Bolos &amp; Pastelaria · Cakes &amp; Pastry</h3><p>Bolos tradicionais e pastelaria portuguesa para todos os dias. Traditional cakes and Portuguese pastry for every day.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/37719216/pexels-photo-37719216.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Encomendas · Cake Orders"><div class="b"><h3>Encomendas · Cake Orders</h3><p>Bolos de aniversário e encomendas para as suas celebrações. Birthday cakes and orders for your celebrations.</p></div></div>
+</div></section>
+<section><h2>Para Todos os Momentos · For Every Moment</h2><p class="sub">Do pequeno-almoço ao lanche. From breakfast to the afternoon snack.</p><div class="grid">
+<div class="card"><img src="https://images.pexels.com/photos/9405269/pexels-photo-9405269.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Pequeno-Almoço · Breakfast"><div class="b"><h3>Pequeno-Almoço · Breakfast</h3><p>Comece o dia connosco, a partir das 07:00. Start your day with us, from 7 AM.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/2035735/pexels-photo-2035735.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Pizza &amp; Salgados · Pizza &amp; Savouries"><div class="b"><h3>Pizza &amp; Salgados · Pizza &amp; Savouries</h3><p>Pizza, panados e salgados para qualquer hora. Pizza and savoury snacks for any time of day.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/36069851/pexels-photo-36069851.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Gelado · Ice Cream"><div class="b"><h3>Gelado · Ice Cream</h3><p>Gelado para os dias de sol em Braga. Ice cream for Braga&#x27;s sunny days.</p></div></div>
+</div></section>
+<section><h2>A Nossa Casa · Our House</h2><p class="sub">Uma pastelaria de bairro, com nome próprio. A neighbourhood pastelaria with its own name.</p><div class="grid">
+<div class="tcard"><div class="ini">FP</div><h3>Fabrico Próprio · Baked Here</h3><p>Fazemos os nossos bolos e pão cá dentro. Our cakes and bread are made in-house.</p></div>
+<div class="tcard"><div class="ini">7</div><h3>Aberto Todos os Dias · Open Every Day</h3><p>De segunda a sábado até às 20:00, domingo até às 13:00. Mon–Sat until 20:00, Sunday until 13:00.</p></div>
+<div class="tcard"><div class="ini">B</div><h3>Em Braga · In Braga</h3><p>Rua do Quinteiro n.º 7 — com esplanada e estacionamento. With outdoor seating and parking.</p></div>
+</div></section>
+<section><h2>Preços · Prices</h2><p class="sub">Os nossos sabores, com preços à vista. Our flavours, with prices in the open.</p><div class="menu">
+<div class="row"><span>Pão fresco · Fresh bread</span><span>€0.60</span></div>
+<div class="row"><span>Pastel de nata</span><span>€1.20</span></div>
+<div class="row"><span>Fatia de bolo · Slice of cake</span><span>€2.80</span></div>
+<div class="row"><span>Pequeno-almoço · Breakfast</span><span>€4.50</span></div>
+<div class="row"><span>Pizza</span><span>€7.00</span></div>
+<div class="row"><span>Bolo de aniversário (encomenda) · Birthday cake, to order</span><span>desde €18</span></div>
+</div>
+<p style="color:#8a8175;font-size:13px;margin-top:12px">Preços de demonstração — confirme os valores atuais na pastelaria. · Demo prices — please confirm current prices in the shop.</p>
+</section>
+<section><h2>Galeria · Gallery</h2><p class="sub">O nosso trabalho, em fotos nossas. Our work, in our own photos.</p><div class="gal">
+<figure><img src="https://cdn.website.dish.co/media/41/10/1843229/Glicinia-2-047190AD-889E-44E3-B7E0-2D2885195D87.jpg" alt="A nossa pastelaria · Our pastelaria"><figcaption>A nossa pastelaria · Our pastelaria</figcaption></figure>
+<figure><img src="https://cdn.website.dish.co/media/40/39/3342809/Glicinia-2-1.jpg" alt="Do nosso forno · From our oven"><figcaption>Do nosso forno · From our oven</figcaption></figure>
+<figure><img src="https://cdn.website.dish.co/media/ae/f8/3342814/Glicinia-2-2.jpg" alt="Bolos · Cakes"><figcaption>Bolos · Cakes</figcaption></figure>
+<figure><img src="https://cdn.website.dish.co/media/93/63/3342820/Glicinia-2-5.jpg" alt="Todos os dias · Every day"><figcaption>Todos os dias · Every day</figcaption></figure>
+</div></section>
+<section><h2>A Sua Visita · Your Visit</h2><p class="sub">Takeaway, esplanada e estacionamento. Takeaway, outdoor seating and parking.</p><div class="hours"><div class="hbox"><h3>Horário · Opening Hours</h3><ul><li><span>Segunda a Sábado · Mon–Sat</span><span>07:00 – 20:00</span></li><li><span>Domingo · Sun</span><span>07:00 – 13:00</span></li></ul></div><div class="hbox"><h3>Contacto · Contact</h3><p>Rua do Quinteiro n.º 7<br>4705-629 Braga<br>+351 253 670 814<br>geral@glicinia.pt</p></div></div></section></div>
+<div class="cta"><h2>Visite-nos · Visit us</h2><p style="margin:10px 0 18px">Rua do Quinteiro n.º 7, 4705-629 Braga · +351 253 670 814 · geral@glicinia.pt</p>
+<a href="tel:+351253670814">Ligue agora · Call now 253 670 814</a><a href="mailto:geral@glicinia.pt" style="display:inline-block;margin:8px 10px 0;padding:13px 28px;background:transparent;color:#fff;border:1px solid #fff;text-decoration:none;border-radius:6px;font-weight:600">Envie email · Email us</a></div>
+<footer id="visit">Rua do Quinteiro n.º 7, 4705-629 Braga · +351 253 670 814 · geral@glicinia.pt<br>Pastelaria Glicínia (Glicinia 2) — Braga, Portugal.</footer>
+<div class="stickybar"><a href="tel:+351253670814">Ligue agora · Call now — 253 670 814</a></div>
+<div class="badge">Created by PostKaro — Demo</div>
+</body></html>
