@@ -80,9 +80,10 @@
   });
 
   /* ---------------- ambient animated background (every page) ----------------
-     A fixed canvas behind the content: a soft grid drifting like a road
-     under the page, three sage light ribbons flowing across, and dust
-     motes rising. Sections sit on translucent deep green, so it ghosts
+     A fixed canvas behind the content: three soft sage light ribbons
+     flowing across and dust motes rising — no grid lines anywhere (the
+     squares read as graph paper on a real screen). Sections sit on
+     translucent deep green, so it ghosts through — present, never loud.
      through — present everywhere, never loud enough to hurt reading.
      Reduced motion gets one still frame. */
   (function(){
@@ -97,20 +98,16 @@
       cx2.setTransform(DPR, 0, 0, DPR, 0, 0);
     }
     size(); window.addEventListener('resize', size);
-    for (i = 0; i < 42; i++) P.push({ x: Math.random(), y: Math.random(), s: 0.6 + Math.random() * 1.7, v: 0.02 + Math.random() * 0.05, o: 0.08 + Math.random() * 0.22 });
+    for (i = 0; i < 42; i++) P.push({ x: Math.random(), y: Math.random(), s: 0.6 + Math.random() * 1.7, v: 0.02 + Math.random() * 0.05, o: 0.05 + Math.random() * 0.15 });
     function frame(t){
       cx2.clearRect(0, 0, W, H);
-      var gap = 92, off = (t * 0.007) % gap, x, y, k, px;
-      cx2.strokeStyle = 'rgba(142,182,155,0.055)'; cx2.lineWidth = 1; cx2.beginPath();
-      for (x = 0; x <= W; x += gap){ cx2.moveTo(x + 0.5, 0); cx2.lineTo(x + 0.5, H); }
-      for (y = -gap + off; y <= H; y += gap){ cx2.moveTo(0, y + 0.5); cx2.lineTo(W, y + 0.5); }
-      cx2.stroke();
+      var k, px;
       for (k = 0; k < 3; k++){
         var baseY = H * (0.22 + k * 0.27), amp = 24 + k * 10;
         var gr = cx2.createLinearGradient(0, 0, W, 0);
         gr.addColorStop(0, 'rgba(142,182,155,0)');
-        gr.addColorStop(0.3, 'rgba(142,182,155,0.16)');
-        gr.addColorStop(0.62, 'rgba(218,241,222,0.24)');
+        gr.addColorStop(0.3, 'rgba(142,182,155,0.10)');
+        gr.addColorStop(0.62, 'rgba(218,241,222,0.15)');
         gr.addColorStop(1, 'rgba(142,182,155,0)');
         cx2.strokeStyle = gr; cx2.lineWidth = 2; cx2.beginPath();
         for (px = 0; px <= W; px += 14){
@@ -136,8 +133,6 @@
       });
     })(0);
   })();
-
-  /* ---------------- THREE.JS HERO SCENE ---------------- */
 
   /* ---------------- LANGUAGE SWITCHER (Google Translate, 6 languages) ---------------- */
   var LANGS = { 'en': ['EN', 'English'], 'ar': ['عربي', 'العربية'], 'zh-CN': ['中文', '简体中文'], 'zh-TW': ['繁體', '繁體中文'], 'de': ['DE', 'Deutsch'], 'ru': ['RU', 'Русский'] };
@@ -297,9 +292,55 @@
       gsap.to(bar, { height: (20 + (num / 60) * 64) + 'px', duration: 0.9, ease: 'power3.out',
         scrollTrigger: { trigger: bar, start: 'top 94%', once: true } });
     });
+    // stats stage: exploded view as stepped stills (was a WebGL scene —
+    // the frame sequence, phase labels and stat spotlight are scroll-
+    // scrubbed here, so the section works on every machine, WebGL or not;
+    // without GSAP the stage simply shows the parked car frame)
+    var sframes = document.querySelectorAll('#stageFrames .sframe');
+    var stageEl = document.getElementById('xstage');
+    if (stageEl && sframes.length){
+      var sWrap = document.getElementById('stageFrames');
+      var sLabels = {
+        engine: stageEl.querySelector('[data-phase="engine"]'),
+        wheel: stageEl.querySelector('[data-phase="wheel"]'),
+        brake: stageEl.querySelector('[data-phase="brake"]')
+      };
+      var statsEls = Array.prototype.slice.call(document.querySelectorAll('#statsGrid .stat'));
+      var SEQ = [0, 1, 2, 1, 3, 4, 1, 0];
+      var curF = 0, sLit = -1;
+      function showFrame(idx){
+        if (idx === curF) return;
+        sframes[curF].classList.remove('on'); sframes[idx].classList.add('on'); curF = idx;
+      }
+      function setLabel(el, on){
+        if (el) gsap.to(el, { autoAlpha: on ? 1 : 0, duration: 0.3, overwrite: 'auto' });
+      }
+      function sSpot(p){
+        var idx = Math.min(3, Math.floor(p * 4));
+        if (idx === sLit) return;
+        sLit = idx;
+        statsEls.forEach(function(el, i){
+          el.classList.toggle('lit', i === idx);
+          gsap.to(el, { scale: i === idx ? 1.14 : 1, duration: 0.45, ease: 'power3.out' });
+        });
+      }
+      gsap.timeline({ scrollTrigger: { trigger: '#stagePin', start: 'top 96px', end: '+=1700', scrub: 0.5, pin: true, anticipatePin: 1,
+        onUpdate: function(self){
+          var p = self.progress;
+          sSpot(p);
+          showFrame(SEQ[Math.min(7, Math.floor(p * 8))]);
+          setLabel(sLabels.engine, p > 0.22 && p < 0.48);
+          setLabel(sLabels.wheel, p > 0.50 && p < 0.64);
+          setLabel(sLabels.brake, p > 0.63 && p < 0.80);
+          var tx = 0;
+          if (p < 0.125) tx = -38 * (1 - p / 0.125);
+          else if (p > 0.875) tx = 38 * ((p - 0.875) / 0.125);
+          gsap.set(sWrap, { x: tx });
+        } } });
+    }
     // parallax (scrub-linked): story photo, rate card, generic [data-plx]
-    var storyImg = document.querySelector('.story-photo img.plx');
-    if (storyImg) gsap.to(storyImg, { yPercent: 7, ease: 'none',
+    var storyImg = document.querySelectorAll('#wslides .slide');
+    if (storyImg.length) gsap.to(storyImg, { yPercent: 5, ease: 'none',
       scrollTrigger: { trigger: '.story-photo', start: 'top bottom', end: 'bottom top', scrub: true } });
     var rateCard = document.querySelector('.rate-card');
     if (rateCard && document.querySelector('.hero')) gsap.to(rateCard, { y: -26, ease: 'none',
@@ -308,17 +349,21 @@
       gsap.to(img, { yPercent: 7, ease: 'none',
         scrollTrigger: { trigger: img.closest('figure') || img, start: 'top bottom', end: 'bottom top', scrub: true } });
     });
-    // card tilt (desktop pointers only)
+    // card tilt + glare (desktop pointers only): services, packages, reviews, brands
     if (fine){
-      document.querySelectorAll('.card').forEach(function(card){
-        var qx = gsap.quickTo(card, 'rotationY', { duration: 0.45, ease: 'power3.out' });
-        var qy = gsap.quickTo(card, 'rotationX', { duration: 0.45, ease: 'power3.out' });
+      document.querySelectorAll('.card, .pkg, .testi, .bthumb, .bfeat').forEach(function(card){
+        gsap.set(card, { transformPerspective: 950 });
+        var qx = gsap.quickTo(card, 'rotationY', { duration: 0.5, ease: 'power3.out' });
+        var qy = gsap.quickTo(card, 'rotationX', { duration: 0.5, ease: 'power3.out' });
         card.addEventListener('pointermove', function(e){
           var r = card.getBoundingClientRect();
-          qx(((e.clientX - r.left) / r.width - 0.5) * 7);
-          qy(-((e.clientY - r.top) / r.height - 0.5) * 7);
+          var px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+          qx((px - 0.5) * 7); qy(-(py - 0.5) * 7);
+          card.style.setProperty('--gx', (px * 100) + '%');
+          card.style.setProperty('--gy', (py * 100) + '%');
+          card.style.setProperty('--gl', 1);
         });
-        card.addEventListener('pointerleave', function(){ qx(0); qy(0); });
+        card.addEventListener('pointerleave', function(){ qx(0); qy(0); card.style.setProperty('--gl', 0); });
       });
       // magnetic buttons
       document.querySelectorAll('.btn').forEach(function(btn){
