@@ -239,3 +239,26 @@
 
   }
 })();
+
+/* cursor companion: butterfly (titli) flutters after the cursor — inner pages */
+(function(){
+  var cf = document.getElementById('cursorFly');
+  if (!cf) return;
+  var fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!fine || reduced) return;
+  var tx = -200, ty = -200, cx = -200, cy = -200, shown = false, t0 = performance.now();
+  window.addEventListener('pointermove', function(e){
+    tx = e.clientX; ty = e.clientY;
+    if (!shown){ shown = true; cx = tx; cy = ty; cf.classList.add('live'); }
+  }, { passive: true });
+  document.addEventListener('pointerleave', function(){ shown = false; cf.classList.remove('live'); });
+  (function follow(){
+    requestAnimationFrame(follow);
+    cx += (tx - cx) * 0.13; cy += (ty - cy) * 0.13;
+    var bt = (performance.now() - t0) / 1000;
+    var bob = Math.sin(bt * 5.2) * 4;
+    var tilt = Math.max(-16, Math.min(16, (tx - cx) * 0.12));
+    cf.style.transform = 'translate(' + (cx + 16) + 'px,' + (cy + 12 + bob) + 'px) rotate(' + tilt + 'deg)';
+  })();
+})();
