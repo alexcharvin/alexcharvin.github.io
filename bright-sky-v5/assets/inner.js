@@ -99,8 +99,33 @@
     }
     size(); window.addEventListener('resize', size);
     for (i = 0; i < 42; i++) P.push({ x: Math.random(), y: Math.random(), s: 0.6 + Math.random() * 1.7, v: 0.02 + Math.random() * 0.05, o: 0.05 + Math.random() * 0.15 });
+    var ORB = [], OC = ['142,182,155', '218,241,222', '142,182,155'];
+    for (i = 0; i < 7; i++) ORB.push({ x: Math.random(), y: Math.random(), r: 60 + Math.random() * 120, v: 0.008 + Math.random() * 0.016, ph: Math.random() * 6.2832, o: 0.05 + Math.random() * 0.05, c: OC[i % 3] });
     function frame(t){
       cx2.clearRect(0, 0, W, H);
+      ORB.forEach(function(o){
+        var ox = o.x * W + Math.sin(t * 0.00011 + o.ph) * 26, oy = o.y * H;
+        var og = cx2.createRadialGradient(ox, oy, 0, ox, oy, o.r);
+        og.addColorStop(0, 'rgba(' + o.c + ',' + o.o + ')');
+        og.addColorStop(1, 'rgba(' + o.c + ',0)');
+        cx2.fillStyle = og;
+        cx2.beginPath(); cx2.arc(ox, oy, o.r, 0, 6.2832); cx2.fill();
+      });
+      if (!reduced){
+        var sw = t % 11000;
+        if (sw < 3000){
+          var spp = sw / 3000, sx = -W * 0.35 + W * 1.7 * spp;
+          var sa = Math.sin(spp * Math.PI) * 0.055;
+          cx2.save();
+          cx2.translate(sx, H / 2); cx2.rotate(-0.42);
+          var sg = cx2.createLinearGradient(-190, 0, 190, 0);
+          sg.addColorStop(0, 'rgba(218,241,222,0)');
+          sg.addColorStop(0.5, 'rgba(218,241,222,' + sa + ')');
+          sg.addColorStop(1, 'rgba(218,241,222,0)');
+          cx2.fillStyle = sg; cx2.fillRect(-190, -H * 0.75, 380, H * 1.5);
+          cx2.restore();
+        }
+      }
       var k, px;
       for (k = 0; k < 3; k++){
         var baseY = H * (0.22 + k * 0.27), amp = 24 + k * 10;
@@ -130,6 +155,10 @@
         p.y -= p.v * 0.0016; p.x -= p.v * 0.0006;
         if (p.y < -0.02){ p.y = 1.02; p.x = Math.random(); }
         if (p.x < -0.02) p.x = 1.02;
+      });
+      ORB.forEach(function(o){
+        o.y -= o.v * 0.004;
+        if (o.y < -0.28){ o.y = 1.28; o.x = Math.random(); }
       });
     })(0);
   })();
