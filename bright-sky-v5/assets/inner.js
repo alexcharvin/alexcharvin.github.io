@@ -4,6 +4,17 @@
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var isMobile = window.matchMedia('(max-width: 767px)').matches;
 
+  /* Land on the hero: Chrome's scroll restoration used to drop returning
+     visitors mid-page, where the car arrival had already played unseen.
+     An explicit anchor (#reviews etc.) still wins. */
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  if (document.getElementById('gl')){
+    var hashTgt = null;
+    try { hashTgt = location.hash.length > 1 ? document.querySelector(location.hash) : null; } catch(e){}
+    if (hashTgt) setTimeout(function(){ hashTgt.scrollIntoView(); }, 80);
+    else window.scrollTo(0, 0);
+  }
+
   /* ---------------- Booking form → WhatsApp ---------------- */
   var form = document.getElementById('bookForm');
   if (form) form.addEventListener('submit', function(ev){
@@ -17,6 +28,114 @@
     if (v('f-msg')) lines.push('Message: ' + v('f-msg'));
     window.open('https://wa.me/971547787862?text=' + encodeURIComponent(lines.join('\n')), '_blank');
   });
+
+  /* ---------------- custom Service Type dropdown ----------------
+     The native <select> popup rendered white with white option text on it
+     (options invisible). This styled replacement keeps a hidden input with
+     id f-service, so the WhatsApp submit above reads the value as before. */
+  document.querySelectorAll('[data-csel]').forEach(function(box){
+    var btn = box.querySelector('.csel-btn'), list = box.querySelector('.csel-list'),
+        valEl = box.querySelector('.csel-val'), hidden = box.querySelector('input[type="hidden"]'),
+        items = Array.prototype.slice.call(list.querySelectorAll('[role="option"]')), act = -1;
+    function setAct(i){
+      act = (i + items.length) % items.length;
+      items.forEach(function(li, k){ li.classList.toggle('act', k === act); });
+      if (items[act]) items[act].scrollIntoView({ block: 'nearest' });
+    }
+    function open(){
+      if (!list.hidden) return;
+      list.hidden = false; box.classList.add('open'); btn.setAttribute('aria-expanded', 'true');
+      var cur = -1;
+      items.forEach(function(li, k){ if (li.getAttribute('aria-selected') === 'true') cur = k; });
+      setAct(cur < 0 ? 0 : cur);
+    }
+    function close(){
+      if (list.hidden) return;
+      list.hidden = true; box.classList.remove('open'); btn.setAttribute('aria-expanded', 'false');
+    }
+    function pick(li){
+      items.forEach(function(o){ o.setAttribute('aria-selected', o === li ? 'true' : 'false'); });
+      hidden.value = li.getAttribute('data-v');
+      valEl.textContent = li.getAttribute('data-v');
+      close(); btn.focus();
+    }
+    btn.addEventListener('click', function(){ if (list.hidden) open(); else close(); });
+    items.forEach(function(li){ li.addEventListener('click', function(){ pick(li); }); });
+    document.addEventListener('click', function(e){ if (!box.contains(e.target)) close(); });
+    box.addEventListener('keydown', function(e){
+      if (e.key === 'Escape'){ close(); btn.focus(); }
+      else if (e.key === 'ArrowDown'){ e.preventDefault(); if (list.hidden) open(); else setAct(act + 1); }
+      else if (e.key === 'ArrowUp'){ e.preventDefault(); if (list.hidden) open(); else setAct(act - 1); }
+      else if ((e.key === 'Enter' || e.key === ' ') && !list.hidden && act >= 0){ e.preventDefault(); pick(items[act]); }
+      else if (e.key === 'Home' && !list.hidden){ e.preventDefault(); setAct(0); }
+      else if (e.key === 'End' && !list.hidden){ e.preventDefault(); setAct(items.length - 1); }
+      else if (!list.hidden && e.key.length === 1){
+        var c = e.key.toLowerCase();
+        for (var i = 0; i < items.length; i++){
+          var j = (act + 1 + i) % items.length;
+          if (items[j].getAttribute('data-v').toLowerCase().indexOf(c) === 0){ setAct(j); break; }
+        }
+      }
+    });
+  });
+
+  /* ---------------- ambient animated background (every page) ----------------
+     A fixed canvas behind the content: a soft grid drifting like a road
+     under the page, three sage light ribbons flowing across, and dust
+     motes rising. Sections sit on translucent deep green, so it ghosts
+     through — present everywhere, never loud enough to hurt reading.
+     Reduced motion gets one still frame. */
+  (function(){
+    var cv = document.getElementById('ambg');
+    if (!cv) return;
+    var cx2 = cv.getContext('2d');
+    if (!cx2) return;
+    var W = 0, H = 0, DPR = Math.min(window.devicePixelRatio || 1, 1.5), P = [], i;
+    function size(){
+      W = window.innerWidth; H = window.innerHeight;
+      cv.width = Math.round(W * DPR); cv.height = Math.round(H * DPR);
+      cx2.setTransform(DPR, 0, 0, DPR, 0, 0);
+    }
+    size(); window.addEventListener('resize', size);
+    for (i = 0; i < 42; i++) P.push({ x: Math.random(), y: Math.random(), s: 0.6 + Math.random() * 1.7, v: 0.02 + Math.random() * 0.05, o: 0.08 + Math.random() * 0.22 });
+    function frame(t){
+      cx2.clearRect(0, 0, W, H);
+      var gap = 92, off = (t * 0.007) % gap, x, y, k, px;
+      cx2.strokeStyle = 'rgba(142,182,155,0.055)'; cx2.lineWidth = 1; cx2.beginPath();
+      for (x = 0; x <= W; x += gap){ cx2.moveTo(x + 0.5, 0); cx2.lineTo(x + 0.5, H); }
+      for (y = -gap + off; y <= H; y += gap){ cx2.moveTo(0, y + 0.5); cx2.lineTo(W, y + 0.5); }
+      cx2.stroke();
+      for (k = 0; k < 3; k++){
+        var baseY = H * (0.22 + k * 0.27), amp = 24 + k * 10;
+        var gr = cx2.createLinearGradient(0, 0, W, 0);
+        gr.addColorStop(0, 'rgba(142,182,155,0)');
+        gr.addColorStop(0.3, 'rgba(142,182,155,0.16)');
+        gr.addColorStop(0.62, 'rgba(218,241,222,0.24)');
+        gr.addColorStop(1, 'rgba(142,182,155,0)');
+        cx2.strokeStyle = gr; cx2.lineWidth = 2; cx2.beginPath();
+        for (px = 0; px <= W; px += 14){
+          var py = baseY + Math.sin(px * 0.004 + t * 0.0004 + k * 2.1) * amp + Math.sin(px * 0.0013 - t * 0.00023 + k) * amp * 0.6;
+          if (px === 0) cx2.moveTo(px, py); else cx2.lineTo(px, py);
+        }
+        cx2.stroke();
+      }
+      P.forEach(function(p){
+        cx2.beginPath(); cx2.arc(p.x * W, p.y * H, p.s, 0, 6.2832);
+        cx2.fillStyle = 'rgba(218,241,222,' + p.o + ')'; cx2.fill();
+      });
+    }
+    if (reduced){ frame(1400); return; }
+    (function loop(t){
+      requestAnimationFrame(loop);
+      if (document.hidden) return;
+      frame(t || 0);
+      P.forEach(function(p){
+        p.y -= p.v * 0.0016; p.x -= p.v * 0.0006;
+        if (p.y < -0.02){ p.y = 1.02; p.x = Math.random(); }
+        if (p.x < -0.02) p.x = 1.02;
+      });
+    })(0);
+  })();
 
   /* ---------------- THREE.JS HERO SCENE ---------------- */
 
