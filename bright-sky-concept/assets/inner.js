@@ -195,7 +195,11 @@
         var sel = document.querySelector('.gtranslate_wrapper .gt_selector');
         if (sel) { try { sel.value = 'en|' + code; } catch(e){} }
         window.doGTranslate('en|' + code);
-        setTimeout(paintLang, 500);
+        var pw = 0;
+        (function waitPaint(){
+          if (curLang() === code) { paintLang(); }
+          else if (pw++ < 20) { setTimeout(waitPaint, 400); }
+        })();
       } else if (tries++ < 25) {
         setTimeout(go, 200);
       }
