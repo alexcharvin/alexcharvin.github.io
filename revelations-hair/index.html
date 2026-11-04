@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Revelations Hair — Independent Salon in Broomhill, Sheffield</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1d1a17;background:#fdfbf8;line-height:1.6;padding-bottom:0}
+.topbar{position:absolute;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:18px 26px;color:#fff}
+.topbar .brand{font-family:Georgia,serif;font-size:20px;font-weight:700;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.topbar a{background:#fff;color:#1d1a17;text-decoration:none;padding:9px 18px;border-radius:6px;font-weight:600;font-size:15px}
+.hero{min-height:88vh;background:linear-gradient(rgba(0,0,0,.42),rgba(0,0,0,.58)),url('https://www.revelations.hair/_astro/backwash-mvtuwh4tf220b2.1AWIlVVc_vcRQ8.webp') center/cover;display:flex;align-items:flex-end;color:#fff}
+.hero-in{max-width:1060px;margin:0 auto;padding:90px 26px 64px;width:100%}
+.hero h1{font-family:Georgia,serif;font-size:54px;line-height:1.08;max-width:760px}
+.hero p{font-size:20px;opacity:.94;max-width:640px;margin-top:14px}
+.hero .cta-row{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+.hero .cta-row a{display:inline-block;padding:14px 30px;border-radius:6px;text-decoration:none;font-weight:700;font-size:16px}
+.btn-main{background:#881337;color:#fff}
+.btn-ghost{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.65)}
+.chip{display:inline-block;margin-top:22px;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.35);padding:8px 16px;border-radius:999px;font-size:15px;font-weight:600}
+.wrap{max-width:1060px;margin:0 auto;padding:0 26px}
+section{padding:64px 0 8px}
+h2{font-family:Georgia,serif;font-size:32px;margin-bottom:8px}
+.sub{color:#6b6259;margin-bottom:30px;font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{border:1px solid #e8e0d5;border-radius:10px;overflow:hidden;background:#fff}
+.card img{width:100%;height:210px;object-fit:cover;display:block}
+.card .b{padding:20px 22px}
+.card h3{font-size:19px;margin-bottom:6px}
+.card p{color:#5c554c;font-size:15px}
+.tcard{border:1px solid #e8e0d5;border-radius:10px;background:#fff;padding:26px 22px;text-align:center}
+.tcard .ini{width:56px;height:56px;border-radius:50%;background:#881337;color:#fff;font-family:Georgia,serif;font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.tcard h3{font-size:19px;margin-bottom:4px}
+.tcard p{color:#5c554c;font-size:15px}
+.step{border:1px solid #e8e0d5;border-radius:10px;background:#fff;padding:24px 22px}
+.step .n{font-family:Georgia,serif;font-size:30px;font-weight:700;color:#881337}
+.step h3{font-size:18px;margin:6px 0 4px}
+.step p{color:#5c554c;font-size:15px}
+.menu{max-width:700px}
+.row{display:flex;justify-content:space-between;gap:18px;border-bottom:1px solid #e8e0d5;padding:13px 0;font-size:17px}
+.row span:last-child{font-weight:600;white-space:nowrap}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gal figure{border-radius:10px;overflow:hidden;position:relative}
+.gal img{width:100%;height:230px;object-fit:cover;display:block}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px 10px;color:#fff;font-size:14px;font-weight:600;background:linear-gradient(transparent,rgba(0,0,0,.55))}
+.rev{background:#fff;border:1px solid #e8e0d5;border-radius:10px;padding:26px}
+.rev .stars{color:#e8a33d;font-size:19px;letter-spacing:2px}
+.rev p{font-size:16px;color:#3d382f;margin-top:8px}
+.rev .who{margin-top:10px;font-size:14px;color:#6b6259;font-weight:600}
+.hours{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.hbox{background:#fff;border:1px solid #e8e0d5;border-radius:10px;padding:24px 26px}
+.hbox h3{font-size:18px;margin-bottom:10px}
+.hbox p,.hbox li{color:#5c554c;font-size:15px}
+.hbox ul{list-style:none}
+.hbox li{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed #eee5d8}
+.hbox li:last-child{border-bottom:none}
+.cta{background:#881337;color:#fff;text-align:center;padding:56px 26px;margin-top:64px}
+.cta h2{color:#fff}
+.cta a{display:inline-block;margin:8px 10px 0;padding:13px 28px;background:#fff;color:#1d1a17;text-decoration:none;border-radius:6px;font-weight:600}
+footer{padding:34px 26px 90px;text-align:center;color:#6b6259;font-size:14px}
+.badge{position:fixed;left:16px;bottom:16px;background:#111;color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:600;z-index:99;box-shadow:0 4px 18px rgba(0,0,0,.3)}
+.stickybar{display:none}
+@media(max-width:760px){.grid,.gal,.hours{grid-template-columns:1fr}.hero h1{font-size:36px}
+.stickybar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:98;background:#881337;color:#fff}
+.stickybar a{flex:1;text-align:center;color:#fff;text-decoration:none;font-weight:700;padding:15px 6px;font-size:16px}
+.badge{bottom:70px}footer{padding-bottom:110px}}
+</style></head><body>
+<div class="topbar"><div class="brand">Revelations Hair</div><a href="tel:+441143270232">Call now 0114 327 0232</a></div>
+<div class="hero"><div class="hero-in"><h1>Revelations Hair — Independent Salon in Broomhill, Sheffield</h1><p>More than just a hair salon — a studio where confidence is created and individuality is celebrated, with every appointment tailored to you.</p>
+<div class="cta-row"><a class="btn-main" href="tel:+441143270232">Call now</a><a class="btn-ghost" href="#visit">Plan your visit</a></div>
+<div class="chip">Independent studio · Broomhill, Sheffield</div></div></div>
+<div class="wrap"><section><h2>Our services</h2><p class="sub">Beautiful, wearable hair — honest advice and premium products.</p><div class="grid">
+<div class="card"><img src="https://images.pexels.com/photos/7581573/pexels-photo-7581573.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Ladies Cut &amp; Finish"><div class="b"><h3>Ladies Cut &amp; Finish</h3><p>Maintain your current look or go for a fresh new style — leave with healthy, beautifully finished hair, and the know-how to recreate it at home.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/3065208/pexels-photo-3065208.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Balayage"><div class="b"><h3>Balayage</h3><p>A subtle sun-kissed glow or a brighter, lived-in blonde — every balayage is tailored to your skin tone, hair type and lifestyle.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/6663368/pexels-photo-6663368.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Keratin Revolution"><div class="b"><h3>Keratin Revolution</h3><p>An advanced smoothing treatment that tames frizz, reduces curl and restores shine, lasting three months or more.</p></div></div>
+</div></section>
+<section><h2>The Revelations way</h2><p class="sub">Trust, professionalism and consistently exceptional results.</p><div class="grid">
+<div class="card"><img src="https://images.pexels.com/photos/28144256/pexels-photo-28144256.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Grey Blending"><div class="b"><h3>Grey Blending</h3><p>Grey blending by our colour specialist, designed to soften the appearance of grey hair — a full package, start to finish.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/3998000/pexels-photo-3998000.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Student Cut &amp; Finish"><div class="b"><h3>Student Cut &amp; Finish</h3><p>A full cut and finish with our next-generation stylists for £35 — valid student ID required. Our way of looking after Broomhill&#x27;s students.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/3331488/pexels-photo-3331488.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="The Studio Experience"><div class="b"><h3>The Studio Experience</h3><p>A collective of passionate, highly skilled stylists in a welcoming, inclusive space — we would rather give you a cut you can recreate at home than one that only works on the day.</p></div></div>
+</div></section>
+<section><h2>Services &amp; prices</h2><p class="sub">Our published price list, straight from the studio.</p><div class="menu">
+<div class="row"><span>Ladies cut &amp; finish</span><span>from £45</span></div>
+<div class="row"><span>Student cut &amp; finish</span><span>£35</span></div>
+<div class="row"><span>Balayage</span><span>from £85</span></div>
+<div class="row"><span>Grey blending package</span><span>£180</span></div>
+<div class="row"><span>Keratin Revolution</span><span>Price on consultation</span></div>
+</div>
+<p style="color:#8a8175;font-size:13px;margin-top:12px">Prices as published on the salon&#x27;s own website.</p>
+</section>
+<section><h2>Kind words</h2><p class="sub">Real reviews, as published on the salon&#x27;s own website.</p><div class="grid">
+<div class="rev"><div class="stars">★★★★★</div><p>&ldquo;I can&#x27;t say enough good things about Alecia. She&#x27;s been doing my hair for 20 years, and that alone says everything. Alecia truly cares about her clients, stays up to date with styles and techniques, and makes every appointment a great experience.&rdquo;</p><div class="who">Poppy — Google review, via the salon&#x27;s website</div></div>
+<div class="rev"><div class="stars">★★★★★</div><p>&ldquo;Definitely recommend Holly, always has a care to detail and super friendly. Love my colour and cut every time!&rdquo;</p><div class="who">Olivia — Google review, via the salon&#x27;s website</div></div>
+</div></section>
+<section><h2>Inside the studio</h2><p class="sub">263 Fulwood Road, Broomhill.</p><div class="gal">
+<figure><img src="https://www.revelations.hair/_astro/backwash-mvtuwh4tf220b2.1AWIlVVc_vcRQ8.webp" alt="The backwash area"><figcaption>The backwash area</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/3331488/pexels-photo-3331488.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="The studio floor"><figcaption>The studio floor</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/3065208/pexels-photo-3065208.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Colour work"><figcaption>Colour work</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/28144256/pexels-photo-28144256.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Styled to leave"><figcaption>Styled to leave</figcaption></figure>
+</div></section>
+<section><h2>Visit us</h2><p class="sub">Book online or call the studio — we will find your slot.</p><div class="hours"><div class="hbox"><h3>Opening hours</h3><ul><li><span>Tuesday</span><span>9:00 AM – 7:00 PM</span></li><li><span>Wednesday – Thursday</span><span>9:00 AM – 8:00 PM</span></li><li><span>Friday</span><span>9:00 AM – 7:00 PM</span></li><li><span>Saturday</span><span>8:30 AM – 6:00 PM</span></li><li><span>Monday &amp; Sunday</span><span>Closed</span></li></ul></div><div class="hbox"><h3>Contact</h3><p>263 Fulwood Road, Broomhill<br>Sheffield S10 3BD<br>0114 327 0232<br>hello@revelations.hair</p></div></div></section></div>
+<div class="cta"><h2>Visit us or get in touch</h2><p style="margin:10px 0 18px">263 Fulwood Road, Broomhill, Sheffield S10 3BD · 0114 327 0232 · hello@revelations.hair</p>
+<a href="tel:+441143270232">Call now 0114 327 0232</a><a href="mailto:hello@revelations.hair" style="display:inline-block;margin:8px 10px 0;padding:13px 28px;background:transparent;color:#fff;border:1px solid #fff;text-decoration:none;border-radius:6px;font-weight:600">Email us</a></div>
+<footer id="visit">263 Fulwood Road, Broomhill, Sheffield S10 3BD · 0114 327 0232 · hello@revelations.hair<br>Independent hair studio — Broomhill, Sheffield.</footer>
+<div class="stickybar"><a href="tel:+441143270232">Call now — 0114 327 0232</a></div>
+<div class="badge">Created by PostKaro — Demo</div>
+</body></html>
