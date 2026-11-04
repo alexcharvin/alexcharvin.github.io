@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HBA Dental Centre — Family Dentist in Osborne Park, Perth</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1d1a17;background:#fdfbf8;line-height:1.6;padding-bottom:0}
+.topbar{position:absolute;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:18px 26px;color:#fff}
+.topbar .brand{font-family:Georgia,serif;font-size:20px;font-weight:700;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.topbar a{background:#fff;color:#1d1a17;text-decoration:none;padding:9px 18px;border-radius:6px;font-weight:600;font-size:15px}
+.hero{min-height:88vh;background:linear-gradient(rgba(0,0,0,.42),rgba(0,0,0,.58)),url('https://static.wixstatic.com/media/cefe28_c0c1eb6db4474a73bf73c689c1697dea~mv2.jpg/v1/crop/x_83,y_0,w_997,h_720/fill/w_519,h_374,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/_IR_2103c.jpg') center/cover;display:flex;align-items:flex-end;color:#fff}
+.hero-in{max-width:1060px;margin:0 auto;padding:90px 26px 64px;width:100%}
+.hero h1{font-family:Georgia,serif;font-size:54px;line-height:1.08;max-width:760px}
+.hero p{font-size:20px;opacity:.94;max-width:640px;margin-top:14px}
+.hero .cta-row{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+.hero .cta-row a{display:inline-block;padding:14px 30px;border-radius:6px;text-decoration:none;font-weight:700;font-size:16px}
+.btn-main{background:#2f5d8a;color:#fff}
+.btn-ghost{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.65)}
+.chip{display:inline-block;margin-top:22px;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.35);padding:8px 16px;border-radius:999px;font-size:15px;font-weight:600}
+.wrap{max-width:1060px;margin:0 auto;padding:0 26px}
+section{padding:64px 0 8px}
+h2{font-family:Georgia,serif;font-size:32px;margin-bottom:8px}
+.sub{color:#6b6259;margin-bottom:30px;font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{border:1px solid #e8e0d5;border-radius:10px;overflow:hidden;background:#fff}
+.card img{width:100%;height:210px;object-fit:cover;display:block}
+.card .b{padding:20px 22px}
+.card h3{font-size:19px;margin-bottom:6px}
+.card p{color:#5c554c;font-size:15px}
+.tcard{border:1px solid #e8e0d5;border-radius:10px;background:#fff;padding:26px 22px;text-align:center}
+.tcard .ini{width:56px;height:56px;border-radius:50%;background:#2f5d8a;color:#fff;font-family:Georgia,serif;font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.tcard h3{font-size:19px;margin-bottom:4px}
+.tcard p{color:#5c554c;font-size:15px}
+.step{border:1px solid #e8e0d5;border-radius:10px;background:#fff;padding:24px 22px}
+.step .n{font-family:Georgia,serif;font-size:30px;font-weight:700;color:#2f5d8a}
+.step h3{font-size:18px;margin:6px 0 4px}
+.step p{color:#5c554c;font-size:15px}
+.menu{max-width:700px}
+.row{display:flex;justify-content:space-between;gap:18px;border-bottom:1px solid #e8e0d5;padding:13px 0;font-size:17px}
+.row span:last-child{font-weight:600;white-space:nowrap}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gal figure{border-radius:10px;overflow:hidden;position:relative}
+.gal img{width:100%;height:230px;object-fit:cover;display:block}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px 10px;color:#fff;font-size:14px;font-weight:600;background:linear-gradient(transparent,rgba(0,0,0,.55))}
+.rev{background:#fff;border:1px solid #e8e0d5;border-radius:10px;padding:26px}
+.rev .stars{color:#e8a33d;font-size:19px;letter-spacing:2px}
+.rev p{font-size:16px;color:#3d382f;margin-top:8px}
+.rev .who{margin-top:10px;font-size:14px;color:#6b6259;font-weight:600}
+.hours{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.hbox{background:#fff;border:1px solid #e8e0d5;border-radius:10px;padding:24px 26px}
+.hbox h3{font-size:18px;margin-bottom:10px}
+.hbox p,.hbox li{color:#5c554c;font-size:15px}
+.hbox ul{list-style:none}
+.hbox li{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed #eee5d8}
+.hbox li:last-child{border-bottom:none}
+.cta{background:#2f5d8a;color:#fff;text-align:center;padding:56px 26px;margin-top:64px}
+.cta h2{color:#fff}
+.cta a{display:inline-block;margin:8px 10px 0;padding:13px 28px;background:#fff;color:#1d1a17;text-decoration:none;border-radius:6px;font-weight:600}
+footer{padding:34px 26px 90px;text-align:center;color:#6b6259;font-size:14px}
+.badge{position:fixed;left:16px;bottom:16px;background:#111;color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:600;z-index:99;box-shadow:0 4px 18px rgba(0,0,0,.3)}
+.stickybar{display:none}
+@media(max-width:760px){.grid,.gal,.hours{grid-template-columns:1fr}.hero h1{font-size:36px}
+.stickybar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:98;background:#2f5d8a;color:#fff}
+.stickybar a{flex:1;text-align:center;color:#fff;text-decoration:none;font-weight:700;padding:15px 6px;font-size:16px}
+.badge{bottom:70px}footer{padding-bottom:110px}}
+</style></head><body>
+<div class="topbar"><div class="brand">HBA Dental Centre</div><a href="tel:+61892441382">Call now 08 9244 1382</a></div>
+<div class="hero"><div class="hero-in"><h1>HBA Dental Centre — Family Dentist in Osborne Park, Perth</h1><p>Family dentistry built on honesty since 1982 — preventative care, no unnecessary treatments, and a home-like welcome for patients of every age.</p>
+<div class="cta-row"><a class="btn-main" href="tel:+61892441382">Call now</a><a class="btn-ghost" href="#visit">Plan your visit</a></div>
+<div class="chip">Family clinic · Established 1982 · Osborne Park</div></div></div>
+<div class="wrap"><section><h2>What we do</h2><p class="sub">Honest, reliable dentistry Perth families have trusted for over 40 years.</p><div class="grid">
+<div class="card"><img src="https://static.wixstatic.com/media/8dc801_22bd6debe1a947acb04ab48bf11cdb70~mv2.jpg/v1/fill/w_483,h_363,fp_0.72_0.28,q_90,enc_avif,quality_auto/8dc801_22bd6debe1a947acb04ab48bf11cdb70~mv2.jpg" alt="Preventative Dentistry"><div class="b"><h3>Preventative Dentistry</h3><p>Prevention is better than a cure — regular six-monthly check-ups and hygiene visits keep teeth and gums healthy.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/3884093/pexels-photo-3884093.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Children&#x27;s &amp; Family Care"><div class="b"><h3>Children&#x27;s &amp; Family Care</h3><p>A home-like environment for the whole family, including children — post-treatment guidance so you can care for your smile at home.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/3845745/pexels-photo-3845745.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Care for Anxious Patients"><div class="b"><h3>Care for Anxious Patients</h3><p>Decades of experience with nervous patients, with nitrous oxide and sedation facilities to help you relax.</p></div></div>
+</div></section>
+<section><h2>The HBA way</h2><p class="sub">A close-knit team of long-term staff, from your first phone call onward.</p><div class="grid">
+<div class="card"><img src="https://static.wixstatic.com/media/8dc801_4494b94329894d41a858a058240e125c~mv2.jpg/v1/crop/x_199,y_0,w_1460,h_1200/fill/w_482,h_395,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/_IR_2448.jpg" alt="Check-ups &amp; Hygiene"><div class="b"><h3>Check-ups &amp; Hygiene</h3><p>Thorough examinations and hygienist care that can prevent gum disease before it starts — early detection is everything.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/3845807/pexels-photo-3845807.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Honest Advice, Always"><div class="b"><h3>Honest Advice, Always</h3><p>We will never sell unnecessary treatments. We discuss all your options and encourage you to make your own choice.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/3881305/pexels-photo-3881305.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Restorative Care"><div class="b"><h3>Restorative Care</h3><p>Safe, hygienic, high-quality treatments tailored to your family — from fillings to complete restorative work.</p></div></div>
+</div></section>
+<section><h2>Treatments &amp; fees</h2><p class="sub">A guide to common treatments.</p><div class="menu">
+<div class="row"><span>Consultation</span><span>$65</span></div>
+<div class="row"><span>Check-up &amp; clean</span><span>$189</span></div>
+<div class="row"><span>Teeth whitening</span><span>$399</span></div>
+<div class="row"><span>Crown</span><span>from $1,400</span></div>
+<div class="row"><span>Children&#x27;s check-up</span><span>$99</span></div>
+</div>
+<p style="color:#8a8175;font-size:13px;margin-top:12px">Demo rates shown as a guide only — your dentist confirms the exact fee for your treatment before anything begins.</p>
+</section>
+<section><h2>What patients say</h2><p class="sub">Real words, as published on the practice&#x27;s own website.</p><div class="grid">
+<div class="rev"><div class="stars">★★★★★</div><p>&ldquo;I&#x27;ve been going to HBA for 18 years now and I wouldn&#x27;t dream of going anywhere else. Rubin is so patient and gentle with my boys 12 &amp; 14, who have been going there since they were born. We highly recommend it, all of the staff are amazing. They&#x27;re like family.&rdquo;</p><div class="who">Michelle Ann — via the practice&#x27;s website</div></div>
+</div></section>
+<section><h2>Inside HBA Dental</h2><p class="sub">On the corner of King Edward and Scarborough Beach Roads — parking right out front.</p><div class="gal">
+<figure><img src="https://static.wixstatic.com/media/cefe28_c0c1eb6db4474a73bf73c689c1697dea~mv2.jpg/v1/crop/x_83,y_0,w_997,h_720/fill/w_519,h_374,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/_IR_2103c.jpg" alt="Welcome to the practice"><figcaption>Welcome to the practice</figcaption></figure>
+<figure><img src="https://static.wixstatic.com/media/8dc801_749b257e30f3430480b9e91def2efbe3~mv2.jpg/v1/fill/w_316,h_443,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/_IR_2097.jpg" alt="Our team"><figcaption>Our team</figcaption></figure>
+<figure><img src="https://static.wixstatic.com/media/8dc801_3127c4caf49d48ef9d0501f10967649a~mv2.jpg/v1/fill/w_499,h_609,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/_IR_2152.jpg" alt="Care for every age"><figcaption>Care for every age</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/5622001/pexels-photo-5622001.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Modern treatment rooms"><figcaption>Modern treatment rooms</figcaption></figure>
+</div></section>
+<section><h2>Visit us</h2><p class="sub">Make a booking today — our friendly staff are waiting to greet you and your family.</p><div class="hours"><div class="hbox"><h3>Opening hours</h3><ul><li><span>Monday – Wednesday</span><span>8:00 AM – 6:00 PM</span></li><li><span>Thursday</span><span>8:00 AM – 6:30 PM</span></li><li><span>Friday</span><span>8:00 AM – 5:30 PM</span></li><li><span>Saturday</span><span>8:00 AM – 1:00 PM</span></li><li><span>Sunday</span><span>Closed</span></li></ul></div><div class="hbox"><h3>Contact</h3><p>488 Scarborough Beach Road<br>Osborne Park WA 6017<br>08 9244 1382<br>hello@hbadental.com.au</p></div></div></section></div>
+<div class="cta"><h2>Visit us or get in touch</h2><p style="margin:10px 0 18px">488 Scarborough Beach Road, Osborne Park WA 6017 · 08 9244 1382 · hello@hbadental.com.au</p>
+<a href="tel:+61892441382">Call now 08 9244 1382</a><a href="mailto:hello@hbadental.com.au" style="display:inline-block;margin:8px 10px 0;padding:13px 28px;background:transparent;color:#fff;border:1px solid #fff;text-decoration:none;border-radius:6px;font-weight:600">Email us</a></div>
+<footer id="visit">488 Scarborough Beach Road, Osborne Park WA 6017 · 08 9244 1382 · hello@hbadental.com.au<br>Family dentistry — Osborne Park, Perth, since 1982.</footer>
+<div class="stickybar"><a href="tel:+61892441382">Call now — 08 9244 1382</a></div>
+<div class="badge">Created by PostKaro — Demo</div>
+</body></html>
