@@ -276,9 +276,7 @@ footer a:hover{text-decoration:underline;color:var(--gold-bright)}
 .mlangs{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
 .mlangs button{background:rgba(255,255,255,.06);border:1px solid var(--line-light);color:#fff;border-radius:999px;padding:8px 14px;font:inherit;font-size:13px;font-weight:700;cursor:pointer}
 .mlangs button.on{border-color:var(--gold-bright);color:var(--gold-bright)}
-#google_translate_element{position:absolute;width:0;height:0;overflow:hidden;opacity:0;pointer-events:none}
-.goog-te-banner-frame{display:none!important}
-.goog-te-gadget-icon{display:none!important}
+.gtranslate_wrapper{position:absolute;width:0;height:0;overflow:hidden;opacity:0;pointer-events:none}
 body{top:0!important}
 html.is-ar main,html.is-ar footer.site{direction:rtl}
 html.is-ar .marquee-track{animation-direction:reverse}
