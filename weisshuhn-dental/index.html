@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zahnarztpraxis Knut Weißhuhn — ganzheitliche Zahnmedizin in Dortmund-Brackel</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1d1a17;background:#fdfbf8;line-height:1.6;padding-bottom:0}
+.topbar{position:absolute;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:18px 26px;color:#fff}
+.topbar .brand{font-family:Georgia,serif;font-size:20px;font-weight:700;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.topbar a{background:#fff;color:#1d1a17;text-decoration:none;padding:9px 18px;border-radius:6px;font-weight:600;font-size:15px}
+.hero{min-height:88vh;background:linear-gradient(rgba(0,0,0,.42),rgba(0,0,0,.58)),url('https://za-weisshuhn.de/files/KUNDE/2019_12_05_Unternehmensdarstellung%2CPraxis%2CWei%C3%9Fhuhn/A7_01612-1280.jpg') center/cover;display:flex;align-items:flex-end;color:#fff}
+.hero-in{max-width:1060px;margin:0 auto;padding:90px 26px 64px;width:100%}
+.hero h1{font-family:Georgia,serif;font-size:50px;line-height:1.1;max-width:780px}
+.hero p{font-size:20px;opacity:.94;max-width:640px;margin-top:14px}
+.hero .cta-row{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+.hero .cta-row a{display:inline-block;padding:14px 30px;border-radius:6px;text-decoration:none;font-weight:700;font-size:16px}
+.btn-main{background:#5a6e46;color:#fff}
+.btn-ghost{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.65)}
+.chip{display:inline-block;margin-top:22px;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.35);padding:8px 16px;border-radius:999px;font-size:15px;font-weight:600}
+.wrap{max-width:1060px;margin:0 auto;padding:0 26px}
+section{padding:64px 0 8px}
+h2{font-family:Georgia,serif;font-size:32px;margin-bottom:8px}
+.sub{color:#6b6259;margin-bottom:30px;font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{border:1px solid #e8e0d5;border-radius:10px;overflow:hidden;background:#fff}
+.card img{width:100%;height:210px;object-fit:cover;display:block}
+.card .b{padding:20px 22px}
+.card h3{font-size:19px;margin-bottom:6px}
+.card p{color:#5c554c;font-size:15px}
+.tcard{border:1px solid #e8e0d5;border-radius:10px;background:#fff;padding:26px 22px;text-align:center}
+.tcard .ini{width:56px;height:56px;border-radius:50%;background:#5a6e46;color:#fff;font-family:Georgia,serif;font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.tcard h3{font-size:19px;margin-bottom:4px}
+.tcard p{color:#5c554c;font-size:15px}
+.step{border:1px solid #e8e0d5;border-radius:10px;background:#fff;padding:24px 22px}
+.step .n{font-family:Georgia,serif;font-size:30px;font-weight:700;color:#5a6e46}
+.step h3{font-size:18px;margin:6px 0 4px}
+.step p{color:#5c554c;font-size:15px}
+.feature{background:#fff;border:1px solid #e8e0d5;border-left:6px solid #5a6e46;border-radius:10px;padding:30px 30px}
+.feature h3{font-size:22px;margin-bottom:8px;font-family:Georgia,serif}
+.feature p{color:#5c554c;font-size:16px;max-width:820px}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gal figure{border-radius:10px;overflow:hidden;position:relative}
+.gal img{width:100%;height:230px;object-fit:cover;display:block}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px 10px;color:#fff;font-size:14px;font-weight:600;background:linear-gradient(transparent,rgba(0,0,0,.55))}
+.hours{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.hbox{background:#fff;border:1px solid #e8e0d5;border-radius:10px;padding:24px 26px}
+.hbox h3{font-size:18px;margin-bottom:10px}
+.hbox p,.hbox li{color:#5c554c;font-size:15px}
+.hbox ul{list-style:none}
+.hbox li{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed #eee5d8}
+.hbox li:last-child{border-bottom:none}
+.cta{background:#5a6e46;color:#fff;text-align:center;padding:56px 26px;margin-top:64px}
+.cta h2{color:#fff}
+.cta a{display:inline-block;margin:8px 10px 0;padding:13px 28px;background:#fff;color:#1d1a17;text-decoration:none;border-radius:6px;font-weight:600}
+footer{padding:34px 26px 90px;text-align:center;color:#6b6259;font-size:14px}
+.badge{position:fixed;left:16px;bottom:16px;background:#111;color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:600;z-index:99;box-shadow:0 4px 18px rgba(0,0,0,.3)}
+.stickybar{display:none}
+@media(max-width:760px){.grid,.gal,.hours{grid-template-columns:1fr}.hero h1{font-size:34px}
+.stickybar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:98;background:#5a6e46;color:#fff}
+.stickybar a{flex:1;text-align:center;color:#fff;text-decoration:none;font-weight:700;padding:15px 6px;font-size:16px}
+.badge{bottom:70px}footer{padding-bottom:110px}}
+</style></head><body>
+<div class="topbar"><div class="brand">Zahnarztpraxis Weißhuhn</div><a href="tel:+49231259821">Jetzt anrufen</a></div>
+<div class="hero"><div class="hero-in"><h1>Zahnarztpraxis Knut Weißhuhn — ganzheitliche Zahnmedizin in Dortmund-Brackel</h1><p>Ihre Zähne haben großen Einfluss auf Gesundheit und Wohlbefinden — wir betrachten und betreuen Ihre Zahngesundheit vor diesem breiteren Hintergrund.</p>
+<div class="cta-row"><a class="btn-main" href="tel:+49231259821">Jetzt anrufen: 0231 25 98 21</a><a class="btn-ghost" href="#besuch">Sprechzeiten &amp; Anfahrt</a></div>
+<div class="chip">★ 4,9 — aus 21 Bewertungen</div></div></div>
+<div class="wrap"><section><h2>Unsere Leistungen</h2><p class="sub">Patienten zuerst: alles, was Sie für Ihre Zahngesundheit brauchen — auf einen Blick.</p><div class="grid">
+<div class="card"><img src="https://za-weisshuhn.de/assets/images/e/A7_01736-1280-1e53763b.jpg" alt="Individualprophylaxe &amp; Zahnreinigung"><div class="b"><h3>Individualprophylaxe &amp; Zahnreinigung</h3><p>Gesunde Zähne pflegen ist leichter, als Beschwerden zu behandeln — inklusive professioneller Zahnreinigung und Recall-Erinnerung auf Wunsch.</p></div></div>
+<div class="card"><img src="https://za-weisshuhn.de/files/KUNDE/2019_12_05_Unternehmensdarstellung%2CPraxis%2CWei%C3%9Fhuhn/A7_01736-1280.jpg" alt="Füllungstherapie — amalgamfrei seit 1996"><div class="b"><h3>Füllungstherapie — amalgamfrei seit 1996</h3><p>Aus Rücksicht auf Ihre Gesundheit arbeiten wir seit 1996 ohne Amalgam. Sie wählen aus Kunststoff, Keramik oder Gold — ehrlich beraten, passend zu Wunsch und Budget.</p></div></div>
+<div class="card"><img src="https://za-weisshuhn.de/files/KUNDE/2019_12_05_Unternehmensdarstellung%2CPraxis%2CWei%C3%9Fhuhn/A7_01732-1280.jpg" alt="Wurzelkanalbehandlung"><div class="b"><h3>Wurzelkanalbehandlung</h3><p>Mit modernsten Instrumenten, Ozon-Desinfektion und elektronischer Längenmessung — für einen schnellen, schmerzfreien Behandlungserfolg.</p></div></div>
+<div class="card"><img src="https://za-weisshuhn.de/files/KUNDE/2019_12_05_Unternehmensdarstellung%2CPraxis%2CWei%C3%9Fhuhn/weisshuhn-aestetische_Zahnheilkunde.jpg" alt="Ästhetische Zahnheilkunde"><div class="b"><h3>Ästhetische Zahnheilkunde</h3><p>Kronen, Brücken und Veneers aus Keramik, Bleaching auf Wunsch und eine schonende Amalgam-Sanierung unter besonderen Vorsichtsmaßnahmen.</p></div></div>
+<div class="card"><img src="https://za-weisshuhn.de/files/KUNDE/2019_12_05_Unternehmensdarstellung%2CPraxis%2CWei%C3%9Fhuhn/weisshuhn_RS731_implantate-glaskiefer-2.jpg" alt="Hochwertige Prothetik"><div class="b"><h3>Hochwertige Prothetik</h3><p>Zahnersatz aus Keramik — gut verträglich, stabil und langlebig. Implantat-Versorgungen planen wir Hand in Hand mit spezialisierten Kieferchirurgen.</p></div></div>
+<div class="card"><img src="https://za-weisshuhn.de/assets/images/f/weisshuhn-Funktionsanalyse-5dce976d.jpg" alt="Funktionsanalyse &amp; CMD"><div class="b"><h3>Funktionsanalyse &amp; CMD</h3><p>Fehlbelastungen des Kiefergelenks erkennen und behandeln — eng abgestimmt mit Osteopathen und Physiotherapeuten.</p></div></div>
+</div></section>
+<section><h2>Ganzheitlich gedacht</h2><p class="sub">Über den Tellerrand hinaus — zum Wohl unserer Patienten alle Mittel ausschöpfen.</p><div class="grid">
+<div class="tcard"><div class="ini">N</div><h3>Naturheilkunde</h3><p>Auf Ihren Wunsch begleiten alternative Methoden, Naturheilkunde und Kinesiologie Ihre Behandlung — inklusive Material-Verträglichkeitstests.</p></div>
+<div class="tcard"><div class="ini">P</div><h3>Parodontologie</h3><p>Bei Zahnfleischerkrankungen wie Parodontitis kümmern wir uns intensiv und langfristig um Ihre Heilung — mit konsequenter Nachsorge.</p></div>
+<div class="tcard"><div class="ini">K</div><h3>Kinder sind willkommen</h3><p>Zahngesundheit beginnt bei den Milchzähnen: Kinder dürfen den Besuch spielerisch erleben und lernen, wie gute Zahnpflege funktioniert.</p></div>
+</div></section>
+<section><h2>Ein Blick in die Praxis</h2><p class="sub">Gesunde Materialien, ruhige Atmosphäre — am Brackeler Hellweg 165.</p><div class="gal">
+<figure><img src="https://za-weisshuhn.de/files/KUNDE/2019_12_05_Unternehmensdarstellung%2CPraxis%2CWei%C3%9Fhuhn/A7_01612-1280.jpg" alt="Unsere Praxis in Brackel"><figcaption>Unsere Praxis in Brackel</figcaption></figure>
+<figure><img src="https://za-weisshuhn.de/assets/images/8/A7_01541-1280-5202c049.jpg" alt="Kinderzahnheilkunde"><figcaption>Kinderzahnheilkunde</figcaption></figure>
+<figure><img src="https://za-weisshuhn.de/files/KUNDE/2019_12_05_Unternehmensdarstellung%2CPraxis%2CWei%C3%9Fhuhn/A7_01557-1280.jpg" alt="Naturheilkunde &amp; Betreuung"><figcaption>Naturheilkunde &amp; Betreuung</figcaption></figure>
+</div></section>
+<section id="besuch"><h2>Sprechzeiten &amp; Kontakt</h2><p class="sub">Wir freuen uns auf Ihren regelmäßigen Besuch zur Prophylaxe — mit offenem Ohr für Ihre Fragen und Wünsche.</p><div class="hours"><div class="hbox"><h3>Sprechzeiten</h3><ul><li><span>Montag &amp; Dienstag</span><span>8.30–12.30 · 14.30–17.30</span></li><li><span>Mittwoch</span><span>8.30–13.00</span></li><li><span>Donnerstag</span><span>8.30–12.30 · 15.30–19.00</span></li><li><span>Freitag</span><span>8.30–13.00</span></li></ul></div><div class="hbox"><h3>Kontakt</h3><p>Brackeler Hellweg 165<br>44309 Dortmund (Brackel)<br>Tel. 0231 25 98 21<br>Fax 0231 2864979<br>info@za-weisshuhn.de<br>Barrierefreier Zugang</p></div></div></section>
+<section><h2>Karriere — wir suchen Unterstützung</h2><p class="sub">Sie möchten Teil unseres Teams werden? Hier sind unsere aktuellen Stellen.</p><div class="grid">
+<div class="tcard"><div class="ini">S</div><h3>Stuhlassistenz (Teil-/Vollzeit)</h3><p>Unser Team sucht Unterstützung bei der Stuhlassistenz — in Teil- oder Vollzeit.</p></div>
+<div class="tcard"><div class="ini">A</div><h3>Ausbildungsplatz ZMF/ZFA</h3><p>Wir bieten einen Ausbildungsplatz zur/zum Zahnmedizinischen Fachangestellten (ZMF/ZFA).</p></div>
+<div class="tcard"><div class="ini">@</div><h3>Bewerbung per E-Mail</h3><p>Ihre Bewerbung senden Sie bitte an praxis@za-weisshuhn.de — wir melden uns bei Ihnen.</p></div>
+</div></section></div>
+<div class="cta"><h2>Termin vereinbaren</h2><p style="margin:10px 0 18px">Zahnarztpraxis Knut Weißhuhn · Brackeler Hellweg 165 · 44309 Dortmund · Tel. 0231 25 98 21 · info@za-weisshuhn.de</p>
+<a href="tel:+49231259821">Jetzt anrufen 0231 25 98 21</a><a href="mailto:info@za-weisshuhn.de" style="display:inline-block;margin:8px 10px 0;padding:13px 28px;background:transparent;color:#fff;border:1px solid #fff;text-decoration:none;border-radius:6px;font-weight:600">E-Mail schreiben</a></div>
+<footer id="visit">Zahnarztpraxis Knut Weißhuhn · Brackeler Hellweg 165 · 44309 Dortmund · Tel. 0231 25 98 21 · info@za-weisshuhn.de<br>Barrierefreier Zugang für Rollstuhlfahrer. Termine nach Vereinbarung.</footer>
+<div class="stickybar"><a href="tel:+49231259821">Jetzt anrufen — 0231 25 98 21</a></div>
+<div class="badge">Created by PostKaro — Demo</div>
+</body></html>

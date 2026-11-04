@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zahnarztpraxis Dr. Luise Constantin — Dortmund-Hörde</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1d1a17;background:#fdfbf8;line-height:1.6;padding-bottom:0}
+.topbar{position:absolute;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:18px 26px;color:#fff}
+.topbar .brand{font-family:Georgia,serif;font-size:20px;font-weight:700;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.topbar a{background:#fff;color:#1d1a17;text-decoration:none;padding:9px 18px;border-radius:6px;font-weight:600;font-size:15px}
+.hero{min-height:88vh;background:linear-gradient(rgba(0,0,0,.42),rgba(0,0,0,.58)),url('https://images.pexels.com/photos/3884093/pexels-photo-3884093.jpeg?auto=compress&cs=tinysrgb&w=1200') center/cover;display:flex;align-items:flex-end;color:#fff}
+.hero-in{max-width:1060px;margin:0 auto;padding:90px 26px 64px;width:100%}
+.hero h1{font-family:Georgia,serif;font-size:50px;line-height:1.1;max-width:780px}
+.hero p{font-size:20px;opacity:.94;max-width:640px;margin-top:14px}
+.hero .cta-row{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+.hero .cta-row a{display:inline-block;padding:14px 30px;border-radius:6px;text-decoration:none;font-weight:700;font-size:16px}
+.btn-main{background:#2e7d6b;color:#fff}
+.btn-ghost{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.65)}
+.chip{display:inline-block;margin-top:22px;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.35);padding:8px 16px;border-radius:999px;font-size:15px;font-weight:600}
+.wrap{max-width:1060px;margin:0 auto;padding:0 26px}
+section{padding:64px 0 8px}
+h2{font-family:Georgia,serif;font-size:32px;margin-bottom:8px}
+.sub{color:#6b6259;margin-bottom:30px;font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{border:1px solid #e8e0d5;border-radius:10px;overflow:hidden;background:#fff}
+.card img{width:100%;height:210px;object-fit:cover;display:block}
+.card .b{padding:20px 22px}
+.card h3{font-size:19px;margin-bottom:6px}
+.card p{color:#5c554c;font-size:15px}
+.tcard{border:1px solid #e8e0d5;border-radius:10px;background:#fff;padding:26px 22px;text-align:center}
+.tcard .ini{width:56px;height:56px;border-radius:50%;background:#2e7d6b;color:#fff;font-family:Georgia,serif;font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.tcard h3{font-size:19px;margin-bottom:4px}
+.tcard p{color:#5c554c;font-size:15px}
+.step{border:1px solid #e8e0d5;border-radius:10px;background:#fff;padding:24px 22px}
+.step .n{font-family:Georgia,serif;font-size:30px;font-weight:700;color:#2e7d6b}
+.step h3{font-size:18px;margin:6px 0 4px}
+.step p{color:#5c554c;font-size:15px}
+.feature{background:#fff;border:1px solid #e8e0d5;border-left:6px solid #2e7d6b;border-radius:10px;padding:30px 30px}
+.feature h3{font-size:22px;margin-bottom:8px;font-family:Georgia,serif}
+.feature p{color:#5c554c;font-size:16px;max-width:820px}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gal figure{border-radius:10px;overflow:hidden;position:relative}
+.gal img{width:100%;height:230px;object-fit:cover;display:block}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px 10px;color:#fff;font-size:14px;font-weight:600;background:linear-gradient(transparent,rgba(0,0,0,.55))}
+.hours{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.hbox{background:#fff;border:1px solid #e8e0d5;border-radius:10px;padding:24px 26px}
+.hbox h3{font-size:18px;margin-bottom:10px}
+.hbox p,.hbox li{color:#5c554c;font-size:15px}
+.hbox ul{list-style:none}
+.hbox li{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed #eee5d8}
+.hbox li:last-child{border-bottom:none}
+.cta{background:#2e7d6b;color:#fff;text-align:center;padding:56px 26px;margin-top:64px}
+.cta h2{color:#fff}
+.cta a{display:inline-block;margin:8px 10px 0;padding:13px 28px;background:#fff;color:#1d1a17;text-decoration:none;border-radius:6px;font-weight:600}
+footer{padding:34px 26px 90px;text-align:center;color:#6b6259;font-size:14px}
+.badge{position:fixed;left:16px;bottom:16px;background:#111;color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:600;z-index:99;box-shadow:0 4px 18px rgba(0,0,0,.3)}
+.stickybar{display:none}
+@media(max-width:760px){.grid,.gal,.hours{grid-template-columns:1fr}.hero h1{font-size:34px}
+.stickybar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:98;background:#2e7d6b;color:#fff}
+.stickybar a{flex:1;text-align:center;color:#fff;text-decoration:none;font-weight:700;padding:15px 6px;font-size:16px}
+.badge{bottom:70px}footer{padding-bottom:110px}}
+</style></head><body>
+<div class="topbar"><div class="brand">Praxis Dr. Constantin</div><a href="tel:+49231411284">Jetzt anrufen</a></div>
+<div class="hero"><div class="hero-in"><h1>Zahnarztpraxis Dr. Luise Constantin — Dortmund-Hörde</h1><p>Alles für Ihre Zahngesundheit: hochwertige Zahnheilkunde in Hörde — von der Prophylaxe bis zum Zahnersatz, vom jungen bis ins hohe Alter.</p>
+<div class="cta-row"><a class="btn-main" href="tel:+49231411284">Jetzt anrufen: 0231 411284</a><a class="btn-ghost" href="#besuch">Sprechzeiten &amp; Anfahrt</a></div>
+</div></div>
+<div class="wrap"><section><h2>Ihre Praxis in Hörde</h2><p class="sub">Persönlich, modern und mit einem klaren Ziel: Ihre Zahngesundheit erhalten.</p><div class="feature"><h3>Willkommen bei Dr. Luise Constantin</h3><p>Das oberste Ziel unserer Praxis ist es, Sie in Dortmund und Umgebung mit qualitativ hochwertiger Zahnheilkunde rundum zu versorgen. Wir fragen stets nach Ihren Wünschen und Vorstellungen und erstellen gemeinsam mit Ihnen einen Behandlungsplan — im Rahmen eines ganzheitlichen Sanierungskonzeptes, in modernen, gut ausgestatteten Praxisräumen und mit einem kompetenten, freundlichen Team.</p></div></section>
+<section><h2>Unsere Leistungen</h2><p class="sub">Die gesamte Bandbreite moderner Zahnheilkunde — übersichtlich auf einer Seite.</p><div class="grid">
+<div class="card"><img src="https://images.pexels.com/photos/3845807/pexels-photo-3845807.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Prophylaxe &amp; Vorsorge"><div class="b"><h3>Prophylaxe &amp; Vorsorge</h3><p>Damit neue Zahnkrankheiten gar nicht erst entstehen: regelmäßige Kontrolle und Prophylaxe für jedes Alter.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/3845745/pexels-photo-3845745.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Zahnerhaltung &amp; Füllungen"><div class="b"><h3>Zahnerhaltung &amp; Füllungen</h3><p>Die Zahnerhaltung steht bei uns an oberster Stelle — schonend, sorgfältig und auf lange Sicht geplant.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/3881305/pexels-photo-3881305.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Zahnersatz"><div class="b"><h3>Zahnersatz</h3><p>Vom einzelnen Zahn bis zur umfassenden Versorgung: moderner Zahnersatz, der zu Ihnen passt.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/3881814/pexels-photo-3881814.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Implantologie"><div class="b"><h3>Implantologie</h3><p>Feste Wurzeln für Ihren Zahnersatz — für ein sicheres Gefühl beim Essen, Sprechen und Lachen.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/3884093/pexels-photo-3884093.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Ästhetische Zahnmedizin"><div class="b"><h3>Ästhetische Zahnmedizin</h3><p>Ein Lächeln, das sich sehen lassen kann — inklusive Bleaching für sichtbar hellere Zähne.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/5622001/pexels-photo-5622001.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Kinderzahnheilkunde"><div class="b"><h3>Kinderzahnheilkunde</h3><p>Wir kümmern uns um das Lächeln unserer Patientinnen und Patienten — vom jungen bis ins hohe Alter.</p></div></div>
+</div></section>
+<section><h2>So einfach geht&#x27;s</h2><p class="sub">Kein Nummern-Raten mehr: ein Anruf genügt.</p><div class="grid">
+<div class="step"><div class="n">1</div><h3>Anrufen</h3><p>Sie erreichen uns unter einer einzigen, klaren Nummer: 0231 411284.</p></div>
+<div class="step"><div class="n">2</div><h3>Termin vereinbaren</h3><p>Wir finden gemeinsam einen Termin, der in Ihren Alltag passt.</p></div>
+<div class="step"><div class="n">3</div><h3>Gut versorgt sein</h3><p>Gemeinsam erstellen wir Ihren Behandlungsplan — transparent und in Ruhe.</p></div>
+</div></section>
+<section id="besuch"><h2>Sprechzeiten &amp; Kontakt</h2><p class="sub">Wir freuen uns auf Sie — Ihre Praxis Dr. Luise Constantin in Hörde.</p><div class="hours"><div class="hbox"><h3>Sprechzeiten</h3><ul><li><span>Montag, Dienstag &amp; Donnerstag</span><span>8.30–12.30 · 14.00–17.00</span></li><li><span>Mittwoch &amp; Freitag</span><span>8.30–13.00</span></li></ul></div><div class="hbox"><h3>Kontakt</h3><p>Wallrabenhof 6<br>44263 Dortmund (Hörde)<br>Tel. 0231 411284<br>praxis-dr-constantin@t-online.de</p></div></div></section></div>
+<div class="cta"><h2>Termin vereinbaren</h2><p style="margin:10px 0 18px">Zahnarztpraxis Dr. Luise Constantin · Wallrabenhof 6 · 44263 Dortmund · Tel. 0231 411284 · praxis-dr-constantin@t-online.de</p>
+<a href="tel:+49231411284">Jetzt anrufen 0231 411284</a><a href="mailto:praxis-dr-constantin@t-online.de" style="display:inline-block;margin:8px 10px 0;padding:13px 28px;background:transparent;color:#fff;border:1px solid #fff;text-decoration:none;border-radius:6px;font-weight:600">E-Mail schreiben</a></div>
+<footer id="visit">Zahnarztpraxis Dr. Luise Constantin · Wallrabenhof 6 · 44263 Dortmund · Tel. 0231 411284 · praxis-dr-constantin@t-online.de<br>Eine Praxis, eine Nummer: 0231 411284 — darüber erreichen Sie uns immer.</footer>
+<div class="stickybar"><a href="tel:+49231411284">Jetzt anrufen — 0231 411284</a></div>
+<div class="badge">Created by PostKaro — Demo</div>
+</body></html>
