@@ -4,6 +4,17 @@
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var isMobile = window.matchMedia('(max-width: 767px)').matches;
 
+  /* Land on the hero: Chrome's scroll restoration used to drop returning
+     visitors mid-page, where the car arrival had already played unseen.
+     An explicit anchor (#reviews etc.) still wins. */
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  if (document.getElementById('gl')){
+    var hashTgt = null;
+    try { hashTgt = location.hash.length > 1 ? document.querySelector(location.hash) : null; } catch(e){}
+    if (hashTgt) setTimeout(function(){ hashTgt.scrollIntoView(); }, 80);
+    else window.scrollTo(0, 0);
+  }
+
   /* ---------------- Booking form → WhatsApp ---------------- */
   var form = document.getElementById('bookForm');
   if (form) form.addEventListener('submit', function(ev){
@@ -18,7 +29,147 @@
     window.open('https://wa.me/971547787862?text=' + encodeURIComponent(lines.join('\n')), '_blank');
   });
 
-  /* ---------------- THREE.JS HERO SCENE ---------------- */
+  /* ---------------- custom Service Type dropdown ----------------
+     The native <select> popup rendered white with white option text on it
+     (options invisible). This styled replacement keeps a hidden input with
+     id f-service, so the WhatsApp submit above reads the value as before. */
+  document.querySelectorAll('[data-csel]').forEach(function(box){
+    var btn = box.querySelector('.csel-btn'), list = box.querySelector('.csel-list'),
+        valEl = box.querySelector('.csel-val'), hidden = box.querySelector('input[type="hidden"]'),
+        items = Array.prototype.slice.call(list.querySelectorAll('[role="option"]')), act = -1;
+    function setAct(i){
+      act = (i + items.length) % items.length;
+      items.forEach(function(li, k){ li.classList.toggle('act', k === act); });
+      if (items[act]) items[act].scrollIntoView({ block: 'nearest' });
+    }
+    function open(){
+      if (!list.hidden) return;
+      list.hidden = false; box.classList.add('open'); btn.setAttribute('aria-expanded', 'true');
+      var cur = -1;
+      items.forEach(function(li, k){ if (li.getAttribute('aria-selected') === 'true') cur = k; });
+      setAct(cur < 0 ? 0 : cur);
+    }
+    function close(){
+      if (list.hidden) return;
+      list.hidden = true; box.classList.remove('open'); btn.setAttribute('aria-expanded', 'false');
+    }
+    function pick(li){
+      items.forEach(function(o){ o.setAttribute('aria-selected', o === li ? 'true' : 'false'); });
+      hidden.value = li.getAttribute('data-v');
+      valEl.textContent = li.getAttribute('data-v');
+      close(); btn.focus();
+    }
+    btn.addEventListener('click', function(){ if (list.hidden) open(); else close(); });
+    items.forEach(function(li){ li.addEventListener('click', function(){ pick(li); }); });
+    document.addEventListener('click', function(e){ if (!box.contains(e.target)) close(); });
+    box.addEventListener('keydown', function(e){
+      if (e.key === 'Escape'){ close(); btn.focus(); }
+      else if (e.key === 'ArrowDown'){ e.preventDefault(); if (list.hidden) open(); else setAct(act + 1); }
+      else if (e.key === 'ArrowUp'){ e.preventDefault(); if (list.hidden) open(); else setAct(act - 1); }
+      else if ((e.key === 'Enter' || e.key === ' ') && !list.hidden && act >= 0){ e.preventDefault(); pick(items[act]); }
+      else if (e.key === 'Home' && !list.hidden){ e.preventDefault(); setAct(0); }
+      else if (e.key === 'End' && !list.hidden){ e.preventDefault(); setAct(items.length - 1); }
+      else if (!list.hidden && e.key.length === 1){
+        var c = e.key.toLowerCase();
+        for (var i = 0; i < items.length; i++){
+          var j = (act + 1 + i) % items.length;
+          if (items[j].getAttribute('data-v').toLowerCase().indexOf(c) === 0){ setAct(j); break; }
+        }
+      }
+    });
+  });
+
+  /* ---------------- ambient animated background (every page) ----------------
+     A fixed canvas behind the content: soft bokeh light-orbs drifting
+     slowly upward, three sage light ribbons flowing across, dust motes
+     rising, and every ~11s one gentle diagonal light sweep passes like
+     distant headlights — all sage/mint at low alpha, no grid lines
+     anywhere (the squares read as graph paper on a real screen).
+     Sections sit on translucent deep green, so it ghosts through —
+     present everywhere, never loud enough to hurt reading.
+     Reduced motion gets one still frame. */
+  (function(){
+    var cv = document.getElementById('ambg');
+    if (!cv) return;
+    var cx2 = cv.getContext('2d');
+    if (!cx2) return;
+    var W = 0, H = 0, DPR = Math.min(window.devicePixelRatio || 1, 1.25), P = [], i;
+    var RIBG = null;
+    function size(){
+      W = window.innerWidth; H = window.innerHeight;
+      cv.width = Math.round(W * DPR); cv.height = Math.round(H * DPR);
+      cx2.setTransform(DPR, 0, 0, DPR, 0, 0);
+      RIBG = cx2.createLinearGradient(0, 0, W, 0);
+      RIBG.addColorStop(0, 'rgba(142,182,155,0)');
+      RIBG.addColorStop(0.3, 'rgba(142,182,155,0.10)');
+      RIBG.addColorStop(0.62, 'rgba(218,241,222,0.15)');
+      RIBG.addColorStop(1, 'rgba(142,182,155,0)');
+    }
+    size(); window.addEventListener('resize', size);
+    for (i = 0; i < 42; i++) P.push({ x: Math.random(), y: Math.random(), s: 0.6 + Math.random() * 1.7, v: 0.02 + Math.random() * 0.05, o: 0.05 + Math.random() * 0.15 });
+    var ORB = [], OC = ['142,182,155', '218,241,222', '142,182,155'];
+    for (i = 0; i < 7; i++) ORB.push({ x: Math.random(), y: Math.random(), r: 60 + Math.random() * 120, v: 0.008 + Math.random() * 0.016, ph: Math.random() * 6.2832, o: 0.05 + Math.random() * 0.05, c: OC[i % 3] });
+    function frame(t){
+      cx2.clearRect(0, 0, W, H);
+      ORB.forEach(function(o){
+        var ox = o.x * W + Math.sin(t * 0.00011 + o.ph) * 26, oy = o.y * H;
+        var og = cx2.createRadialGradient(ox, oy, 0, ox, oy, o.r);
+        og.addColorStop(0, 'rgba(' + o.c + ',' + o.o + ')');
+        og.addColorStop(1, 'rgba(' + o.c + ',0)');
+        cx2.fillStyle = og;
+        cx2.beginPath(); cx2.arc(ox, oy, o.r, 0, 6.2832); cx2.fill();
+      });
+      if (!reduced){
+        var sw = t % 11000;
+        if (sw < 3000){
+          var spp = sw / 3000, sx = -W * 0.35 + W * 1.7 * spp;
+          var sa = Math.sin(spp * Math.PI) * 0.055;
+          cx2.save();
+          cx2.translate(sx, H / 2); cx2.rotate(-0.42);
+          var sg = cx2.createLinearGradient(-190, 0, 190, 0);
+          sg.addColorStop(0, 'rgba(218,241,222,0)');
+          sg.addColorStop(0.5, 'rgba(218,241,222,' + sa + ')');
+          sg.addColorStop(1, 'rgba(218,241,222,0)');
+          cx2.fillStyle = sg; cx2.fillRect(-190, -H * 0.75, 380, H * 1.5);
+          cx2.restore();
+        }
+      }
+      var k, px;
+      for (k = 0; k < 3; k++){
+        var baseY = H * (0.22 + k * 0.27), amp = 24 + k * 10;
+        cx2.strokeStyle = RIBG; cx2.lineWidth = 2; cx2.beginPath();
+        for (px = 0; px <= W; px += 14){
+          var py = baseY + Math.sin(px * 0.004 + t * 0.0004 + k * 2.1) * amp + Math.sin(px * 0.0013 - t * 0.00023 + k) * amp * 0.6;
+          if (px === 0) cx2.moveTo(px, py); else cx2.lineTo(px, py);
+        }
+        cx2.stroke();
+      }
+      P.forEach(function(p){
+        cx2.beginPath(); cx2.arc(p.x * W, p.y * H, p.s, 0, 6.2832);
+        cx2.fillStyle = 'rgba(218,241,222,' + p.o + ')'; cx2.fill();
+      });
+    }
+    if (reduced){ frame(1400); return; }
+    var lastDraw = 0;
+    (function loop(t){
+      requestAnimationFrame(loop);
+      if (document.hidden) return;
+      t = t || 0;
+      if (lastDraw && t - lastDraw < 31) return;   // ~30fps: motion is slow, half the fill cost
+      var step = lastDraw ? Math.min(3, Math.max(0.5, (t - lastDraw) / 16.667)) : 1;
+      lastDraw = t;
+      frame(t);
+      P.forEach(function(p){
+        p.y -= p.v * 0.0016 * step; p.x -= p.v * 0.0006 * step;
+        if (p.y < -0.02){ p.y = 1.02; p.x = Math.random(); }
+        if (p.x < -0.02) p.x = 1.02;
+      });
+      ORB.forEach(function(o){
+        o.y -= o.v * 0.004 * step;
+        if (o.y < -0.28){ o.y = 1.28; o.x = Math.random(); }
+      });
+    })(0);
+  })();
 
   /* ---------------- LANGUAGE SWITCHER (Google Translate, 6 languages) ---------------- */
   var LANGS = { 'en': ['EN', 'English'], 'ar': ['عربي', 'العربية'], 'zh-CN': ['中文', '简体中文'], 'zh-TW': ['繁體', '繁體中文'], 'de': ['DE', 'Deutsch'], 'ru': ['RU', 'Русский'] };
@@ -134,7 +285,7 @@
       return gsap.fromTo(target, fromVars, to);
     }
     // stagger containers animate their children instead of themselves
-    var staggerSels = ['.chips', '.faq-list', '.facts', '.bchips'];
+    var staggerSels = ['.chips', '.facts', '.bchips'];
     var staggerEls = new Set();
     staggerSels.forEach(function(sel){
       document.querySelectorAll(sel).forEach(function(c){ staggerEls.add(c); });
@@ -170,17 +321,17 @@
       var obj = { v: 0 };
       gsap.to(obj, { v: to, duration: 1.1, ease: 'power2.out',
         onUpdate: function(){ el.textContent = Math.round(obj.v); },
-        scrollTrigger: { trigger: el, start: 'top 90%', end: 'bottom 10%', toggleActions: 'play reverse play reverse' } });
+        scrollTrigger: { trigger: el, start: 'top 92%', once: true } });
     });
     gsap.utils.toArray('.stat .bar').forEach(function(bar){
       var stat = bar.closest('.stat');
       var num = stat ? parseInt(stat.querySelector('.count').getAttribute('data-to'), 10) : 30;
       gsap.to(bar, { height: (20 + (num / 60) * 64) + 'px', duration: 0.9, ease: 'power3.out',
-        scrollTrigger: { trigger: bar, start: 'top 92%', end: 'bottom 8%', toggleActions: 'play reverse play reverse' } });
+        scrollTrigger: { trigger: bar, start: 'top 94%', once: true } });
     });
     // parallax (scrub-linked): story photo, rate card, generic [data-plx]
-    var storyImg = document.querySelector('.story-photo img.plx');
-    if (storyImg) gsap.to(storyImg, { yPercent: 7, ease: 'none',
+    var storyImg = document.querySelectorAll('#wslides .slide');
+    if (storyImg.length) gsap.to(storyImg, { yPercent: 5, ease: 'none',
       scrollTrigger: { trigger: '.story-photo', start: 'top bottom', end: 'bottom top', scrub: true } });
     var rateCard = document.querySelector('.rate-card');
     if (rateCard && document.querySelector('.hero')) gsap.to(rateCard, { y: -26, ease: 'none',
@@ -189,17 +340,21 @@
       gsap.to(img, { yPercent: 7, ease: 'none',
         scrollTrigger: { trigger: img.closest('figure') || img, start: 'top bottom', end: 'bottom top', scrub: true } });
     });
-    // card tilt (desktop pointers only)
+    // card tilt + glare (desktop pointers only): services, packages, reviews, brands
     if (fine){
-      document.querySelectorAll('.card').forEach(function(card){
-        var qx = gsap.quickTo(card, 'rotationY', { duration: 0.45, ease: 'power3.out' });
-        var qy = gsap.quickTo(card, 'rotationX', { duration: 0.45, ease: 'power3.out' });
+      document.querySelectorAll('.card, .pkg, .testi, .bthumb, .bfeat').forEach(function(card){
+        gsap.set(card, { transformPerspective: 950 });
+        var qx = gsap.quickTo(card, 'rotationY', { duration: 0.5, ease: 'power3.out' });
+        var qy = gsap.quickTo(card, 'rotationX', { duration: 0.5, ease: 'power3.out' });
         card.addEventListener('pointermove', function(e){
           var r = card.getBoundingClientRect();
-          qx(((e.clientX - r.left) / r.width - 0.5) * 7);
-          qy(-((e.clientY - r.top) / r.height - 0.5) * 7);
+          var px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+          qx((px - 0.5) * 7); qy(-(py - 0.5) * 7);
+          card.style.setProperty('--gx', (px * 100) + '%');
+          card.style.setProperty('--gy', (py * 100) + '%');
+          card.style.setProperty('--gl', 1);
         });
-        card.addEventListener('pointerleave', function(){ qx(0); qy(0); });
+        card.addEventListener('pointerleave', function(){ qx(0); qy(0); card.style.setProperty('--gl', 0); });
       });
       // magnetic buttons
       document.querySelectorAll('.btn').forEach(function(btn){
@@ -231,6 +386,47 @@
         }
       });
     });
+    // v5 hardening: positions measured before fonts/images settle caused stuck
+    // pre-hidden sections in v4 — re-measure once everything has loaded.
+    window.addEventListener('load', function(){ ScrollTrigger.sort(); ScrollTrigger.refresh(); });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ ScrollTrigger.sort(); ScrollTrigger.refresh(); });
+    setTimeout(function(){ ScrollTrigger.sort(); ScrollTrigger.refresh(); }, 2600);
+    // Late layout growth (the 3D pin spacer landing, late images) shifts
+    // every trigger measured below it - fixed timers can miss it, so
+    // re-measure whenever the document's height actually changes.
+    if (window.ResizeObserver){
+      var lastH = document.body.scrollHeight, rzT = null;
+      new ResizeObserver(function(){
+        var h = document.body.scrollHeight;
+        if (Math.abs(h - lastH) < 2) return;
+        lastH = h;
+        clearTimeout(rzT);
+        rzT = setTimeout(function(){ ScrollTrigger.sort(); ScrollTrigger.refresh(); }, 200);
+      }).observe(document.body);
+    }
 
   }
+})();
+
+/* cursor companion: butterfly (titli) flutters after the cursor — inner pages */
+(function(){
+  var cf = document.getElementById('cursorFly');
+  if (!cf) return;
+  var fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!fine || reduced) return;
+  var tx = -200, ty = -200, cx = -200, cy = -200, shown = false, t0 = performance.now();
+  window.addEventListener('pointermove', function(e){
+    tx = e.clientX; ty = e.clientY;
+    if (!shown){ shown = true; cx = tx; cy = ty; cf.classList.add('live'); }
+  }, { passive: true });
+  document.addEventListener('pointerleave', function(){ shown = false; cf.classList.remove('live'); });
+  (function follow(){
+    requestAnimationFrame(follow);
+    cx += (tx - cx) * 0.13; cy += (ty - cy) * 0.13;
+    var bt = (performance.now() - t0) / 1000;
+    var bob = Math.sin(bt * 5.2) * 4;
+    var tilt = Math.max(-16, Math.min(16, (tx - cx) * 0.12));
+    cf.style.transform = 'translate(' + (cx + 16) + 'px,' + (cy + 12 + bob) + 'px) rotate(' + tilt + 'deg)';
+  })();
 })();
