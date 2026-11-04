@@ -35,7 +35,7 @@ h2.anton{font-size:clamp(38px,5.2vw,64px);line-height:.98;margin:16px 0 14px}
 section{position:relative}
 .pad{padding:96px 0}
 /* ---------- glass nav ---------- */
-.nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:80;width:min(1180px,calc(100% - 24px));display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 12px 10px 22px;border-radius:999px;background:rgba(5,31,32,.62);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--glass-brd);color:#fff;box-shadow:0 18px 44px rgba(0,0,0,.35)}
+.nav{position:fixed;top:14px;left:0;right:0;margin-left:auto;margin-right:auto;z-index:80;width:min(1180px,calc(100% - 24px));display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 12px 10px 22px;border-radius:999px;background:rgba(5,31,32,.62);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--glass-brd);color:#fff;box-shadow:0 18px 44px rgba(0,0,0,.35)}
 .nav .brand{font-family:"Anton",Impact,sans-serif;font-size:19px;letter-spacing:.04em;line-height:1;color:#fff;text-decoration:none;white-space:nowrap}
 .nav .brand span{color:var(--gold)}
 .nav .brand small{display:block;font-family:"Manrope",sans-serif;font-weight:700;font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-top:3px}
@@ -299,6 +299,20 @@ html.is-ar .marquee-track{animation-direction:reverse}
   .hero-foot .scrollcue i{animation:none}
   .anim .rv,.anim .rv-l,.anim .rv-r{opacity:1;transform:none}
 }
+/* polish round (2026-11-04): nav must fit every width — compact mid band */
+@media(max-width:1100px){
+  .nav{gap:10px;padding:9px 10px 9px 16px}
+  .nav .links{gap:18px}
+  .nav .links a{font-size:13px}
+  .nav .brand{font-size:18px}
+  .nav .btn{padding:10px 18px;font-size:13.5px}
+  .langbtn{padding:8px 11px;font-size:12px}
+}
+@media(max-width:480px){
+  .nav{gap:6px}
+  .langbtn{padding:7px 9px}
+  .nav .brand .blogo{width:30px;height:30px}
+}
 @media(max-width:900px){
   .nav .links{display:none}
   .hero-grid,.story-grid,.visit-grid,.pkg-grid,.testi-grid{grid-template-columns:1fr}
@@ -322,7 +336,7 @@ html.is-ar .marquee-track{animation-direction:reverse}
   .nav{padding:8px 10px 8px 14px;gap:8px}
   .nav .brand{font-size:15px}
   .nav .brand small{display:none}
-  .nav .btn{padding:10px 14px;font-size:12.5px}
+  .nav .btn{padding:9px 12px;font-size:12.5px}
   .hero-inner{padding:20px 20px 0}
   .hero-foot{padding:0 20px 26px}
   .wrap{padding:0 20px}
@@ -971,11 +985,17 @@ footer{position:relative;background:rgba(5,31,32,.94)}
     if (!cv) return;
     var cx2 = cv.getContext('2d');
     if (!cx2) return;
-    var W = 0, H = 0, DPR = Math.min(window.devicePixelRatio || 1, 1.5), P = [], i;
+    var W = 0, H = 0, DPR = Math.min(window.devicePixelRatio || 1, 1.25), P = [], i;
+    var RIBG = null;
     function size(){
       W = window.innerWidth; H = window.innerHeight;
       cv.width = Math.round(W * DPR); cv.height = Math.round(H * DPR);
       cx2.setTransform(DPR, 0, 0, DPR, 0, 0);
+      RIBG = cx2.createLinearGradient(0, 0, W, 0);
+      RIBG.addColorStop(0, 'rgba(142,182,155,0)');
+      RIBG.addColorStop(0.3, 'rgba(142,182,155,0.10)');
+      RIBG.addColorStop(0.62, 'rgba(218,241,222,0.15)');
+      RIBG.addColorStop(1, 'rgba(142,182,155,0)');
     }
     size(); window.addEventListener('resize', size);
     for (i = 0; i < 42; i++) P.push({ x: Math.random(), y: Math.random(), s: 0.6 + Math.random() * 1.7, v: 0.02 + Math.random() * 0.05, o: 0.05 + Math.random() * 0.15 });
@@ -1009,12 +1029,7 @@ footer{position:relative;background:rgba(5,31,32,.94)}
       var k, px;
       for (k = 0; k < 3; k++){
         var baseY = H * (0.22 + k * 0.27), amp = 24 + k * 10;
-        var gr = cx2.createLinearGradient(0, 0, W, 0);
-        gr.addColorStop(0, 'rgba(142,182,155,0)');
-        gr.addColorStop(0.3, 'rgba(142,182,155,0.10)');
-        gr.addColorStop(0.62, 'rgba(218,241,222,0.15)');
-        gr.addColorStop(1, 'rgba(142,182,155,0)');
-        cx2.strokeStyle = gr; cx2.lineWidth = 2; cx2.beginPath();
+        cx2.strokeStyle = RIBG; cx2.lineWidth = 2; cx2.beginPath();
         for (px = 0; px <= W; px += 14){
           var py = baseY + Math.sin(px * 0.004 + t * 0.0004 + k * 2.1) * amp + Math.sin(px * 0.0013 - t * 0.00023 + k) * amp * 0.6;
           if (px === 0) cx2.moveTo(px, py); else cx2.lineTo(px, py);
@@ -1027,17 +1042,22 @@ footer{position:relative;background:rgba(5,31,32,.94)}
       });
     }
     if (reduced){ frame(1400); return; }
+    var lastDraw = 0;
     (function loop(t){
       requestAnimationFrame(loop);
       if (document.hidden) return;
-      frame(t || 0);
+      t = t || 0;
+      if (lastDraw && t - lastDraw < 31) return;   // ~30fps: motion is slow, half the fill cost
+      var step = lastDraw ? Math.min(3, Math.max(0.5, (t - lastDraw) / 16.667)) : 1;
+      lastDraw = t;
+      frame(t);
       P.forEach(function(p){
-        p.y -= p.v * 0.0016; p.x -= p.v * 0.0006;
+        p.y -= p.v * 0.0016 * step; p.x -= p.v * 0.0006 * step;
         if (p.y < -0.02){ p.y = 1.02; p.x = Math.random(); }
         if (p.x < -0.02) p.x = 1.02;
       });
       ORB.forEach(function(o){
-        o.y -= o.v * 0.004;
+        o.y -= o.v * 0.004 * step;
         if (o.y < -0.28){ o.y = 1.28; o.x = Math.random(); }
       });
     })(0);
@@ -1255,9 +1275,22 @@ footer{position:relative;background:rgba(5,31,32,.94)}
     });
     // v5 hardening: positions measured before fonts/images settle caused stuck
     // pre-hidden sections in v4 — re-measure once everything has loaded.
-    window.addEventListener('load', function(){ ScrollTrigger.refresh(); });
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ ScrollTrigger.refresh(); });
-    setTimeout(function(){ ScrollTrigger.refresh(); }, 2600);
+    window.addEventListener('load', function(){ ScrollTrigger.sort(); ScrollTrigger.refresh(); });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ ScrollTrigger.sort(); ScrollTrigger.refresh(); });
+    setTimeout(function(){ ScrollTrigger.sort(); ScrollTrigger.refresh(); }, 2600);
+    // Late layout growth (the 3D pin spacer landing, late images) shifts
+    // every trigger measured below it - fixed timers can miss it, so
+    // re-measure whenever the document's height actually changes.
+    if (window.ResizeObserver){
+      var lastH = document.body.scrollHeight, rzT = null;
+      new ResizeObserver(function(){
+        var h = document.body.scrollHeight;
+        if (Math.abs(h - lastH) < 2) return;
+        lastH = h;
+        clearTimeout(rzT);
+        rzT = setTimeout(function(){ ScrollTrigger.sort(); ScrollTrigger.refresh(); }, 200);
+      }).observe(document.body);
+    }
 
   }
 })();
@@ -1518,24 +1551,42 @@ footer{position:relative;background:rgba(5,31,32,.94)}
      left sections stuck at opacity 0. Any reveal target sitting in the viewport
      at opacity 0 across two sweeps is forced back to its natural state. */
   if (window.gsap && window.ScrollTrigger && !reduced){
-    [400, 1600, 3600].forEach(function(ms){ setTimeout(function(){ ScrollTrigger.refresh(); }, ms); });
+    [400, 1600, 3600].forEach(function(ms){ setTimeout(function(){ ScrollTrigger.sort(); ScrollTrigger.refresh(); }, ms); });
     var watched = new Map();
     var RSEL = '.rv, .rv-l, .rv-r, .chips > *, .facts > *, .bchips > *';
     setInterval(function(){
+      if (document.hidden) return;
       var vh = window.innerHeight;
       document.querySelectorAll(RSEL).forEach(function(el){
         var r = el.getBoundingClientRect();
         if (r.height === 0 || r.bottom < 0 || r.top > vh){ watched.delete(el); return; }
         if (parseFloat(getComputedStyle(el).opacity) > 0.02){ watched.delete(el); return; }
+        // Exit slivers are OFF LIMITS: inside the trigger margins (bottom
+        // 14% / top 14% of the viewport) an element at opacity 0 is usually
+        // a bidirectional reveal mid-reverse or fully reversed after
+        // leaving - rescuing it would pin it visible and break exit-hiding.
+        if (r.bottom < vh * 0.14 || r.top > vh * 0.86){ watched.delete(el); return; }
+        // A reveal that has already played (progress > 0) is never "stuck":
+        // if it is invisible now, it is reversing out on purpose.
+        var tws0 = gsap.getTweensOf(el);
+        for (var tj = 0; tj < tws0.length; tj++){
+          if (tws0[tj].scrollTrigger && tws0[tj].progress() > 0.001){ watched.delete(el); return; }
+        }
         var now = Date.now();
         if (!watched.has(el)){ watched.set(el, now); return; }
         if (now - watched.get(el) > 650){
-          gsap.killTweensOf(el);
-          gsap.set(el, { opacity: 1, x: 0, y: 0, scale: 1, rotate: 0, filter: 'blur(0px)' });
+          // The trigger never fired (mis-measured positions, the v4 bug):
+          // complete the element's own scroll tween instead of killing it -
+          // the tween stays alive, so scroll-exit still reverses it later.
+          var tws = gsap.getTweensOf(el), jumped = false;
+          for (var ti = 0; ti < tws.length; ti++){
+            if (tws[ti].scrollTrigger){ tws[ti].progress(1); jumped = true; }
+          }
+          if (!jumped) gsap.set(el, { opacity: 1, x: 0, y: 0, scale: 1, rotate: 0, filter: 'blur(0px)' });
           watched.delete(el);
         }
       });
-    }, 350);
+    }, 700);
   }
 })();
 
@@ -1749,6 +1800,10 @@ footer{position:relative;background:rgba(5,31,32,.94)}
             var tlB = gsap.timeline({ defaults: { ease: 'power2.inOut' },
               scrollTrigger: { trigger: '#stagePin', start: 'top 96px', end: '+=1700', scrub: 0.5, pin: true, anticipatePin: 1,
                 onUpdate: function(self){ spotlight(self.progress); } } });
+            // The pin spacer just grew the document by 1700px: every reveal
+            // trigger below the stage must be re-measured against the new
+            // layout, or reveals fire thousands of px early/late.
+            try { if (window.ScrollTrigger) { ScrollTrigger.sort(); ScrollTrigger.refresh(); } } catch(e){}
             /* 1. drive in from the left */
             tlB.to(wrapB.position, { x: -0.4, duration: 1.2, ease: 'power2.out' }, 0)
                .to(spinB, { s: 8.1, duration: 1.2, ease: 'power2.out', onUpdate: applySpinB }, 0)
@@ -1792,16 +1847,31 @@ footer{position:relative;background:rgba(5,31,32,.94)}
               if (window.gsap) gsap.to(el, { scale: i === idx ? 1.14 : 1, duration: 0.45, ease: 'power3.out' });
             });
           }
-          var runB = false;
-          if ('IntersectionObserver' in window) new IntersectionObserver(function(en){ runB = en[0].isIntersecting; }, { rootMargin: '600px' }).observe(stage);
+          var runB = false, lastMoveB = 0, lastProgB = -1, warmB = 0;
+          if ('IntersectionObserver' in window) new IntersectionObserver(function(en){
+            if (en[0].isIntersecting && !runB){ warmB = 90; lastMoveB = performance.now(); }
+            runB = en[0].isIntersecting;
+          }, { rootMargin: '600px' }).observe(stage);
+          window.addEventListener('scroll', function(){ lastMoveB = performance.now(); }, { passive: true });
           function sizeB(){
             var w = stage.clientWidth, h = stage.clientHeight;
             rendererB.setSize(w, h, false); camB.aspect = w / h; camB.updateProjectionMatrix();
+            lastMoveB = performance.now();
           }
           window.addEventListener('resize', sizeB); sizeB();
           (function tickB(){
             requestAnimationFrame(tickB);
             if (!runB || document.hidden) return;
+            // The scene is purely scroll-driven (no idle motion): render only
+            // while the scrub is moving, just after scrolling, or while the
+            // stage is warming up — an idle pinned / near-viewport stage must
+            // not burn GPU frames. Scroll + progress changes reopen the gate
+            // instantly, so the sequence itself is untouched.
+            var progB = -1;
+            try { if (typeof tlB !== 'undefined' && tlB && tlB.scrollTrigger) progB = tlB.scrollTrigger.progress; } catch(e){}
+            if (warmB > 0){ warmB--; }
+            else if (progB === lastProgB && performance.now() - lastMoveB > 700) return;
+            lastProgB = progB;
             camB.position.set(0, 1.45, camB.aspect < 1 ? 10.8 : 7.1);
             camB.lookAt(0, 0.5, 0);
             rendererB.render(sceneB, camB);
@@ -1810,7 +1880,9 @@ footer{position:relative;background:rgba(5,31,32,.94)}
       }
       if (window.ScrollTrigger) setTimeout(function(){ ScrollTrigger.refresh(); }, 350);
     }
-  }).catch(function(){ /* loaders failed: fallback stays */ });
+  }).catch(function(){ /* loaders failed: fallback stays */
+    try { if (window.ScrollTrigger) { ScrollTrigger.sort(); ScrollTrigger.refresh(); } } catch(e){}
+  });
 })();
 
 </script>
@@ -1831,10 +1903,13 @@ footer{position:relative;background:rgba(5,31,32,.94)}
   var SEL = '.rv, .rv-l, .rv-r, .chips > *, .facts > *, .bchips > *';
   var seen = new Map();
   function force(el){
-    if (window.gsap){ try { gsap.killTweensOf(el); } catch(e){} }
-    el.style.setProperty('opacity', '1', 'important');
-    el.style.setProperty('transform', 'none', 'important');
-    el.style.setProperty('filter', 'none', 'important');
+    // Plain inline end-state (no !important, no killed tweens): it beats the
+    // stylesheet's hidden start state, yet any live GSAP tween can still
+    // override it afterwards — so scroll-exit hiding keeps working and the
+    // reveal stays bidirectional instead of being pinned visible forever.
+    el.style.opacity = '1';
+    el.style.transform = 'none';
+    el.style.filter = 'none';
     el.setAttribute('data-rvforced', '1');
   }
   function sweep(){
@@ -1842,7 +1917,10 @@ footer{position:relative;background:rgba(5,31,32,.94)}
     document.querySelectorAll(SEL).forEach(function(el){
       if (el.hasAttribute('data-rvforced')) return;
       var r = el.getBoundingClientRect();
-      if (!r.height || r.bottom < -80 || r.top > vh + 80){ seen.delete(el); return; }
+      // Only the clear middle of the viewport qualifies: elements near the
+      // edges may be bidirectional reveals legitimately reversed to hidden
+      // on scroll-exit - forcing those would pin them visible forever.
+      if (!r.height || r.top < vh * 0.2 || r.bottom > vh * 0.8){ seen.delete(el); return; }
       var op = parseFloat(window.getComputedStyle(el).opacity);
       if (!(op < 0.02)){ seen.delete(el); return; }
       var now = Date.now();
@@ -1850,7 +1928,7 @@ footer{position:relative;background:rgba(5,31,32,.94)}
       if (now - seen.get(el) > 1000){ force(el); seen.delete(el); }
     });
   }
-  setInterval(sweep, 450);
+  setInterval(function(){ if (!document.hidden) sweep(); }, 900);
   setTimeout(sweep, 1200); setTimeout(sweep, 3000); setTimeout(sweep, 6000);
 })();
 </script>

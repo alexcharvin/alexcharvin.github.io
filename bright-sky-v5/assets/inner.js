@@ -80,22 +80,30 @@
   });
 
   /* ---------------- ambient animated background (every page) ----------------
-     A fixed canvas behind the content: three soft sage light ribbons
-     flowing across and dust motes rising — no grid lines anywhere (the
-     squares read as graph paper on a real screen). Sections sit on
-     translucent deep green, so it ghosts through — present, never loud.
-     through — present everywhere, never loud enough to hurt reading.
+     A fixed canvas behind the content: soft bokeh light-orbs drifting
+     slowly upward, three sage light ribbons flowing across, dust motes
+     rising, and every ~11s one gentle diagonal light sweep passes like
+     distant headlights — all sage/mint at low alpha, no grid lines
+     anywhere (the squares read as graph paper on a real screen).
+     Sections sit on translucent deep green, so it ghosts through —
+     present everywhere, never loud enough to hurt reading.
      Reduced motion gets one still frame. */
   (function(){
     var cv = document.getElementById('ambg');
     if (!cv) return;
     var cx2 = cv.getContext('2d');
     if (!cx2) return;
-    var W = 0, H = 0, DPR = Math.min(window.devicePixelRatio || 1, 1.5), P = [], i;
+    var W = 0, H = 0, DPR = Math.min(window.devicePixelRatio || 1, 1.25), P = [], i;
+    var RIBG = null;
     function size(){
       W = window.innerWidth; H = window.innerHeight;
       cv.width = Math.round(W * DPR); cv.height = Math.round(H * DPR);
       cx2.setTransform(DPR, 0, 0, DPR, 0, 0);
+      RIBG = cx2.createLinearGradient(0, 0, W, 0);
+      RIBG.addColorStop(0, 'rgba(142,182,155,0)');
+      RIBG.addColorStop(0.3, 'rgba(142,182,155,0.10)');
+      RIBG.addColorStop(0.62, 'rgba(218,241,222,0.15)');
+      RIBG.addColorStop(1, 'rgba(142,182,155,0)');
     }
     size(); window.addEventListener('resize', size);
     for (i = 0; i < 42; i++) P.push({ x: Math.random(), y: Math.random(), s: 0.6 + Math.random() * 1.7, v: 0.02 + Math.random() * 0.05, o: 0.05 + Math.random() * 0.15 });
@@ -129,12 +137,7 @@
       var k, px;
       for (k = 0; k < 3; k++){
         var baseY = H * (0.22 + k * 0.27), amp = 24 + k * 10;
-        var gr = cx2.createLinearGradient(0, 0, W, 0);
-        gr.addColorStop(0, 'rgba(142,182,155,0)');
-        gr.addColorStop(0.3, 'rgba(142,182,155,0.10)');
-        gr.addColorStop(0.62, 'rgba(218,241,222,0.15)');
-        gr.addColorStop(1, 'rgba(142,182,155,0)');
-        cx2.strokeStyle = gr; cx2.lineWidth = 2; cx2.beginPath();
+        cx2.strokeStyle = RIBG; cx2.lineWidth = 2; cx2.beginPath();
         for (px = 0; px <= W; px += 14){
           var py = baseY + Math.sin(px * 0.004 + t * 0.0004 + k * 2.1) * amp + Math.sin(px * 0.0013 - t * 0.00023 + k) * amp * 0.6;
           if (px === 0) cx2.moveTo(px, py); else cx2.lineTo(px, py);
@@ -147,17 +150,22 @@
       });
     }
     if (reduced){ frame(1400); return; }
+    var lastDraw = 0;
     (function loop(t){
       requestAnimationFrame(loop);
       if (document.hidden) return;
-      frame(t || 0);
+      t = t || 0;
+      if (lastDraw && t - lastDraw < 31) return;   // ~30fps: motion is slow, half the fill cost
+      var step = lastDraw ? Math.min(3, Math.max(0.5, (t - lastDraw) / 16.667)) : 1;
+      lastDraw = t;
+      frame(t);
       P.forEach(function(p){
-        p.y -= p.v * 0.0016; p.x -= p.v * 0.0006;
+        p.y -= p.v * 0.0016 * step; p.x -= p.v * 0.0006 * step;
         if (p.y < -0.02){ p.y = 1.02; p.x = Math.random(); }
         if (p.x < -0.02) p.x = 1.02;
       });
       ORB.forEach(function(o){
-        o.y -= o.v * 0.004;
+        o.y -= o.v * 0.004 * step;
         if (o.y < -0.28){ o.y = 1.28; o.x = Math.random(); }
       });
     })(0);
@@ -321,52 +329,6 @@
       gsap.to(bar, { height: (20 + (num / 60) * 64) + 'px', duration: 0.9, ease: 'power3.out',
         scrollTrigger: { trigger: bar, start: 'top 94%', once: true } });
     });
-    // stats stage: exploded view as stepped stills (was a WebGL scene —
-    // the frame sequence, phase labels and stat spotlight are scroll-
-    // scrubbed here, so the section works on every machine, WebGL or not;
-    // without GSAP the stage simply shows the parked car frame)
-    var sframes = document.querySelectorAll('#stageFrames .sframe');
-    var stageEl = document.getElementById('xstage');
-    if (stageEl && sframes.length){
-      var sWrap = document.getElementById('stageFrames');
-      var sLabels = {
-        engine: stageEl.querySelector('[data-phase="engine"]'),
-        wheel: stageEl.querySelector('[data-phase="wheel"]'),
-        brake: stageEl.querySelector('[data-phase="brake"]')
-      };
-      var statsEls = Array.prototype.slice.call(document.querySelectorAll('#statsGrid .stat'));
-      var SEQ = [0, 1, 2, 1, 3, 4, 1, 0];
-      var curF = 0, sLit = -1;
-      function showFrame(idx){
-        if (idx === curF) return;
-        sframes[curF].classList.remove('on'); sframes[idx].classList.add('on'); curF = idx;
-      }
-      function setLabel(el, on){
-        if (el) gsap.to(el, { autoAlpha: on ? 1 : 0, duration: 0.3, overwrite: 'auto' });
-      }
-      function sSpot(p){
-        var idx = Math.min(3, Math.floor(p * 4));
-        if (idx === sLit) return;
-        sLit = idx;
-        statsEls.forEach(function(el, i){
-          el.classList.toggle('lit', i === idx);
-          gsap.to(el, { scale: i === idx ? 1.14 : 1, duration: 0.45, ease: 'power3.out' });
-        });
-      }
-      gsap.timeline({ scrollTrigger: { trigger: '#stagePin', start: 'top 96px', end: '+=1700', scrub: 0.5, pin: true, anticipatePin: 1,
-        onUpdate: function(self){
-          var p = self.progress;
-          sSpot(p);
-          showFrame(SEQ[Math.min(7, Math.floor(p * 8))]);
-          setLabel(sLabels.engine, p > 0.22 && p < 0.48);
-          setLabel(sLabels.wheel, p > 0.50 && p < 0.64);
-          setLabel(sLabels.brake, p > 0.63 && p < 0.80);
-          var tx = 0;
-          if (p < 0.125) tx = -38 * (1 - p / 0.125);
-          else if (p > 0.875) tx = 38 * ((p - 0.875) / 0.125);
-          gsap.set(sWrap, { x: tx });
-        } } });
-    }
     // parallax (scrub-linked): story photo, rate card, generic [data-plx]
     var storyImg = document.querySelectorAll('#wslides .slide');
     if (storyImg.length) gsap.to(storyImg, { yPercent: 5, ease: 'none',
@@ -426,9 +388,22 @@
     });
     // v5 hardening: positions measured before fonts/images settle caused stuck
     // pre-hidden sections in v4 — re-measure once everything has loaded.
-    window.addEventListener('load', function(){ ScrollTrigger.refresh(); });
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ ScrollTrigger.refresh(); });
-    setTimeout(function(){ ScrollTrigger.refresh(); }, 2600);
+    window.addEventListener('load', function(){ ScrollTrigger.sort(); ScrollTrigger.refresh(); });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ ScrollTrigger.sort(); ScrollTrigger.refresh(); });
+    setTimeout(function(){ ScrollTrigger.sort(); ScrollTrigger.refresh(); }, 2600);
+    // Late layout growth (the 3D pin spacer landing, late images) shifts
+    // every trigger measured below it - fixed timers can miss it, so
+    // re-measure whenever the document's height actually changes.
+    if (window.ResizeObserver){
+      var lastH = document.body.scrollHeight, rzT = null;
+      new ResizeObserver(function(){
+        var h = document.body.scrollHeight;
+        if (Math.abs(h - lastH) < 2) return;
+        lastH = h;
+        clearTimeout(rzT);
+        rzT = setTimeout(function(){ ScrollTrigger.sort(); ScrollTrigger.refresh(); }, 200);
+      }).observe(document.body);
+    }
 
   }
 })();
