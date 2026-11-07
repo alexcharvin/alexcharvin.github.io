@@ -497,6 +497,49 @@ footer{position:relative;background:rgba(5,31,32,.94)}
   #cursorFly{display:none}
 }
 
+
+/* ================= mobile fix round (2026-11-07, Alex) — ALL rules mobile-scoped; desktop rendering unchanged ================= */
+@media(max-width:768px){
+  .hero-media{inset:0}
+  .hero{padding-top:100px}
+  .hero-inner{padding:16px 20px 0}
+  .truststrip{margin-bottom:14px;gap:6px}
+  .truststrip span{padding:5px 10px;font-size:10.5px}
+  .hero .eyebrow{font-size:11.5px;align-items:flex-start}
+  .hero .eyebrow::before{margin-top:5px;flex:none}
+  .hero h1{margin-top:14px}
+  .hero p.lead{font-size:15.5px;margin-top:14px}
+  .badges{margin-top:14px;gap:6px}
+  .badges span{padding:5px 11px;font-size:11.5px}
+  .cta-row{margin-top:18px;gap:10px}
+  .cta-row .btn{padding:12px 20px;font-size:14px}
+  .hero-grid{gap:22px}
+  .rate-card{padding:20px 20px 14px}
+  .rate-card .big{font-size:58px}
+  .rate-card .stars{margin:6px 0 2px}
+  .rate-card .rows{margin-top:12px}
+  .rate-card .rows div{padding:8px 0}
+  .hero-foot{margin-top:22px;padding:0 20px 22px}
+  .form-section.pad{padding-top:44px}
+  .bfeat-txt{left:18px;right:18px;bottom:70px}
+  .bcount{display:inline-block;background:rgba(3,20,19,.55);padding:3px 9px;border-radius:999px}
+  .bfeat-txt h3{font-size:clamp(30px,9.5vw,42px)}
+  .bexplore{display:inline-flex;align-items:center;min-height:40px}
+  .label{align-items:flex-start}
+  .label::before{margin-top:4px}
+  .mapcard .mapmeta a[href^="tel:"]{white-space:nowrap}
+}
+@media(max-width:560px){
+  html{scroll-padding-bottom:76px}
+}
+@media(max-width:480px){
+  .nav{gap:6px;padding:8px 10px 8px 12px}
+  .nav .brand{font-size:13.5px;gap:7px}
+  .nav .brand .blogo{width:26px;height:26px}
+  .langbtn{padding:9px 8px;font-size:11.5px;min-height:40px}
+  .langbtn .flag{width:17px;height:13px}
+  .nav .btn{padding:9px 9px;font-size:11px}
+}
 </style>
 <script>(function(){try{if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('h-arm');setTimeout(function(){if(!document.documentElement.classList.contains('h-in'))document.documentElement.classList.remove('h-arm');},2800);}}catch(e){}})();</script></head><body>
 <canvas id="ambg" aria-hidden="true"></canvas>
@@ -1611,13 +1654,30 @@ footer{position:relative;background:rgba(5,31,32,.94)}
   /* Fetch the model chunks in parallel with the library imports below —
      sequentially they stacked into many seconds of empty stage on real
      connections (fix round 2 diagnosis). */
-  var chunkP = Promise.all([0, 1, 2, 3].map(function(i){
-    return fetch('assets/models/bmw-m4.b64.' + i + '.txt').then(function(r){
-      if (!r.ok) throw new Error('chunk ' + i);
-      return r.text();
-    });
-  }));
-  chunkP.catch(function(){ /* surfaced again at the parse step */ });
+  /* Mobile fix round (2026-11-07): the ~4.8 MB of model chunks and the
+     three.js library are no longer fetched at page load — they load lazily
+     when the stats stage approaches the viewport (IntersectionObserver,
+     900px margin). The scene itself, its scroll timeline and the fallback
+     stills are unchanged; if the observer never fires, the fallback stays. */
+  var chunkP = null;
+  function loadChunks(){
+    if (!chunkP){
+      chunkP = Promise.all([0, 1, 2, 3].map(function(i){
+        return fetch('assets/models/bmw-m4.b64.' + i + '.txt').then(function(r){
+          if (!r.ok) throw new Error('chunk ' + i);
+          return r.text();
+        });
+      }));
+      chunkP.catch(function(){ /* surfaced again at the parse step */ });
+    }
+    return chunkP;
+  }
+
+  var startedB = false;
+  function startB(){
+    if (startedB) return;
+    startedB = true;
+    loadChunks();
 
   Promise.all([
     import('./lib/three.module.js'),
@@ -1878,6 +1938,18 @@ footer{position:relative;background:rgba(5,31,32,.94)}
   }).catch(function(){ /* loaders failed: fallback stays */
     try { if (window.ScrollTrigger) { ScrollTrigger.sort(); ScrollTrigger.refresh(); } } catch(e){}
   });
+  }
+
+  if ('IntersectionObserver' in window){
+    var ioB = new IntersectionObserver(function(es){
+      for (var k = 0; k < es.length; k++){
+        if (es[k].isIntersecting){ ioB.disconnect(); startB(); return; }
+      }
+    }, { rootMargin: '900px 0px 900px 0px' });
+    ioB.observe(stage);
+  } else {
+    startB();
+  }
 })();
 
 </script>
