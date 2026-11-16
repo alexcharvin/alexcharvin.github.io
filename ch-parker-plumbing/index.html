@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CH Parker (Kings Norton) Ltd — Kings Heath, Birmingham</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1c2733;background:#f7f9fb;line-height:1.6}
+.topbar{position:absolute;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:18px 26px;color:#fff}
+.topbar .brand{font-family:Georgia,serif;font-size:20px;font-weight:700;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.topbar a{background:#fff;color:#14202b;text-decoration:none;padding:9px 18px;border-radius:6px;font-weight:600;font-size:15px}
+.hero{min-height:88vh;background:linear-gradient(rgba(8,20,32,.55),rgba(8,20,32,.72)),url('https://images.pexels.com/photos/7019367/pexels-photo-7019367.jpeg?auto=compress&cs=tinysrgb&w=1200') center/cover;display:flex;align-items:flex-end;color:#fff}
+.hero-in{max-width:1060px;margin:0 auto;padding:90px 26px 64px;width:100%}
+.hero h1{font-family:Georgia,serif;font-size:50px;line-height:1.1;max-width:800px}
+.hero p{font-size:20px;opacity:.94;max-width:660px;margin-top:14px}
+.hero .cta-row{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+.hero .cta-row a{display:inline-block;padding:14px 30px;border-radius:6px;text-decoration:none;font-weight:700;font-size:16px}
+.btn-main{background:#31456b;color:#fff}
+.btn-ghost{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.65)}
+.chip{display:inline-block;margin-top:22px;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.35);padding:8px 16px;border-radius:999px;font-size:15px;font-weight:600}
+.wrap{max-width:1060px;margin:0 auto;padding:0 26px}
+section{padding:64px 0 8px}
+h2{font-family:Georgia,serif;font-size:32px;margin-bottom:8px}
+.sub{color:#5d6b78;margin-bottom:30px;font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{border:1px solid #dde5ec;border-radius:10px;overflow:hidden;background:#fff}
+.card img{width:100%;height:210px;object-fit:cover;display:block}
+.card .b{padding:20px 22px}
+.card h3{font-size:19px;margin-bottom:6px}
+.card p{color:#54626e;font-size:15px}
+.tcard{border:1px solid #dde5ec;border-radius:10px;background:#fff;padding:26px 22px;text-align:center}
+.tcard .ini{width:56px;height:56px;border-radius:50%;background:#31456b;color:#fff;font-family:Georgia,serif;font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.tcard h3{font-size:19px;margin-bottom:4px}
+.tcard p{color:#54626e;font-size:15px}
+.step{border:1px solid #dde5ec;border-radius:10px;background:#fff;padding:24px 22px}
+.step .n{font-family:Georgia,serif;font-size:30px;font-weight:700;color:#31456b}
+.step h3{font-size:18px;margin:6px 0 4px}
+.step p{color:#54626e;font-size:15px}
+.feature{background:#fff;border:1px solid #dde5ec;border-left:6px solid #31456b;border-radius:10px;padding:30px 30px}
+.feature h3{font-size:22px;margin-bottom:8px;font-family:Georgia,serif}
+.feature p{color:#54626e;font-size:16px;max-width:820px}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gal figure{border-radius:10px;overflow:hidden;position:relative}
+.gal img{width:100%;height:230px;object-fit:cover;display:block}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px 10px;color:#fff;font-size:14px;font-weight:600;background:linear-gradient(transparent,rgba(0,0,0,.55))}
+.hours{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.hbox{background:#fff;border:1px solid #dde5ec;border-radius:10px;padding:24px 26px}
+.hbox h3{font-size:18px;margin-bottom:10px}
+.hbox p,.hbox li{color:#54626e;font-size:15px}
+.hbox ul{list-style:none}
+.hbox li{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed #e2eaf0}
+.hbox li:last-child{border-bottom:none}
+.cta{background:#31456b;color:#fff;text-align:center;padding:56px 26px;margin-top:64px}
+.cta h2{color:#fff}
+.cta a{display:inline-block;margin:8px 10px 0;padding:13px 28px;background:#fff;color:#14202b;text-decoration:none;border-radius:6px;font-weight:600}
+footer{padding:34px 26px 90px;text-align:center;color:#5d6b78;font-size:14px}
+.badge{position:fixed;left:16px;bottom:16px;background:#111;color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:600;z-index:99;box-shadow:0 4px 18px rgba(0,0,0,.3)}
+.stickybar{display:none}
+@media(max-width:760px){.grid,.gal,.hours{grid-template-columns:1fr}.hero h1{font-size:34px}
+.stickybar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:98;background:#31456b;color:#fff}
+.stickybar a{flex:1;text-align:center;color:#fff;text-decoration:none;font-weight:700;padding:15px 6px;font-size:16px}
+.badge{bottom:70px}footer{padding-bottom:110px}}
+</style></head><body>
+<div class="topbar"><div class="brand">CH Parker (Kings Norton) Ltd</div><a href="tel:+441214754151">Call now</a></div>
+<div class="hero"><div class="hero-in"><h1>CH Parker (Kings Norton) Ltd — Kings Heath, Birmingham</h1><p>A family-run plumbing company established in 1875 — domestic and commercial plumbing, bathrooms and disability wet rooms across Birmingham, with 24/7 emergency cover.</p>
+<div class="cta-row"><a class="btn-main" href="tel:+441214754151">Call: 0121 475 4151</a><a class="btn-ghost" href="#quote">Request a quote</a></div>
+<div class="chip">Family-run since 1875 · Kings Heath, Birmingham</div></div></div>
+<div class="wrap"><section><h2>What we do</h2><p class="sub">Elite plumbing services across Birmingham — since 1875.</p><div class="grid">
+<div class="card"><img src="https://images.pexels.com/photos/7019367/pexels-photo-7019367.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Domestic plumbing"><div class="b"><h3>Domestic plumbing</h3><p>Comprehensive plumbing for homes — repairs, installations and refurbishments.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/16509869/pexels-photo-16509869.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Commercial plumbing"><div class="b"><h3>Commercial plumbing</h3><p>Plumbing services for commercial clients across Birmingham, completed on time.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/8486978/pexels-photo-8486978.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Bathrooms &amp; wet rooms"><div class="b"><h3>Bathrooms &amp; wet rooms</h3><p>Bathroom planning, design and refurbishment — including our speciality, disability wet rooms.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/10961064/pexels-photo-10961064.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Disability adaptations"><div class="b"><h3>Disability adaptations</h3><p>Wet rooms and adaptations designed around the person who will use them.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/32588548/pexels-photo-32588548.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Drainage"><div class="b"><h3>Drainage</h3><p>Drainage problems found and fixed as part of a complete plumbing service.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/12105083/pexels-photo-12105083.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="24/7 emergency plumbing"><div class="b"><h3>24/7 emergency plumbing</h3><p>Emergency cover around the clock — call 07970 720283 any time.</p></div></div>
+</div></section>
+<section><h2>How it works</h2><p class="sub">From first call to finished job in three steps.</p><div class="grid">
+<div class="step"><div class="n">1</div><h3>Call or tap “Request a quote”</h3><p>Tell us what is wrong — a leak, a boiler fault, a new bathroom. It takes a minute.</p></div>
+<div class="step"><div class="n">2</div><h3>Get a clear quote</h3><p>You hear what the job involves and what it will cost before any work starts.</p></div>
+<div class="step"><div class="n">3</div><h3>We turn up and fix it</h3><p>The work is done tidily, and the guarantee is in writing.</p></div>
+</div></section>
+<section><h2>Why Birmingham trusts CH Parker</h2><p class="sub">A century and a half of local work.</p><div class="grid">
+<div class="tcard"><div class="ini">1875</div><h3>Trading since 1875</h3><p>One of Birmingham&#x27;s longest-established family plumbing firms.</p></div>
+<div class="tcard"><div class="ini">F</div><h3>Family run</h3><p>Based in Kings Heath — a well-established, respected local company.</p></div>
+<div class="tcard"><div class="ini">24</div><h3>24/7 emergencies</h3><p>An emergency line that is always answered: 07970 720283.</p></div>
+</div></section>
+<section><h2>On the job</h2><p class="sub">Plumbing across Birmingham, domestic and commercial.</p><div class="gal">
+<figure><img src="https://images.pexels.com/photos/7019367/pexels-photo-7019367.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Tools of the trade"><figcaption>Tools of the trade</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/8486978/pexels-photo-8486978.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Bathrooms &amp; wet rooms"><figcaption>Bathrooms &amp; wet rooms</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/16509869/pexels-photo-16509869.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Pipework &amp; installations"><figcaption>Pipework &amp; installations</figcaption></figure>
+</div></section>
+<section id="visit"><h2>Base &amp; contact</h2><p class="sub">Numbers you can tap, and a quote button — on every phone, every time.</p><div class="hours"><div class="hbox"><h3>Where we are</h3><ul><li><span>Based at</span><span>299 Vicarage Road</span></li><li><span>Area</span><span>Kings Heath, Birmingham</span></li><li><span>Office</span><span>0121 475 4151</span></li><li><span>Emergencies</span><span>24/7 — 07970 720283</span></li></ul></div><div class="hbox"><h3>Contact</h3><p>CH Parker (Kings Norton) Ltd<br>299 Vicarage Road, Kings Heath<br>Birmingham B14 7NN<br>Office: 0121 475 4151<br>Emergency: 07970 720283</p></div></div></section></div>
+<div class="cta" id="quote"><h2>Request a quote</h2><p style="margin:10px 0 18px">CH Parker (Kings Norton) Ltd · 299 Vicarage Road, Kings Heath, Birmingham B14 7NN · Office 0121 475 4151 · Emergency 07970 720283</p>
+<a href="tel:+441214754151">Call 0121 475 4151</a><a href="mailto:duffy1bld@gmail.com?subject=Quote%20request" style="display:inline-block;margin:8px 10px 0;padding:13px 28px;background:#fff;color:#14202b;text-decoration:none;border-radius:6px;font-weight:700">Request a quote</a><a href="mailto:duffy1bld@gmail.com" style="display:inline-block;margin:8px 10px 0;padding:13px 28px;background:transparent;color:#fff;border:1px solid #fff;text-decoration:none;border-radius:6px;font-weight:600">Email us</a></div>
+<footer>CH Parker (Kings Norton) Ltd · 299 Vicarage Road, Kings Heath, Birmingham B14 7NN · Office 0121 475 4151 · Emergency 07970 720283<br>Demo one-pager prepared by PostKaro Studio, with CH Parker&#x27;s real services and contact details.</footer>
+<div class="stickybar"><a href="tel:+441214754151">Call now</a><a href="#quote">Request a quote</a></div>
+<div class="badge">Created by PostKaro — Demo</div>
+</body></html>
