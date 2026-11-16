@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Line Bathrooms — Royton, Oldham</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1c2733;background:#f7f9fb;line-height:1.6}
+.topbar{position:absolute;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:18px 26px;color:#fff}
+.topbar .brand{font-family:Georgia,serif;font-size:20px;font-weight:700;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.topbar a{background:#fff;color:#14202b;text-decoration:none;padding:9px 18px;border-radius:6px;font-weight:600;font-size:15px}
+.hero{min-height:88vh;background:linear-gradient(rgba(8,20,32,.55),rgba(8,20,32,.72)),url('https://images.pexels.com/photos/8486978/pexels-photo-8486978.jpeg?auto=compress&cs=tinysrgb&w=1200') center/cover;display:flex;align-items:flex-end;color:#fff}
+.hero-in{max-width:1060px;margin:0 auto;padding:90px 26px 64px;width:100%}
+.hero h1{font-family:Georgia,serif;font-size:50px;line-height:1.1;max-width:800px}
+.hero p{font-size:20px;opacity:.94;max-width:660px;margin-top:14px}
+.hero .cta-row{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+.hero .cta-row a{display:inline-block;padding:14px 30px;border-radius:6px;text-decoration:none;font-weight:700;font-size:16px}
+.btn-main{background:#7a4a21;color:#fff}
+.btn-ghost{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.65)}
+.chip{display:inline-block;margin-top:22px;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.35);padding:8px 16px;border-radius:999px;font-size:15px;font-weight:600}
+.wrap{max-width:1060px;margin:0 auto;padding:0 26px}
+section{padding:64px 0 8px}
+h2{font-family:Georgia,serif;font-size:32px;margin-bottom:8px}
+.sub{color:#5d6b78;margin-bottom:30px;font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{border:1px solid #dde5ec;border-radius:10px;overflow:hidden;background:#fff}
+.card img{width:100%;height:210px;object-fit:cover;display:block}
+.card .b{padding:20px 22px}
+.card h3{font-size:19px;margin-bottom:6px}
+.card p{color:#54626e;font-size:15px}
+.tcard{border:1px solid #dde5ec;border-radius:10px;background:#fff;padding:26px 22px;text-align:center}
+.tcard .ini{width:56px;height:56px;border-radius:50%;background:#7a4a21;color:#fff;font-family:Georgia,serif;font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.tcard h3{font-size:19px;margin-bottom:4px}
+.tcard p{color:#54626e;font-size:15px}
+.step{border:1px solid #dde5ec;border-radius:10px;background:#fff;padding:24px 22px}
+.step .n{font-family:Georgia,serif;font-size:30px;font-weight:700;color:#7a4a21}
+.step h3{font-size:18px;margin:6px 0 4px}
+.step p{color:#54626e;font-size:15px}
+.feature{background:#fff;border:1px solid #dde5ec;border-left:6px solid #7a4a21;border-radius:10px;padding:30px 30px}
+.feature h3{font-size:22px;margin-bottom:8px;font-family:Georgia,serif}
+.feature p{color:#54626e;font-size:16px;max-width:820px}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gal figure{border-radius:10px;overflow:hidden;position:relative}
+.gal img{width:100%;height:230px;object-fit:cover;display:block}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px 10px;color:#fff;font-size:14px;font-weight:600;background:linear-gradient(transparent,rgba(0,0,0,.55))}
+.hours{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.hbox{background:#fff;border:1px solid #dde5ec;border-radius:10px;padding:24px 26px}
+.hbox h3{font-size:18px;margin-bottom:10px}
+.hbox p,.hbox li{color:#54626e;font-size:15px}
+.hbox ul{list-style:none}
+.hbox li{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed #e2eaf0}
+.hbox li:last-child{border-bottom:none}
+.cta{background:#7a4a21;color:#fff;text-align:center;padding:56px 26px;margin-top:64px}
+.cta h2{color:#fff}
+.cta a{display:inline-block;margin:8px 10px 0;padding:13px 28px;background:#fff;color:#14202b;text-decoration:none;border-radius:6px;font-weight:600}
+footer{padding:34px 26px 90px;text-align:center;color:#5d6b78;font-size:14px}
+.badge{position:fixed;left:16px;bottom:16px;background:#111;color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:600;z-index:99;box-shadow:0 4px 18px rgba(0,0,0,.3)}
+.stickybar{display:none}
+@media(max-width:760px){.grid,.gal,.hours{grid-template-columns:1fr}.hero h1{font-size:34px}
+.stickybar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:98;background:#7a4a21;color:#fff}
+.stickybar a{flex:1;text-align:center;color:#fff;text-decoration:none;font-weight:700;padding:15px 6px;font-size:16px}
+.badge{bottom:70px}footer{padding-bottom:110px}}
+</style></head><body>
+<div class="topbar"><div class="brand">Modern Line Bathrooms</div><a href="tel:+441616267119">Call now</a></div>
+<div class="hero"><div class="hero-in"><h1>Modern Line Bathrooms — Royton, Oldham</h1><p>A family-run bathroom showroom in Royton for over 45 years — suites, walk-in showers and full installations, with all the plumbing done by our own team.</p>
+<div class="cta-row"><a class="btn-main" href="tel:+441616267119">Call: 0161 626 7119</a><a class="btn-ghost" href="#quote">Request a quote</a></div>
+<div class="chip">Rated 5.0 from 14 Google reviews</div></div></div>
+<div class="wrap"><section><h2>What we do</h2><p class="sub">Bathrooms designed, supplied and installed from our Royton showroom.</p><div class="grid">
+<div class="card"><img src="https://images.pexels.com/photos/8486978/pexels-photo-8486978.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Bathroom suites"><div class="b"><h3>Bathroom suites</h3><p>Suites chosen in the showroom and fitted by our own installers — one team from start to finish.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/32588548/pexels-photo-32588548.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Walk-in showers"><div class="b"><h3>Walk-in showers</h3><p>Walk-in showers and en-suites designed around your space and how you actually use it.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/10961064/pexels-photo-10961064.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Wet wall &amp; tiling"><div class="b"><h3>Wet wall &amp; tiling</h3><p>Wet wall panels and tiling that keep the room waterproof and easy to clean.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/12105083/pexels-photo-12105083.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Heated towel warmers"><div class="b"><h3>Heated towel warmers</h3><p>Towel warmers and radiators supplied and fitted as part of the room — or on their own.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/16509869/pexels-photo-16509869.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="All plumbing jobs"><div class="b"><h3>All plumbing jobs</h3><p>The plumbing behind the bathroom — pipework, fittings and repairs by our own team.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/7019367/pexels-photo-7019367.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Cloakrooms &amp; en-suites"><div class="b"><h3>Cloakrooms &amp; en-suites</h3><p>Small rooms done properly: cloakrooms and en-suites planned to the last centimetre.</p></div></div>
+</div></section>
+<section><h2>How it works</h2><p class="sub">From first visit to finished bathroom in three steps.</p><div class="grid">
+<div class="step"><div class="n">1</div><h3>Call or tap “Request a quote”</h3><p>Tell us what is wrong — a leak, a boiler fault, a new bathroom. It takes a minute.</p></div>
+<div class="step"><div class="n">2</div><h3>Get a clear quote</h3><p>You hear what the job involves and what it will cost before any work starts.</p></div>
+<div class="step"><div class="n">3</div><h3>We turn up and fix it</h3><p>The work is done tidily, and the guarantee is in writing.</p></div>
+</div></section>
+<section><h2>Why Royton chooses Modern Line</h2><p class="sub">Facts from the business itself — no invented claims.</p><div class="grid">
+<div class="tcard"><div class="ini">45</div><h3>45+ years family-run</h3><p>The same family business on Rochdale Road for over four decades.</p></div>
+<div class="tcard"><div class="ini">S</div><h3>Showroom in Royton</h3><p>See suites and finishes in person at 80 Rochdale Road before you decide.</p></div>
+<div class="tcard"><div class="ini">O</div><h3>Our own installers</h3><p>No hand-offs — the team that designs your bathroom is the team that fits it.</p></div>
+</div></section>
+<section><h2>In the showroom &amp; on site</h2><p class="sub">Bathrooms from first sketch to final seal.</p><div class="gal">
+<figure><img src="https://images.pexels.com/photos/8486978/pexels-photo-8486978.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Showroom &amp; installation"><figcaption>Showroom &amp; installation</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/10961064/pexels-photo-10961064.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Fittings &amp; finishes"><figcaption>Fittings &amp; finishes</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/16509869/pexels-photo-16509869.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Pipework done properly"><figcaption>Pipework done properly</figcaption></figure>
+</div></section>
+<section id="visit"><h2>Hours &amp; contact</h2><p class="sub">Hours, number and a quote button — everything a customer needs, on one page.</p><div class="hours"><div class="hbox"><h3>Opening times</h3><ul><li><span>Monday – Friday</span><span>9:30 – 17:00</span></li><li><span>Saturday</span><span>9:30 – 13:00</span></li><li><span>Sunday</span><span>By appointment</span></li><li><span>Evenings</span><span>By appointment</span></li></ul></div><div class="hbox"><h3>Contact</h3><p>Modern Line Bathrooms<br>80 Rochdale Road, Royton, Oldham<br>Tel. 0161 626 7119<br>Mobiles: 07525 217971 · 07723 949889<br>sales@modernlinebathrooms.com</p></div></div></section></div>
+<div class="cta" id="quote"><h2>Request a quote</h2><p style="margin:10px 0 18px">Modern Line Bathrooms · 80 Rochdale Road, Royton, Oldham · Tel. 0161 626 7119 · sales@modernlinebathrooms.com</p>
+<a href="tel:+441616267119">Call 0161 626 7119</a><a href="mailto:sales@modernlinebathrooms.com?subject=Quote%20request" style="display:inline-block;margin:8px 10px 0;padding:13px 28px;background:#fff;color:#14202b;text-decoration:none;border-radius:6px;font-weight:700">Request a quote</a><a href="mailto:sales@modernlinebathrooms.com" style="display:inline-block;margin:8px 10px 0;padding:13px 28px;background:transparent;color:#fff;border:1px solid #fff;text-decoration:none;border-radius:6px;font-weight:600">Email us</a></div>
+<footer>Modern Line Bathrooms · 80 Rochdale Road, Royton, Oldham · Tel. 0161 626 7119 · sales@modernlinebathrooms.com<br>Demo one-pager prepared by PostKaro Studio, with Modern Line Bathrooms&#x27; real services, hours and contact details.</footer>
+<div class="stickybar"><a href="tel:+441616267119">Call now</a><a href="#quote">Request a quote</a></div>
+<div class="badge">Created by PostKaro — Demo</div>
+</body></html>
