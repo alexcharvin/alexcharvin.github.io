@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Aurelia Estates — Luxury Homes & Villas in Mumbai, Goa, Jaipur</title>
+<style>body{margin:0;display:flex;align-items:center;justify-content:center;min-height:100vh;font-family:Georgia,serif;background:#0e0d0b;color:#c9a96a;letter-spacing:.15em}</style>
+</head>
+<body>
+<p>LOADING&hellip;</p>
+<script>
+Promise.all([
+  fetch('c1.txt').then(function(r){return r.text();}),
+  fetch('c2.txt').then(function(r){return r.text();}),
+  fetch('c3.txt').then(function(r){return r.text();}),
+  fetch('c4.txt').then(function(r){return r.text();}),
+  fetch('c5.txt').then(function(r){return r.text();})
+]).then(function(parts){
+  document.open();
+  document.write(parts.join(''));
+  document.close();
+}).catch(function(){
+  document.body.innerHTML = '<p>Failed to load. Please refresh.</p>';
+});
+</script>
+</body>
+</html>
