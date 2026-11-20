@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>D.H. Lumb Building &amp; Roofing — Heckmondwike</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1c2733;background:#f7f9fb;line-height:1.6}
+.topbar{position:absolute;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:18px 26px;color:#fff}
+.topbar .brand{font-family:Georgia,serif;font-size:20px;font-weight:700;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.topbar a{background:#fff;color:#14202b;text-decoration:none;padding:9px 18px;border-radius:6px;font-weight:600;font-size:15px}
+.hero{min-height:88vh;background:linear-gradient(rgba(8,20,32,.55),rgba(8,20,32,.72)),url('https://images.pexels.com/photos/37704251/pexels-photo-37704251.jpeg?auto=compress&cs=tinysrgb&w=1200') center/cover;display:flex;align-items:flex-end;color:#fff}
+.hero-in{max-width:1060px;margin:0 auto;padding:90px 26px 64px;width:100%}
+.hero h1{font-family:Georgia,serif;font-size:50px;line-height:1.1;max-width:800px}
+.hero p{font-size:20px;opacity:.94;max-width:660px;margin-top:14px}
+.hero .cta-row{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+.hero .cta-row a{display:inline-block;padding:14px 30px;border-radius:6px;text-decoration:none;font-weight:700;font-size:16px}
+.btn-main{background:#37474f;color:#fff}
+.btn-ghost{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.65)}
+.chip{display:inline-block;margin-top:22px;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.35);padding:8px 16px;border-radius:999px;font-size:15px;font-weight:600}
+.wrap{max-width:1060px;margin:0 auto;padding:0 26px}
+section{padding:64px 0 8px}
+h2{font-family:Georgia,serif;font-size:32px;margin-bottom:8px}
+.sub{color:#5d6b78;margin-bottom:30px;font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{border:1px solid #dde5ec;border-radius:10px;overflow:hidden;background:#fff}
+.card img{width:100%;height:210px;object-fit:cover;display:block}
+.card .b{padding:20px 22px}
+.card h3{font-size:19px;margin-bottom:6px}
+.card p{color:#54626e;font-size:15px}
+.tcard{border:1px solid #dde5ec;border-radius:10px;background:#fff;padding:26px 22px;text-align:center}
+.tcard .ini{width:56px;height:56px;border-radius:50%;background:#37474f;color:#fff;font-family:Georgia,serif;font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.tcard h3{font-size:19px;margin-bottom:4px}
+.tcard p{color:#54626e;font-size:15px}
+.step{border:1px solid #dde5ec;border-radius:10px;background:#fff;padding:24px 22px}
+.step .n{font-family:Georgia,serif;font-size:30px;font-weight:700;color:#37474f}
+.step h3{font-size:18px;margin:6px 0 4px}
+.step p{color:#54626e;font-size:15px}
+.feature{background:#fff;border:1px solid #dde5ec;border-left:6px solid #37474f;border-radius:10px;padding:30px 30px}
+.feature h3{font-size:22px;margin-bottom:8px;font-family:Georgia,serif}
+.feature p{color:#54626e;font-size:16px;max-width:820px}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gal figure{border-radius:10px;overflow:hidden;position:relative}
+.gal img{width:100%;height:230px;object-fit:cover;display:block}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px 10px;color:#fff;font-size:14px;font-weight:600;background:linear-gradient(transparent,rgba(0,0,0,.55))}
+.hours{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.hbox{background:#fff;border:1px solid #dde5ec;border-radius:10px;padding:24px 26px}
+.hbox h3{font-size:18px;margin-bottom:10px}
+.hbox p,.hbox li{color:#54626e;font-size:15px}
+.hbox ul{list-style:none}
+.hbox li{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed #e2eaf0}
+.hbox li:last-child{border-bottom:none}
+.cta{background:#37474f;color:#fff;text-align:center;padding:56px 26px;margin-top:64px}
+.cta h2{color:#fff}
+.cta a{display:inline-block;margin:8px 10px 0;padding:13px 28px;background:#fff;color:#14202b;text-decoration:none;border-radius:6px;font-weight:600}
+footer{padding:34px 26px 90px;text-align:center;color:#5d6b78;font-size:14px}
+.badge{position:fixed;left:16px;bottom:16px;background:#111;color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:600;z-index:99;box-shadow:0 4px 18px rgba(0,0,0,.3)}
+.stickybar{display:none}
+@media(max-width:760px){.grid,.gal,.hours{grid-template-columns:1fr}.hero h1{font-size:34px}
+.stickybar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:98;background:#37474f;color:#fff}
+.stickybar a{flex:1;text-align:center;color:#fff;text-decoration:none;font-weight:700;padding:15px 6px;font-size:16px}
+.badge{bottom:70px}footer{padding-bottom:110px}}
+</style></head><body>
+<div class="topbar"><div class="brand">D.H. Lumb Building &amp; Roofing</div><a href="tel:+447964096637">Call now</a></div>
+<div class="hero"><div class="hero-in"><h1>D.H. Lumb Building &amp; Roofing — Heckmondwike</h1><p>Building and roofing in Heckmondwike — re-roofs, dormers and repairs with over 18 years of experience, and a quote before any work starts.</p>
+<div class="cta-row"><a class="btn-main" href="tel:+447964096637">Call: 07964 096637</a><a class="btn-ghost" href="#quote">Request a quote</a></div>
+<div class="chip">18+ years of experience · Rated 5.0 on the firm's own site</div></div></div>
+<div class="wrap"><section><h2>What we do</h2><p class="sub">Building and roofing for Heckmondwike — re-roofs, dormers, repairs and extensions.</p><div class="grid">
+<div class="card"><img src="https://images.pexels.com/photos/31771166/pexels-photo-31771166.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Re-roofs"><div class="b"><h3>Re-roofs</h3><p>Full re-roofs for homes in Heckmondwike and the Wakefield area, stripped and finished tidily.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/33404248/pexels-photo-33404248.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Roof repairs"><div class="b"><h3>Roof repairs</h3><p>Leaks, slipped tiles and storm damage found fast and fixed properly.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/37704251/pexels-photo-37704251.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Dormers &amp; conversions"><div class="b"><h3>Dormers &amp; conversions</h3><p>Dormers, extensions and conversions — roofing and building under one roof.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/39238326/pexels-photo-39238326.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Flat roofs"><div class="b"><h3>Flat roofs</h3><p>Flat roofing repaired or replaced, and guaranteed in writing.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/38785734/pexels-photo-38785734.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Pointing &amp; render"><div class="b"><h3>Pointing &amp; render</h3><p>Repointing, render and flagging that keep the weather out.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/925684/pexels-photo-925684.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Landscaping"><div class="b"><h3>Landscaping</h3><p>Landscaping and flagging to finish the outside of the home properly.</p></div></div>
+</div></section>
+<section><h2>How getting a quote works</h2><p class="sub">Call the number shown, or tap Request a quote — three steps to a fixed price.</p><div class="grid">
+<div class="step"><div class="n">1</div><h3>Call or tap “Request a quote”</h3><p>Tell us what is wrong — a leak, slipped tiles, a flat roof that is ponding. It takes a minute.</p></div>
+<div class="step"><div class="n">2</div><h3>Get a clear quote</h3><p>We look at the roof, explain what it needs, and you hear the price before any work starts.</p></div>
+<div class="step"><div class="n">3</div><h3>We turn up and fix it</h3><p>The work is done tidily, with the mess taken away and a guarantee in writing.</p></div>
+</div></section>
+<section><h2>Why Heckmondwike calls D.H. Lumb</h2><p class="sub">The things people actually ask about before they book a roofer.</p><div class="grid">
+<div class="tcard"><div class="ini">18+</div><h3>18+ years of experience</h3><p>Over 18 years of building and roofing experience.</p></div>
+<div class="tcard"><div class="ini">1</div><h3>One number that rings</h3><p>Every call button dials the number shown: 07964 096637.</p></div>
+<div class="tcard"><div class="ini">Q</div><h3>Quote first, always</h3><p>You approve the price before work starts.</p></div>
+</div></section>
+<section><h2>On the job</h2><p class="sub">Building and roofing work across Heckmondwike and Wakefield.</p><div class="gal">
+<figure><img src="https://images.pexels.com/photos/37704251/pexels-photo-37704251.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Ridge &amp; chimney work"><figcaption>Ridge &amp; chimney work</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/31771166/pexels-photo-31771166.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Tiling &amp; re-roofing"><figcaption>Tiling &amp; re-roofing</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/33404248/pexels-photo-33404248.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Repairs &amp; shingles"><figcaption>Repairs &amp; shingles</figcaption></figure>
+</div></section>
+<section id="visit"><h2>Base &amp; contact</h2><p class="sub">One number, shown and dialled the same — a mobile visitor reaches the firm, not a second number.</p><div class="hours"><div class="hbox"><h3>Where we are</h3><ul><li><span>Based at</span><span>20 Keats Drive, Heckmondwike</span></li><li><span>Area</span><span>Wakefield WF16</span></li><li><span>Phone</span><span>07964 096637</span></li><li><span>Email</span><span>d.h.lumbbuilding@outlook.com</span></li></ul></div><div class="hbox"><h3>Contact</h3><p>D.H. Lumb Building &amp; Roofing Services<br>20 Keats Drive, Heckmondwike<br>WF16 0PF<br>Tel. 07964 096637</p></div></div></section></div>
+<div class="cta" id="quote"><h2>Request a quote</h2><p style="margin:10px 0 18px">D.H. Lumb Building & Roofing Services · 20 Keats Drive, Heckmondwike WF16 0PF · Tel. 07964 096637 · d.h.lumbbuilding@outlook.com</p>
+<a href="tel:+447964096637">Call 07964 096637</a><a href="mailto:d.h.lumbbuilding@outlook.com?subject=Quote%20request" style="display:inline-block;margin:8px 10px 0;padding:13px 28px;background:#fff;color:#14202b;text-decoration:none;border-radius:6px;font-weight:700">Request a quote</a><a href="mailto:d.h.lumbbuilding@outlook.com" style="display:inline-block;margin:8px 10px 0;padding:13px 28px;background:transparent;color:#fff;border:1px solid #fff;text-decoration:none;border-radius:6px;font-weight:600">Email us</a></div>
+<footer>D.H. Lumb Building & Roofing Services · 20 Keats Drive, Heckmondwike WF16 0PF · Tel. 07964 096637 · d.h.lumbbuilding@outlook.com<br>Demo one-pager prepared by PostKaro Studio, with D.H. Lumb&#x27;s real services and contact details. The 5.0 rating is the firm&#x27;s own published claim.</footer>
+<div class="stickybar"><a href="tel:+447964096637">Call now</a><a href="#quote">Request a quote</a></div>
+<div class="badge">Created by PostKaro — Demo</div>
+</body></html>
