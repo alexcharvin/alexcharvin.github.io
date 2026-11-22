@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blossom Co Floral Design — Bristol</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#22301f;background:#faf8f4;line-height:1.6}
+.topbar{position:absolute;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:18px 26px;color:#fff}
+.topbar .brand{font-family:Georgia,serif;font-size:20px;font-weight:700;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.topbar a{background:#fff;color:#14202b;text-decoration:none;padding:9px 18px;border-radius:6px;font-weight:600;font-size:15px}
+.hero{min-height:88vh;background:linear-gradient(rgba(20,30,22,.5),rgba(20,30,22,.68)),url('https://images.pexels.com/photos/36739287/pexels-photo-36739287.jpeg?auto=compress&cs=tinysrgb&w=1200') center/cover;display:flex;align-items:flex-end;color:#fff}
+.hero-in{max-width:1060px;margin:0 auto;padding:90px 26px 64px;width:100%}
+.hero h1{font-family:Georgia,serif;font-size:50px;line-height:1.1;max-width:800px}
+.hero p{font-size:20px;opacity:.94;max-width:660px;margin-top:14px}
+.hero .cta-row{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+.hero .cta-row a{display:inline-block;padding:14px 30px;border-radius:6px;text-decoration:none;font-weight:700;font-size:16px}
+.btn-main{background:#2e5d43;color:#fff}
+.btn-ghost{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.65)}
+.chip{display:inline-block;margin-top:22px;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.35);padding:8px 16px;border-radius:999px;font-size:15px;font-weight:600}
+.wrap{max-width:1060px;margin:0 auto;padding:0 26px}
+section{padding:64px 0 8px}
+h2{font-family:Georgia,serif;font-size:32px;margin-bottom:8px}
+.sub{color:#5d6b5a;margin-bottom:30px;font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{border:1px solid #e3ddd2;border-radius:10px;overflow:hidden;background:#fff}
+.card img{width:100%;height:210px;object-fit:cover;display:block}
+.card .b{padding:20px 22px}
+.card h3{font-size:19px;margin-bottom:6px}
+.card p{color:#54626e;font-size:15px}
+.tcard{border:1px solid #e3ddd2;border-radius:10px;background:#fff;padding:26px 22px;text-align:center}
+.tcard .ini{width:56px;height:56px;border-radius:50%;background:#2e5d43;color:#fff;font-family:Georgia,serif;font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.tcard h3{font-size:19px;margin-bottom:4px}
+.tcard p{color:#54626e;font-size:15px}
+.step{border:1px solid #e3ddd2;border-radius:10px;background:#fff;padding:24px 22px}
+.step .n{font-family:Georgia,serif;font-size:30px;font-weight:700;color:#2e5d43}
+.step h3{font-size:18px;margin:6px 0 4px}
+.step p{color:#54626e;font-size:15px}
+.feature{background:#fff;border:1px solid #e3ddd2;border-left:6px solid #2e5d43;border-radius:10px;padding:30px 30px}
+.feature h3{font-size:22px;margin-bottom:8px;font-family:Georgia,serif}
+.feature p{color:#54626e;font-size:16px;max-width:820px}
+.menu{background:#fff;border:1px solid #e3ddd2;border-radius:10px;padding:26px 30px}
+.menu ul{list-style:none}
+.menu li{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px dashed #e2e0d8;font-size:16px}
+.menu li:last-child{border-bottom:none}
+.menu .pr{font-weight:700;white-space:nowrap}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gal figure{border-radius:10px;overflow:hidden;position:relative}
+.gal img{width:100%;height:230px;object-fit:cover;display:block}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px 10px;color:#fff;font-size:14px;font-weight:600;background:linear-gradient(transparent,rgba(0,0,0,.55))}
+.hours{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.hbox{background:#fff;border:1px solid #e3ddd2;border-radius:10px;padding:24px 26px}
+.hbox h3{font-size:18px;margin-bottom:10px}
+.hbox p,.hbox li{color:#54626e;font-size:15px}
+.hbox ul{list-style:none}
+.hbox li{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed #e2eaf0}
+.hbox li:last-child{border-bottom:none}
+.cta{background:#2e5d43;color:#fff;text-align:center;padding:56px 26px;margin-top:64px}
+.cta h2{color:#fff}
+.cta a{display:inline-block;margin:8px 10px 0;padding:13px 28px;background:#fff;color:#14202b;text-decoration:none;border-radius:6px;font-weight:600}
+footer{padding:34px 26px 90px;text-align:center;color:#5d6b5a;font-size:14px}
+.badge{position:fixed;left:16px;bottom:16px;background:#111;color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:600;z-index:99;box-shadow:0 4px 18px rgba(0,0,0,.3)}
+.stickybar{display:none}
+@media(max-width:760px){.grid,.gal,.hours{grid-template-columns:1fr}.hero h1{font-size:34px}
+.stickybar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:98;background:#2e5d43;color:#fff}
+.stickybar a{flex:1;text-align:center;color:#fff;text-decoration:none;font-weight:700;padding:15px 6px;font-size:16px}
+.badge{bottom:70px}footer{padding-bottom:110px}}
+</style></head><body>
+<div class="topbar"><div class="brand">Blossom Co Floral Design</div><a href="tel:+447345979530">Call now</a></div>
+<div class="hero"><div class="hero-in"><h1>Blossom Co Floral Design — Bristol</h1><p>Bespoke weddings and beautiful flowers from Clifton Village — fresh bouquets, dried flowers and funeral flowers, with local and national delivery.</p>
+<div class="cta-row"><a class="btn-main" href="tel:+447345979530">Call: 07345 979530</a><a class="btn-ghost" href="#order">Order flowers</a></div>
+<div class="chip">18+ years in the industry · Clifton Village, Bristol</div></div></div>
+<div class="wrap"><section><h2>What we do</h2><p class="sub">A Clifton Village florist — bespoke weddings, fresh and dried flowers, local and national delivery.</p><div class="grid">
+<div class="card"><img src="https://images.pexels.com/photos/31641384/pexels-photo-31641384.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Wedding flowers"><div class="b"><h3>Wedding flowers</h3><p>Bespoke weddings, with a complimentary consultation, a mood board and an itemised quote.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/20295105/pexels-photo-20295105.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Fresh bouquets"><div class="b"><h3>Fresh bouquets</h3><p>Sumptuous seasonal arrangements — fresh bouquets for every occasion.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/30458590/pexels-photo-30458590.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Funeral flowers"><div class="b"><h3>Funeral flowers</h3><p>Funeral flowers, made with care when words are not enough.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/21855108/pexels-photo-21855108.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Dried flowers"><div class="b"><h3>Dried flowers</h3><p>Gorgeous dried flowers — arrangements that last long after the bouquet has gone.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/35026614/pexels-photo-35026614.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Local &amp; national delivery"><div class="b"><h3>Local &amp; national delivery</h3><p>Available for local and national delivery — flowers that travel well.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/20617542/pexels-photo-20617542.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Portfolio"><div class="b"><h3>Portfolio</h3><p>A portfolio of weddings and arrangements — see the work before you book.</p></div></div>
+</div></section>
+<section><h2>How ordering works</h2><p class="sub">Call, email, or tap Order flowers — three steps to flowers at the door.</p><div class="grid">
+<div class="step"><div class="n">1</div><h3>Tell us the occasion</h3><p>A birthday, a thank-you, a wedding, a farewell — a few words about who it is for, and when you need it.</p></div>
+<div class="step"><div class="n">2</div><h3>We make it fresh</h3><p>Your florist makes the bouquet by hand, from the freshest stems in the shop that morning.</p></div>
+<div class="step"><div class="n">3</div><h3>Delivered or collected</h3><p>Delivered to the door, or ready to collect from the shop — with a card message if you like.</p></div>
+</div></section>
+<section><h2>Why Bristol calls Blossom Co</h2><p class="sub">The things people actually ask about before they order flowers.</p><div class="grid">
+<div class="tcard"><div class="ini">18+</div><h3>18+ years in the industry</h3><p>The owner&#x27;s own words — over eighteen years of floristry, now in Clifton Village.</p></div>
+<div class="tcard"><div class="ini">F</div><h3>Form, at last</h3><p>An enquiry form where the site has none — a wedding enquiry can arrive in writing, any hour.</p></div>
+<div class="tcard"><div class="ini">T</div><h3>Tap to call</h3><p>The number is a tap-to-call link now — a mobile visitor reaches the shop in one touch.</p></div>
+</div></section>
+<section><h2>Fresh in the shop</h2><p class="sub">Seasonal flowers, made up fresh in Clifton Village.</p><div class="gal">
+<figure><img src="https://images.pexels.com/photos/36739287/pexels-photo-36739287.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Bouquets in the shop"><figcaption>Bouquets in the shop</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/31641384/pexels-photo-31641384.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Bouquets at the market"><figcaption>Bouquets at the market</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/20295105/pexels-photo-20295105.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Ready-made bouquets"><figcaption>Ready-made bouquets</figcaption></figure>
+</div></section>
+<section id="visit"><h2>Hours &amp; contact</h2><p class="sub">An enquiry form and a number you can tap — a visitor who wants to talk first finally can.</p><div class="hours"><div class="hbox"><h3>Opening hours</h3><ul><li><span>Monday</span><span>Closed</span></li><li><span>Tuesday</span><span>9:00 am – 5:00 pm</span></li><li><span>Wednesday</span><span>10:00 am – 4:00 pm</span></li><li><span>Thursday – Saturday</span><span>9:00 am – 5:00 pm</span></li></ul></div><div class="hbox"><h3>Contact</h3><p>Blossom Co Floral Design<br>8 Boyce&#x27;s Ave, Clifton Village, Bristol BS8 4AA<br>Tel. 07345 979530 / 0117 329 4070<br>contactus@blossomcofloraldesign.co.uk</p></div></div></section></div>
+<div class="cta" id="order"><h2>Order flowers</h2><p style="margin:10px 0 18px">Blossom Co Floral Design · 8 Boyce's Ave, Clifton Village, Bristol BS8 4AA · Tel. 07345 979530 · contactus@blossomcofloraldesign.co.uk</p>
+<a href="tel:+447345979530">Call 07345 979530</a><a href="mailto:contactus@blossomcofloraldesign.co.uk?subject=Flower%20order" style="display:inline-block;margin:8px 10px 0;padding:13px 28px;background:#fff;color:#14202b;text-decoration:none;border-radius:6px;font-weight:700">Order flowers</a><a href="mailto:contactus@blossomcofloraldesign.co.uk" style="display:inline-block;margin:8px 10px 0;padding:13px 28px;background:transparent;color:#fff;border:1px solid #fff;text-decoration:none;border-radius:6px;font-weight:600">Email us</a></div>
+<footer>Blossom Co Floral Design · 8 Boyce's Ave, Clifton Village, Bristol BS8 4AA · Tel. 07345 979530 · contactus@blossomcofloraldesign.co.uk<br>Demo one-pager prepared by PostKaro Studio, with Blossom Co Floral Design&#x27;s real services and contact details.</footer>
+<div class="stickybar"><a href="tel:+447345979530">Call now</a><a href="#order">Order flowers</a></div>
+<div class="badge">Created by PostKaro — Demo</div>
+</body></html>

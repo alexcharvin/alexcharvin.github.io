@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Funk &amp; Bloom — Liverpool</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#22301f;background:#faf8f4;line-height:1.6}
+.topbar{position:absolute;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:18px 26px;color:#fff}
+.topbar .brand{font-family:Georgia,serif;font-size:20px;font-weight:700;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.topbar a{background:#fff;color:#14202b;text-decoration:none;padding:9px 18px;border-radius:6px;font-weight:600;font-size:15px}
+.hero{min-height:88vh;background:linear-gradient(rgba(20,30,22,.5),rgba(20,30,22,.68)),url('https://images.pexels.com/photos/20704831/pexels-photo-20704831.jpeg?auto=compress&cs=tinysrgb&w=1200') center/cover;display:flex;align-items:flex-end;color:#fff}
+.hero-in{max-width:1060px;margin:0 auto;padding:90px 26px 64px;width:100%}
+.hero h1{font-family:Georgia,serif;font-size:50px;line-height:1.1;max-width:800px}
+.hero p{font-size:20px;opacity:.94;max-width:660px;margin-top:14px}
+.hero .cta-row{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+.hero .cta-row a{display:inline-block;padding:14px 30px;border-radius:6px;text-decoration:none;font-weight:700;font-size:16px}
+.btn-main{background:#6b3a5d;color:#fff}
+.btn-ghost{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.65)}
+.chip{display:inline-block;margin-top:22px;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.35);padding:8px 16px;border-radius:999px;font-size:15px;font-weight:600}
+.wrap{max-width:1060px;margin:0 auto;padding:0 26px}
+section{padding:64px 0 8px}
+h2{font-family:Georgia,serif;font-size:32px;margin-bottom:8px}
+.sub{color:#5d6b5a;margin-bottom:30px;font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{border:1px solid #e3ddd2;border-radius:10px;overflow:hidden;background:#fff}
+.card img{width:100%;height:210px;object-fit:cover;display:block}
+.card .b{padding:20px 22px}
+.card h3{font-size:19px;margin-bottom:6px}
+.card p{color:#54626e;font-size:15px}
+.tcard{border:1px solid #e3ddd2;border-radius:10px;background:#fff;padding:26px 22px;text-align:center}
+.tcard .ini{width:56px;height:56px;border-radius:50%;background:#6b3a5d;color:#fff;font-family:Georgia,serif;font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.tcard h3{font-size:19px;margin-bottom:4px}
+.tcard p{color:#54626e;font-size:15px}
+.step{border:1px solid #e3ddd2;border-radius:10px;background:#fff;padding:24px 22px}
+.step .n{font-family:Georgia,serif;font-size:30px;font-weight:700;color:#6b3a5d}
+.step h3{font-size:18px;margin:6px 0 4px}
+.step p{color:#54626e;font-size:15px}
+.feature{background:#fff;border:1px solid #e3ddd2;border-left:6px solid #6b3a5d;border-radius:10px;padding:30px 30px}
+.feature h3{font-size:22px;margin-bottom:8px;font-family:Georgia,serif}
+.feature p{color:#54626e;font-size:16px;max-width:820px}
+.menu{background:#fff;border:1px solid #e3ddd2;border-radius:10px;padding:26px 30px}
+.menu ul{list-style:none}
+.menu li{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px dashed #e2e0d8;font-size:16px}
+.menu li:last-child{border-bottom:none}
+.menu .pr{font-weight:700;white-space:nowrap}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gal figure{border-radius:10px;overflow:hidden;position:relative}
+.gal img{width:100%;height:230px;object-fit:cover;display:block}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px 10px;color:#fff;font-size:14px;font-weight:600;background:linear-gradient(transparent,rgba(0,0,0,.55))}
+.hours{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.hbox{background:#fff;border:1px solid #e3ddd2;border-radius:10px;padding:24px 26px}
+.hbox h3{font-size:18px;margin-bottom:10px}
+.hbox p,.hbox li{color:#54626e;font-size:15px}
+.hbox ul{list-style:none}
+.hbox li{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed #e2eaf0}
+.hbox li:last-child{border-bottom:none}
+.cta{background:#6b3a5d;color:#fff;text-align:center;padding:56px 26px;margin-top:64px}
+.cta h2{color:#fff}
+.cta a{display:inline-block;margin:8px 10px 0;padding:13px 28px;background:#fff;color:#14202b;text-decoration:none;border-radius:6px;font-weight:600}
+footer{padding:34px 26px 90px;text-align:center;color:#5d6b5a;font-size:14px}
+.badge{position:fixed;left:16px;bottom:16px;background:#111;color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:600;z-index:99;box-shadow:0 4px 18px rgba(0,0,0,.3)}
+.stickybar{display:none}
+@media(max-width:760px){.grid,.gal,.hours{grid-template-columns:1fr}.hero h1{font-size:34px}
+.stickybar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:98;background:#6b3a5d;color:#fff}
+.stickybar a{flex:1;text-align:center;color:#fff;text-decoration:none;font-weight:700;padding:15px 6px;font-size:16px}
+.badge{bottom:70px}footer{padding-bottom:110px}}
+</style></head><body>
+<div class="topbar"><div class="brand">Funk &amp; Bloom</div><a href="mailto:flowers@funkandbloom.com">Email us</a></div>
+<div class="hero"><div class="hero-in"><h1>Funk &amp; Bloom — Liverpool</h1><p>Bold, stylish floral design in Liverpool — weddings, styling and decor hire from a dockside studio at Make North Docks.</p>
+<div class="cta-row"><a class="btn-ghost" href="#order">Order flowers</a></div>
+<div class="chip">Wedding florals & styling · Liverpool</div></div></div>
+<div class="wrap"><section><h2>What we do</h2><p class="sub">A wedding and event styling studio in Liverpool&#x27;s dockside creative quarter.</p><div class="grid">
+<div class="card"><img src="https://images.pexels.com/photos/16457738/pexels-photo-16457738.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Weddings"><div class="b"><h3>Weddings</h3><p>Bold wedding florals — bouquets, ceremony and reception styling, designed around you.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/13306125/pexels-photo-13306125.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Styling"><div class="b"><h3>Styling</h3><p>Floral styling for shoots, launches and celebrations — flowers that make the room.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/40272346/pexels-photo-40272346.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Decor hire"><div class="b"><h3>Decor hire</h3><p>Decor hire for weddings and events, styled by the same team that makes the flowers.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/30734753/pexels-photo-30734753.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Seasonal bouquets"><div class="b"><h3>Seasonal bouquets</h3><p>Seasonal stems, made fresh — the best of what is in the studio that week.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/31497181/pexels-photo-31497181.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Event florals"><div class="b"><h3>Event florals</h3><p>Florals for events of every size, from intimate dinners to full venue dressing.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/16538034/pexels-photo-16538034.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Bespoke commissions"><div class="b"><h3>Bespoke commissions</h3><p>Something of your own? Tell us the occasion and we design it with you.</p></div></div>
+</div></section>
+<section><h2>How ordering works</h2><p class="sub">Email, or tap Order flowers — three steps to flowers made for your day.</p><div class="grid">
+<div class="step"><div class="n">1</div><h3>Tell us the occasion</h3><p>A birthday, a thank-you, a wedding, a farewell — a few words about who it is for, and when you need it.</p></div>
+<div class="step"><div class="n">2</div><h3>We make it fresh</h3><p>Your florist makes the bouquet by hand, from the freshest stems in the shop that morning.</p></div>
+<div class="step"><div class="n">3</div><h3>Delivered or collected</h3><p>Delivered to the door, or ready to collect from the shop — with a card message if you like.</p></div>
+</div></section>
+<section><h2>Why Liverpool calls Funk &amp; Bloom</h2><p class="sub">The things people actually ask about before they book a florist.</p><div class="grid">
+<div class="tcard"><div class="ini">W</div><h3>Weddings first</h3><p>Wedding florals and styling are the studio&#x27;s heart — planned with you from the first conversation.</p></div>
+<div class="tcard"><div class="ini">E</div><h3>Email that works</h3><p>The email is a tap-to-email link now — a mobile visitor reaches the studio in one touch.</p></div>
+<div class="tcard"><div class="ini">O</div><h3>Order, at last</h3><p>An order route where the site has none — a visitor can finally enquire, not just look.</p></div>
+</div></section>
+<section><h2>Fresh in the studio</h2><p class="sub">Bold, stylish floral design from the dockside studio.</p><div class="gal">
+<figure><img src="https://images.pexels.com/photos/20704831/pexels-photo-20704831.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Ranunculus close-up"><figcaption>Ranunculus close-up</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/32477274/pexels-photo-32477274.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Sunflowers &amp; lilies"><figcaption>Sunflowers &amp; lilies</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/34658018/pexels-photo-34658018.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Autumn arrangement"><figcaption>Autumn arrangement</figcaption></figure>
+</div></section>
+<section id="visit"><h2>Studio &amp; contact</h2><p class="sub">An email you can tap, and an order route at last — a visitor can finally buy, not just browse.</p><div class="hours"><div class="hbox"><h3>Where we are</h3><ul><li><span>Based at</span><span>Make North Docks, 34 Regent St</span></li><li><span>Area</span><span>Liverpool</span></li><li><span>Studio</span><span>Weddings &amp; events</span></li><li><span>Email</span><span>flowers@funkandbloom.com</span></li></ul></div><div class="hbox"><h3>Contact</h3><p>Funk &amp; Bloom<br>Make North Docks, 34 Regent St, Liverpool<br>flowers@funkandbloom.com</p></div></div></section></div>
+<div class="cta" id="order"><h2>Order flowers</h2><p style="margin:10px 0 18px">Funk & Bloom · Make North Docks, 34 Regent St, Liverpool · flowers@funkandbloom.com</p>
+<a href="mailto:flowers@funkandbloom.com?subject=Flower%20order" style="display:inline-block;margin:8px 10px 0;padding:13px 28px;background:#fff;color:#14202b;text-decoration:none;border-radius:6px;font-weight:700">Order flowers</a><a href="mailto:flowers@funkandbloom.com" style="display:inline-block;margin:8px 10px 0;padding:13px 28px;background:transparent;color:#fff;border:1px solid #fff;text-decoration:none;border-radius:6px;font-weight:600">Email us</a></div>
+<footer>Funk & Bloom · Make North Docks, 34 Regent St, Liverpool · flowers@funkandbloom.com<br>Demo one-pager prepared by PostKaro Studio, with Funk &amp; Bloom&#x27;s real services and contact details. No phone number is published on the firm&#x27;s own website.</footer>
+<div class="stickybar"><a href="mailto:flowers@funkandbloom.com">Email us</a><a href="#order">Order flowers</a></div>
+<div class="badge">Created by PostKaro — Demo</div>
+</body></html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Petal &amp; Stem — Bristol</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#22301f;background:#faf8f4;line-height:1.6}
+.topbar{position:absolute;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:18px 26px;color:#fff}
+.topbar .brand{font-family:Georgia,serif;font-size:20px;font-weight:700;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.topbar a{background:#fff;color:#14202b;text-decoration:none;padding:9px 18px;border-radius:6px;font-weight:600;font-size:15px}
+.hero{min-height:88vh;background:linear-gradient(rgba(20,30,22,.5),rgba(20,30,22,.68)),url('https://images.pexels.com/photos/31497181/pexels-photo-31497181.jpeg?auto=compress&cs=tinysrgb&w=1200') center/cover;display:flex;align-items:flex-end;color:#fff}
+.hero-in{max-width:1060px;margin:0 auto;padding:90px 26px 64px;width:100%}
+.hero h1{font-family:Georgia,serif;font-size:50px;line-height:1.1;max-width:800px}
+.hero p{font-size:20px;opacity:.94;max-width:660px;margin-top:14px}
+.hero .cta-row{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+.hero .cta-row a{display:inline-block;padding:14px 30px;border-radius:6px;text-decoration:none;font-weight:700;font-size:16px}
+.btn-main{background:#2e5d43;color:#fff}
+.btn-ghost{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.65)}
+.chip{display:inline-block;margin-top:22px;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.35);padding:8px 16px;border-radius:999px;font-size:15px;font-weight:600}
+.wrap{max-width:1060px;margin:0 auto;padding:0 26px}
+section{padding:64px 0 8px}
+h2{font-family:Georgia,serif;font-size:32px;margin-bottom:8px}
+.sub{color:#5d6b5a;margin-bottom:30px;font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{border:1px solid #e3ddd2;border-radius:10px;overflow:hidden;background:#fff}
+.card img{width:100%;height:210px;object-fit:cover;display:block}
+.card .b{padding:20px 22px}
+.card h3{font-size:19px;margin-bottom:6px}
+.card p{color:#54626e;font-size:15px}
+.tcard{border:1px solid #e3ddd2;border-radius:10px;background:#fff;padding:26px 22px;text-align:center}
+.tcard .ini{width:56px;height:56px;border-radius:50%;background:#2e5d43;color:#fff;font-family:Georgia,serif;font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.tcard h3{font-size:19px;margin-bottom:4px}
+.tcard p{color:#54626e;font-size:15px}
+.step{border:1px solid #e3ddd2;border-radius:10px;background:#fff;padding:24px 22px}
+.step .n{font-family:Georgia,serif;font-size:30px;font-weight:700;color:#2e5d43}
+.step h3{font-size:18px;margin:6px 0 4px}
+.step p{color:#54626e;font-size:15px}
+.feature{background:#fff;border:1px solid #e3ddd2;border-left:6px solid #2e5d43;border-radius:10px;padding:30px 30px}
+.feature h3{font-size:22px;margin-bottom:8px;font-family:Georgia,serif}
+.feature p{color:#54626e;font-size:16px;max-width:820px}
+.menu{background:#fff;border:1px solid #e3ddd2;border-radius:10px;padding:26px 30px}
+.menu ul{list-style:none}
+.menu li{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px dashed #e2e0d8;font-size:16px}
+.menu li:last-child{border-bottom:none}
+.menu .pr{font-weight:700;white-space:nowrap}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gal figure{border-radius:10px;overflow:hidden;position:relative}
+.gal img{width:100%;height:230px;object-fit:cover;display:block}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px 10px;color:#fff;font-size:14px;font-weight:600;background:linear-gradient(transparent,rgba(0,0,0,.55))}
+.hours{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.hbox{background:#fff;border:1px solid #e3ddd2;border-radius:10px;padding:24px 26px}
+.hbox h3{font-size:18px;margin-bottom:10px}
+.hbox p,.hbox li{color:#54626e;font-size:15px}
+.hbox ul{list-style:none}
+.hbox li{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed #e2eaf0}
+.hbox li:last-child{border-bottom:none}
+.cta{background:#2e5d43;color:#fff;text-align:center;padding:56px 26px;margin-top:64px}
+.cta h2{color:#fff}
+.cta a{display:inline-block;margin:8px 10px 0;padding:13px 28px;background:#fff;color:#14202b;text-decoration:none;border-radius:6px;font-weight:600}
+footer{padding:34px 26px 90px;text-align:center;color:#5d6b5a;font-size:14px}
+.badge{position:fixed;left:16px;bottom:16px;background:#111;color:#fff;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:600;z-index:99;box-shadow:0 4px 18px rgba(0,0,0,.3)}
+.stickybar{display:none}
+@media(max-width:760px){.grid,.gal,.hours{grid-template-columns:1fr}.hero h1{font-size:34px}
+.stickybar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:98;background:#2e5d43;color:#fff}
+.stickybar a{flex:1;text-align:center;color:#fff;text-decoration:none;font-weight:700;padding:15px 6px;font-size:16px}
+.badge{bottom:70px}footer{padding-bottom:110px}}
+</style></head><body>
+<div class="topbar"><div class="brand">Petal &amp; Stem</div><a href="tel:+441174960123">Call now</a></div>
+<div class="hero"><div class="hero-in"><h1>Petal &amp; Stem — Bristol</h1><p>Bristol&#x27;s neighbourhood florist — hand-tied bouquets, weddings and same-day delivery, made fresh every morning.</p>
+<div class="cta-row"><a class="btn-main" href="tel:+441174960123">Call: 0117 496 0123</a><a class="btn-ghost" href="#order">Order flowers</a></div>
+<div class="chip">Concept website created for demonstration</div></div></div>
+<div class="wrap"><section><h2>What we do</h2><p class="sub">Everything a neighbourhood florist does — on one page, one tap away.</p><div class="grid">
+<div class="card"><img src="https://images.pexels.com/photos/30734753/pexels-photo-30734753.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Hand-tied bouquets"><div class="b"><h3>Hand-tied bouquets</h3><p>Fresh seasonal bouquets, made to order each morning — from a little thank-you to a show-stopper.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/37222812/pexels-photo-37222812.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Weddings"><div class="b"><h3>Weddings</h3><p>Bridal bouquets, buttonholes and venue flowers, planned with you from the first consultation.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/36945270/pexels-photo-36945270.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Funeral tributes"><div class="b"><h3>Funeral tributes</h3><p>Gentle, thoughtful tributes made with care, when words are not enough.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/7311450/pexels-photo-7311450.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Subscriptions"><div class="b"><h3>Subscriptions</h3><p>Fresh flowers every week or every fortnight, delivered to your home or your desk.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/36739287/pexels-photo-36739287.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Same-day delivery"><div class="b"><h3>Same-day delivery</h3><p>Order by midday and your flowers are at the door the same day, anywhere in Bristol.</p></div></div>
+<div class="card"><img src="https://images.pexels.com/photos/20295105/pexels-photo-20295105.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Plants &amp; dried flowers"><div class="b"><h3>Plants &amp; dried flowers</h3><p>Houseplants and dried arrangements that last long after the bouquet has gone.</p></div></div>
+</div></section>
+<section><h2>How ordering works</h2><p class="sub">Three steps between thinking of someone and flowers at their door.</p><div class="grid">
+<div class="step"><div class="n">1</div><h3>Tell us the occasion</h3><p>A birthday, a thank-you, a wedding, a farewell — a few words about who it is for, and when you need it.</p></div>
+<div class="step"><div class="n">2</div><h3>We make it fresh</h3><p>Your florist makes the bouquet by hand, from the freshest stems in the shop that morning.</p></div>
+<div class="step"><div class="n">3</div><h3>Delivered or collected</h3><p>Delivered to the door, or ready to collect from the shop — with a card message if you like.</p></div>
+</div></section>
+<section><h2>Flowers &amp; prices</h2><p class="sub">Clear prices, before you order — the way a florist&#x27;s page should work.</p><div class="menu"><ul><li><span>Hand-tied bouquet, small</span><span class="pr">from £25</span></li><li><span>Hand-tied bouquet, large</span><span class="pr">from £45</span></li><li><span>Seasonal subscription, monthly</span><span class="pr">from £30 a month</span></li><li><span>Wedding flowers</span><span class="pr">by consultation</span></li><li><span>Funeral tribute</span><span class="pr">from £60</span></li></ul></div></section>
+<section><h2>Why Bristol calls Petal &amp; Stem</h2><p class="sub">The things people actually ask about before they order flowers.</p><div class="grid">
+<div class="tcard"><div class="ini">F</div><h3>Fresh every morning</h3><p>Stems arrive fresh and are made up the same day — never a week-old bouquet.</p></div>
+<div class="tcard"><div class="ini">S</div><h3>Same-day delivery</h3><p>Order by midday for delivery the same day across Bristol.</p></div>
+<div class="tcard"><div class="ini">T</div><h3>Tap to call or email</h3><p>The number and the email are links now — a mobile visitor reaches the shop in one touch.</p></div>
+</div></section>
+<section><h2>Fresh in the shop</h2><p class="sub">Seasonal flowers, made up fresh every morning.</p><div class="gal">
+<figure><img src="https://images.pexels.com/photos/31497181/pexels-photo-31497181.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Tulips at the market"><figcaption>Tulips at the market</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/37222812/pexels-photo-37222812.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Roses &amp; sunflowers"><figcaption>Roses &amp; sunflowers</figcaption></figure>
+<figure><img src="https://images.pexels.com/photos/16538034/pexels-photo-16538034.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Spring stems"><figcaption>Spring stems</figcaption></figure>
+</div></section>
+<section id="visit"><h2>Hours &amp; contact</h2><p class="sub">One page carries everything a customer needs — hours, number, email, and an order button that is always visible.</p><div class="hours"><div class="hbox"><h3>Opening hours</h3><ul><li><span>Monday – Friday</span><span>9:00 – 17:30</span></li><li><span>Saturday</span><span>9:00 – 16:00</span></li><li><span>Sunday</span><span>Closed</span></li><li><span>Same-day delivery</span><span>Order by 12:00</span></li></ul></div><div class="hbox"><h3>Contact</h3><p>Petal &amp; Stem<br>Bristol<br>Tel. 0117 496 0123<br>hello@petal-and-stem.example</p></div></div></section></div>
+<div class="cta" id="order"><h2>Order flowers</h2><p style="margin:10px 0 18px">Petal & Stem · Bristol · Tel. 0117 496 0123 · hello@petal-and-stem.example</p>
+<a href="tel:+441174960123">Call 0117 496 0123</a><a href="mailto:hello@petal-and-stem.example?subject=Flower%20order" style="display:inline-block;margin:8px 10px 0;padding:13px 28px;background:#fff;color:#14202b;text-decoration:none;border-radius:6px;font-weight:700">Order flowers</a><a href="mailto:hello@petal-and-stem.example" style="display:inline-block;margin:8px 10px 0;padding:13px 28px;background:transparent;color:#fff;border:1px solid #fff;text-decoration:none;border-radius:6px;font-weight:600">Email us</a></div>
+<footer>Petal & Stem · Bristol · Tel. 0117 496 0123 · hello@petal-and-stem.example<br>Concept website created for demonstration by PostKaro Studio. Petal &amp; Stem is a fictional concept brand; the layout, buttons and order path show exactly how a real florist&#x27;s one-page website would work.</footer>
+<div class="stickybar"><a href="tel:+441174960123">Call now</a><a href="#order">Order flowers</a></div>
+<div class="badge">Created by PostKaro — Demo</div>
+</body></html>
